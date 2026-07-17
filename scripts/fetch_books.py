@@ -1,4 +1,4 @@
-﻿"""Audible Credit Optimizer - Amazon Creators API Data Fetcher v3.x"""
+"""Audible Credit Optimizer - Amazon Creators API Data Fetcher v3.x"""
 
 import json, os, sys, time, logging
 from datetime import datetime
@@ -128,14 +128,17 @@ def parse_item(item):
                     if sb_amt > list_price:
                         list_price = sb_amt
         price = prices[0] if prices else list_price
-        rating = 0.0
-        review_count = 0
+        # Parse customerReviews from API response
+        customer_reviews = item.get("customerReviews", {}) or {}
+        rating = float(_get_nested(customer_reviews, "starRating", default=0) or 0)
+        review_count = int(_get_nested(customer_reviews, "count", default=0) or 0)
         product_info = _get_nested(info, "productInfo", default={})
         runtime = _get_nested(product_info, "runtime", "value", default=0) or 0
         binding = _get_nested(info, "classifications", "binding", "displayValue") or ""
         cover_url = _get_nested(item.get("images",{}), "primary", "large", "url") or ""
         detail_url = item.get("detailPageURL", "")
-        if detail_url and ASSOCIATE_TAG:
+        # Only append tag if NOT already present (API already includes it)
+        if detail_url and ASSOCIATE_TAG and "tag=" not in detail_url:
             sep = "&" if "?" in detail_url else "?"
             detail_url = f"{detail_url}{sep}tag={ASSOCIATE_TAG}"
         return {"asin":asin,"title":title,"author":author,"narrator":narrator,"price":float(price),"rating":float(rating),"review_count":int(review_count),"runtime_minutes":runtime,"binding":binding,"categories":[],"cover_url":cover_url,"affiliate_url":detail_url,"is_audible":"audible" in binding.lower(),"last_updated":datetime.now().isoformat()}
