@@ -53,4 +53,8 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
-        run: npx --yes wrangler@3 pages deploy output --project-name=audible-credit-optimizer --branch=master
+        run: |
+          # Step 1: Create project if not exists (ignore error if already exists)
+          npx --yes wrangler@3 pages project create audible-credit-optimizer --production-branch master 2>/dev/null || true
+          # Step 2: Deploy
+          npx --yes wrangler@3 pages deploy output --project-name=audible-credit-optimizer --branch=master
