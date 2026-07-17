@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="{% block meta_description %}Find the best value audiobooks for your Audible credit. Compare prices, ratings, and get the most out of every credit.{% endblock %}">
+     <title>{% block title %}Audible Credit Optimizer — Best Value Audiobooks{% endblock %}</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="{{ static_prefix }}/static/css/style.css">
+    <link rel="canonical" href="https://audiblevalue.pages.dev/{{ canonical_path or '' }}">
+     {% block extra_head %}{% endblock %}
+</head>
+<body>
+     <header class="site-header">
+         <div class="header-inner">
+             <a href="{{ static_prefix }}/index.html" class="logo">
+                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <path d="M12 6v12M8 8v8M16 8v8M4 10v4M20 10v4M3 3l18 18" stroke-linecap="round"/>
+                 </svg>
+                 <span class="logo-text">Audible<span class="logo-accent">Credit</span>Optimizer</span>
+             </a>
+         <nav class="main-nav">
+             <a href="{{ static_prefix }}/index.html" class="nav-link active">All Books</a>
+             {% for cat_name, cat_data in categories.items() %}
+             <a href="{{ static_prefix }}/category/{{ cat_data.slug }}.html" class="nav-link">{{ cat_name }}</a>
+             {% endfor %}
+         </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <div class="header-cta">
+             <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_{{ ' ' }}" 
+                target="_blank" rel="noopener sponsored" class="btn btn-accent">
+                -- Free 30-Day Trial
+             </a>
+         </div>
+         </div>
+    </header>
+
+    <!-- Mobile nav overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav">
+        <a href="{{ static_prefix }}/index.html" class="nav-link active">All Books</a>
+        {% for cat_name, cat_data in categories.items() %}
+        <a href="{{ static_prefix }}/category/{{ cat_data.slug }}.html" class="nav-link">{{ cat_name }}</a>
+        {% endfor %}
+        <div class="nav-cta">
+            <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_{{ ' ' }}" 
+               target="_blank" rel="noopener sponsored" class="btn btn-accent">
+               -- Free 30-Day Trial
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+         <div class="footer-inner">
+             <div class="footer-links">
+                 <a href="{{ static_prefix }}/index.html">Home</a>
+                 <a href="https://www.audible.com/" target="_blank" rel="noopener">Audible.com</a>
+                 <a href="https://www.amazon.com/hz/audible/mlp/mdp/" target="_blank" rel="noopener sponsored">Free Trial</a>
+             </div>
+             <p class="footer-disclaimer">
+                 As an Amazon Associate I earn from qualifying purchases. Prices and availability subject to change.
+                 Last updated: {{ build_date }}. Data may not reflect real-time pricing.
+             </p>
+         </div>
+     </footer>
+
+    <script src="{{ static_prefix }}/static/js/app.js"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
