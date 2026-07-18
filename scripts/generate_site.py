@@ -1,10 +1,11 @@
 """
-Audible Credit Optimizer — Static Site Generator
+Audible Credit Optimizer 鈥?Static Site Generator
 
 Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
 """
 
 import json
+import os
 import logging
 import re
 import shutil
