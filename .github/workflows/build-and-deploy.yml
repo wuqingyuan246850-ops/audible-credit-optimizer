@@ -32,6 +32,8 @@ jobs:
           AMAZON_MARKETPLACE: 'www.amazon.com'
         run: python scripts/fetch_books.py
       - name: Generate static site
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
         run: python scripts/generate_site.py
       - name: Deploy to Cloudflare Pages
         env:
