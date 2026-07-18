@@ -7,13 +7,13 @@
  venv/
  .venv/
  
- # Generated data
- data/books.json
- 
- # Built site
- output/
- 
- # OS
+# Generated data
+data/books.json
+
+# Built site
+output/ -- committed to repo so Cloudflare Pages can serve directly
+
+# OS
  .DS_Store
  Thumbs.db
  
