@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Best {{ category_name }} Audiobooks — ?Audible Credit Value{% endblock %}
 
@@ -13,8 +13,8 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiblevalue.pages.dev/"},
-    {"@type": "ListItem", "position": 2, "name": "{{ category_name }}", "item": "https://audiblevalue.pages.dev/category/{{ category_slug }}.html"}
+    {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
+    {"@type": "ListItem", "position": 2, "name": "{{ category_name }}", "item": "https://audiobookvalue.com/category/{{ category_slug }}.html"}
   ]
 }
 </script>
@@ -86,7 +86,8 @@
                          </div>
                          {% endif %}
                      </td>
-                     <td class="col-title">{{ book.title }}</td>
+                    <td class="col-title">{{ book.title }}</td>
+                    <td class="col-title"><a href="../book/{{ book.slug }}.html" class="book-title-link">{{ book.title }}</a></td>
                      <td class="col-author">{{ book.author }}</td>
                      <td class="col-rating">
                          <span class="stars">{{ book.stars_display }}</span>
