@@ -210,12 +210,17 @@ def build_site():
     with open(OUTPUT_DIR / "books.json", "w", encoding="utf-8") as f:
         json.dump(public_books, f, indent=2, ensure_ascii=False)
 
-    headers = """/*
+    headers = """# Cloudflare Pages _headers
+/*
+  Content-Type: text/html; charset=utf-8
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=3600, s-maxage=3600
+# Static assets with proper cache
+/static/*
+  Cache-Control: public, max-age=86400, immutable
 """
-    with open(OUTPUT_DIR / "_headers", "w") as f:
+    with open(OUTPUT_DIR / "_headers", "w", encoding="utf-8") as f:
         f.write(headers)
 
     # --- Sitemap (SEO) ---
