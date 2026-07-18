@@ -7,6 +7,12 @@ dist/
 venv/
 .venv/
 
+# Temp scripts
+.git-add-fix.py
+scripts/fix_*.py
+scripts/patch_seed.py
+
+
 # Generated data
 data/books.json
 
