@@ -229,8 +229,15 @@ def build_site():
     with open(OUTPUT_DIR / "_headers", "w", encoding="utf-8") as f:
         f.write(headers)
 
+
+    # --- Google Search Console verification ---
+    google_verify = ROOT_DIR / "google0d3944acb60592a6.html"
+    if google_verify.exists():
+        shutil.copy2(str(google_verify), str(OUTPUT_DIR / "google0d3944acb60592a6.html"))
+        logger.info("Copied Google Search Console verification file")
+
     # --- Sitemap (SEO) ---
-    SITE_URL = os.environ.get("SITE_URL", "https://audiobookvalue.com")
+    SITE_URL = os.environ.get("SITE_URL", "") or "https://audiobookvalue.com"
     urlset = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     today = datetime.now().strftime("%Y-%m-%d")
     def add_url(loc, priority="0.8", changefreq="daily"):
