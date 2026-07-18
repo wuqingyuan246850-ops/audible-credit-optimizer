@@ -1,0 +1,187 @@
+﻿{% extends "base.html" %}
+
+{% block title %}{{ book.title }} by {{ book.author }} — Audible Price, Credit Value & Review{% endblock %}
+
+{% block meta_description %}Is {{ book.title }} worth your Audible credit? Cash price {{ book.price_formatted }}, {{ book.rating }}/5 stars, {{ book.runtime_formatted }} runtime. Compare value scores for {{ book.title }} and similar {{ book.primary_category }} audiobooks.{% endblock %}
+
+{% block extra_head %}
+<meta property="og:title" content="{{ book.title }} by {{ book.author }} — Audible Credit Value">
+<meta property="og:description" content="Cash price {{ book.price_formatted }}, {{ book.rating }}/5 stars, {{ book.runtime_formatted }} runtime. Is {{ book.title }} worth your Audible credit?">
+<meta property="og:type" content="book">
+{% if book.cover_url %}
+<meta property="og:image" content="{{ book.cover_url }}">
+{% endif %}
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
+      {"@type": "ListItem", "position": 2, "name": "{{ book.primary_category }}", "item": "https://audiobookvalue.com/category/{{ book.primary_category | lower | replace(' ', '-') }}.html"},
+      {"@type": "ListItem", "position": 3, "name": "{{ book.title }}"}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Audiobook",
+    "name": "{{ book.title }}",
+    "author": "{{ book.author }}",
+    "narrator": "{{ book.narrator }}",
+    "datePublished": "{{ book.last_updated[:10] if book.last_updated }}",
+    "bookFormat": "https://schema.org/AudiobookFormat",
+    {% if book.cover_url %}"image": "{{ book.cover_url }}",{% endif %}
+    "offers": {
+      "@type": "Offer",
+      "price": "{{ book.price }}",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ book.rating }}",
+      "reviewCount": "{{ book.review_count }}"
+    }
+  }
+]
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumbs -->
+<nav class="breadcrumbs">
+  <a href="{{ static_prefix }}/index.html">All Books</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html">{{ book.primary_category }}</a>
+  <span class="breadcrumb-sep">/</span>
+  <span class="breadcrumb-current">{{ book.title[:60] }}{% if book.title|length > 60 %}...{% endif %}</span>
+</nav>
+
+<!-- Book Detail -->
+<section class="book-detail-section">
+  <div class="book-detail-layout">
+    <!-- Cover Column -->
+    <div class="book-cover-col">
+      {% if book.cover_url %}
+      <img class="book-cover-large" src="{{ book.cover_url }}" alt="{{ book.title }} cover" loading="eager">
+      {% else %}
+      <div class="book-cover-large book-cover-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" stroke-linecap="round"/>
+        </svg>
+        <span>{{ book.title[:50] }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Info Column -->
+    <div class="book-info-col">
+      <h1 class="book-title">{{ book.title }}</h1>
+
+      <div class="book-meta">
+        {% if book.author %}
+        <div class="meta-row">
+          <span class="meta-label">Author:</span>
+          <span class="meta-value">{{ book.author }}</span>
+        </div>
+        {% endif %}
+        {% if book.narrator %}
+        <div class="meta-row">
+          <span class="meta-label">Narrator:</span>
+          <span class="meta-value">{{ book.narrator }}</span>
+        </div>
+        {% endif %}
+        <div class="meta-row">
+          <span class="meta-label">Runtime:</span>
+          <span class="meta-value">{{ book.runtime_formatted }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Category:</span>
+          <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="category-link">{{ book.primary_category }}</a>
+        </div>
+        {% if book.rating > 0 %}
+        <div class="meta-row">
+          <span class="meta-label">Rating:</span>
+          <span class="meta-value">
+            <span class="stars">{{ book.stars_display }}</span>
+            <span class="rating-num">({{ book.review_count }} reviews)</span>
+          </span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Price & Value Cards -->
+      <div class="value-cards">
+        <div class="value-card price-card">
+          <div class="value-card-label">Cash Price</div>
+          <div class="value-card-number">{{ book.price_formatted }}</div>
+        </div>
+        <div class="value-card credit-card">
+          <div class="value-card-label">Credit Value</div>
+          <div class="value-card-number">{{ book.credit_value }}x</div>
+          <div class="value-card-sub">1 credit = $14.99</div>
+        </div>
+        <div class="value-card score-card badge-{{ book.value_tier }}">
+          <div class="value-card-label">Value Score</div>
+          <div class="value-card-number">{{ book.value_score }}</div>
+          <div class="value-card-sub">{{ book.value_tier | title }}</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="book-cta">
+        <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
+          Get on Audible
+        </a>
+        {% if book.price > 0 %}
+        <p class="book-cta-note">Use 1 credit (worth ~$14.99) to get this book — you save
+          {% if book.price > 14.99 %}
+          <strong>${{ "%.2f" % (book.price - 14.99) }}</strong> vs buying cash
+          {% else %}
+          <strong>covered by your credit</strong>
+          {% endif %}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Books -->
+{% if related_books %}
+<section class="related-section">
+  <div class="section-header">
+    <h2 class="section-title">More {{ book.primary_category }} Audiobooks</h2>
+    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">View all &rarr;</a>
+  </div>
+  <div class="related-grid">
+    {% for rel in related_books %}
+    <a href="{{ static_prefix }}/book/{{ rel.slug }}.html" class="related-card">
+      {% if rel.cover_url %}
+      <img class="related-cover" src="{{ rel.cover_url }}" alt="{{ rel.title }}" loading="lazy">
+      {% else %}
+      <div class="related-cover related-cover-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" stroke-linecap="round"/>
+        </svg>
+      </div>
+      {% endif %}
+      <div class="related-info">
+        <div class="related-title">{{ rel.title }}</div>
+        <div class="related-author">{{ rel.author }}</div>
+        <div class="related-score badge-{{ rel.value_tier }}">{{ rel.value_score }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Also show the data table for same category, filtered -->
+<section class="table-section">
+  <div class="section-header">
+    <h2 class="section-title">All {{ book.primary_category }} Audiobooks</h2>
+    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">Full category &rarr;</a>
+  </div>
+</section>
+{% endblock %}

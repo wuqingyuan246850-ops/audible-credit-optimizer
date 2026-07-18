@@ -1,0 +1,115 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Best {{ category_name }} Audiobooks — ?Audible Credit Value{% endblock %}
+
+{% block meta_description %}Discover the best {{ category_name }} Audiobooks — worth your Audible credit. Compare value scores, ratings, and cash prices to maximize every credit.{% endblock %}
+
+{% block extra_head %}
+<meta property="og:title" content="Best {{ category_name }} Audiobooks — ?Audible Credit Value">
+<meta property="og:description" content="Discover the best {{ category_name }} Audiobooks — worth your Audible credit. Compare value scores, ratings, and cash prices.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
+    {"@type": "ListItem", "position": 2, "name": "{{ category_name }}", "item": "https://audiobookvalue.com/category/{{ category_slug }}.html"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Category Hero -->
+<section class="category-hero">
+     <div class="hero-content">
+         <h1 class="hero-title">Best <span class="text-accent">{{ category_name }}</span> Audiobooks</h1>
+         <p class="hero-subtitle">{{ total_books }} Audiobooks — analyzed for credit value. Find your next listen.</p>
+     </div>
+</section>
+
+<!-- Category Table -->
+<section class="table-section">
+     <div class="table-controls">
+         <div class="search-box">
+             <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+             </svg>
+             <input type="text" id="search-input" class="search-input" placeholder="Search in {{ category_name }}..." autocomplete="off">
+         </div>
+         <div class="filter-group">
+             <select id="sort-select" class="filter-select">
+                 <option value="value_score_desc">Sort: Value Score ↓</option>
+                 <option value="value_score_asc">Sort: Value Score ↓</option>
+                 <option value="price_desc">Sort: Price ↓</option>
+                 <option value="price_asc">Sort: Price ↓</option>
+                 <option value="rating_desc">Sort: Rating ↓</option>
+                 <option value="title_asc">Sort: Title A-Z</option>
+                 <option value="runtime_desc">Sort: Runtime ↓</option>
+             </select>
+         </div>
+     </div>
+
+     <div class="table-wrapper">
+         <table class="data-table" id="books-table">
+             <thead>
+                 <tr>
+                     <th class="col-cover">Cover</th>
+                     <th class="col-title sortable" data-sort="title">Title</th>
+                     <th class="col-author sortable" data-sort="author">Author</th>
+                     <th class="col-rating sortable" data-sort="rating">Rating</th>
+                     <th class="col-runtime sortable" data-sort="runtime">Runtime</th>
+                     <th class="col-price sortable" data-sort="price">Price</th>
+                     <th class="col-value sortable" data-sort="value_score">Value</th>
+                     <th class="col-action">Get It</th>
+                 </tr>
+             </thead>
+             <tbody id="table-body">
+                 {% for book in books %}
+                 <tr class="book-row"
+                     data-title="{{ book.title | lower }}"
+                     data-author="{{ book.author | lower }}"
+                     data-narrator="{{ book.narrator | lower }}"
+                     data-category="{{ book.primary_category }}"
+                     data-value-tier="{{ book.value_tier }}"
+                     data-price="{{ book.price }}"
+                     data-rating="{{ book.rating }}"
+                     data-runtime="{{ book.runtime_minutes }}"
+                     data-value-score="{{ book.value_score }}">
+                     <td class="col-cover">
+                         {% if book.cover_url %}
+                         <img src="{{ book.cover_url }}" alt="" class="cover-thumb" loading="lazy">
+                         {% else %}
+                         <div class="cover-thumb cover-thumb-placeholder">
+                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20"/></svg>
+                         </div>
+                         {% endif %}
+                     </td>
+                    <td class="col-title">{{ book.title }}</td>
+                    <td class="col-title"><a href="../book/{{ book.slug }}.html" class="book-title-link">{{ book.title }}</a></td>
+                     <td class="col-author">{{ book.author }}</td>
+                     <td class="col-rating">
+                         <span class="stars">{{ book.stars_display }}</span>
+                         <span class="rating-num">{{ book.rating }}</span>
+                     </td>
+                     <td class="col-runtime">{{ book.runtime_formatted }}</td>
+                     <td class="col-price">{{ book.price_formatted }}</td>
+                     <td class="col-value">
+                         <span class="value-badge badge-{{ book.value_tier }}" title="Value Score: {{ book.value_score }}">
+                             {{ book.value_score }}
+                         </span>
+                     </td>
+                     <td class="col-action">
+                         <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-table">
+                             Get on Audible
+                         </a>
+                     </td>
+                 </tr>
+                 {% endfor %}
+             </tbody>
+         </table>
+     </div>
+</section>
+
+{% endblock %}
