@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Audible Credit Optimizer — Best Value Audiobooks for Your Credit{% endblock %}
+{% block title %}Audible Credit Optimizer ↓?Best Value Audiobooks for Your Credit{% endblock %}
 
 {% block meta_description %}Compare audiobook prices, ratings, and credit value. Find the best sci-fi, fantasy, thriller, and self-development audiobooks worth your Audible credit.{% endblock %}
 
 {% block extra_head %}
-<meta property="og:title" content="Audible Credit Optimizer — Best Value Audiobooks">
+<meta property="og:title" content="Audible Credit Optimizer ↓?Best Value Audiobooks">
 <meta property="og:description" content="Compare audiobook prices, ratings, and credit value. Get the most out of every Audible credit.">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
@@ -30,10 +30,10 @@
              Never waste a credit on a cheap book again.
          </p>
          <div class="hero-actions">
-             <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_" 
-                target="_blank" rel="noopener sponsored" class="btn btn-hero">
-                -- Start Your Free 30-Day Trial -?Get 1 Free Book
-             </a>
+                <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_" 
+                   target="_blank" rel="noopener sponsored" class="btn btn-hero">
+                    ↓?Start Your Free 30-Day Trial ↓?Get 1 Free Book
+                </a>
          </div>
          <div class="hero-stats">
              <div class="stat">
@@ -56,7 +56,7 @@
 {% if top_picks %}
 <section class="featured-section">
      <div class="section-header">
-         <h2 class="section-title">-- Top Value Picks</h2>
+        <h2 class="section-title">↓?Top Value Picks</h2>
          <span class="section-subtitle">Highest credit-value audiobooks</span>
      </div>
      <div class="featured-carousel">
@@ -87,11 +87,11 @@
                      <p class="card-author">{{ book.author }}</p>
                      <span class="card-category">{{ book.primary_category }}</span>
                  </div>
-                 <div class="card-actions">
-                     <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-sm btn-primary">
-                         Get on Audible
-                     </a>
-                 </div>
+                <div class="card-actions">
+                    <a href="book/{{ book.slug }}.html" class="btn btn-sm btn-primary">
+                        View Details
+                    </a>
+                </div>
              </div>
              {% endfor %}
          </div>
@@ -102,8 +102,8 @@
 <!-- Data Table -->
 <section class="table-section">
      <div class="section-header">
-         <h2 class="section-title">-- Audiobook Credit Value Database</h2>
-         <span class="section-subtitle">Sort, filter, and compare -?find your next listen</span>
+        <h2 class="section-title">↓?Audiobook Credit Value Database</h2>
+        <span class="section-subtitle">Sort, filter, and compare ↓?find your next listen</span>
      </div>
 
      <!-- Controls -->
@@ -124,20 +124,22 @@
              </select>
              <select id="tier-filter" class="filter-select">
                  <option value="all">All Value Tiers</option>
-                 <option value="legendary">-?Legendary</option>
-                 <option value="excellent">-- Excellent</option>
-                 <option value="great">-- Great</option>
-                 <option value="good">-- Good</option>
+                <option value="legendary">↓ Legendary</option>
+                <option value="legendary">↓?Legendary</option>
+                <option value="excellent">↓?Excellent</option>
+                <option value="great">↓?Great</option>
+                <option value="good">↓?Good</option>
              </select>
              <select id="sort-select" class="filter-select">
-                 <option value="value_score_desc">Sort: Value Score -?/option>
-                 <option value="value_score_asc">Sort: Value Score -?/option>
-                 <option value="price_desc">Sort: Price -?/option>
-                 <option value="price_asc">Sort: Price -?/option>
-                 <option value="rating_desc">Sort: Rating -?/option>
-                 <option value="rating_asc">Sort: Rating -?/option>
-                 <option value="title_asc">Sort: Title A-Z</option>
-                 <option value="runtime_desc">Sort: Runtime -?/option>
+                <option value="value_score_desc">Sort: Value Score ↓</option>
+                <option value="value_score_desc">Sort: Value Score ↓?/option>
+                <option value="value_score_asc">Sort: Value Score ↓?/option>
+                <option value="price_desc">Sort: Price ↓?/option>
+                <option value="price_asc">Sort: Price ↓?/option>
+                <option value="rating_desc">Sort: Rating ↓?/option>
+                <option value="rating_asc">Sort: Rating ↓?/option>
+                <option value="title_asc">Sort: Title A-Z</option>
+                <option value="runtime_desc">Sort: Runtime ↓?/option>
              </select>
          </div>
      </div>
@@ -179,7 +181,7 @@
                          </div>
                          {% endif %}
                      </td>
-                     <td class="col-title">{{ book.title }}</td>
+                    <td class="col-title"><a href="book/{{ book.slug }}.html" class="book-title-link">{{ book.title }}</a></td>
                      <td class="col-author">{{ book.author }}</td>
                      <td class="col-category"><span class="category-tag">{{ book.primary_category }}</span></td>
                      <td class="col-rating">
@@ -212,11 +214,12 @@
 <section class="bottom-cta">
      <div class="cta-content">
          <h2>Ready to Start Listening?</h2>
-         <p>Try Audible free for 30 days. Get one free audiobook -?yours to keep even if you cancel.</p>
-         <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_" 
-            target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
-            -- Start Free Trial
-         </a>
+        <p>Try Audible free for 30 days. Get one free audiobook — yours to keep even if you cancel.</p>
+        <p>Try Audible free for 30 days. Get one free audiobook ↓?yours to keep even if you cancel.</p>
+            <a href="https://www.amazon.com/hz/audible/mlp/mdp/?ref_=assoc_tag_ph_" 
+               target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
+                ↓?Start Free Trial
+            </a>
      </div>
 </section>
 {% endblock %}

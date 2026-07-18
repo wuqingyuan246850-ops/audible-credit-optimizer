@@ -1,11 +1,12 @@
 """
-Audible Credit Optimizer 鈥?Static Site Generator
+Audible Credit Optimizer — Static Site Generator
 
 Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
 """
 
 import json
 import logging
+import re
 import shutil
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
@@ -99,6 +100,7 @@ def enrich_books(books):
         stars_half = 1 if r - stars_full >= 0.3 else 0
         stars_empty = 5 - stars_full - stars_half
         book["stars_display"] = "\u2605" * stars_full + "\u00bd" * stars_half + "\u2606" * stars_empty
+        book["slug"] = make_slug(book.get("title", ""))
     return books
 
 
@@ -106,6 +108,16 @@ def get_top_picks(books, count=5):
     sorted_books = sorted(books, key=lambda b: b["value_score"], reverse=True)
     return sorted_books[:count]
 
+
+
+
+def make_slug(text):
+    """Convert text to URL-friendly slug."""
+    slug = text.lower().strip()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s-]+', '-', slug)
+    slug = slug.strip('-')[:80]
+    return slug or 'book'
 
 def build_site():
     books = load_books()
@@ -159,6 +171,34 @@ def build_site():
         with open(cat_dir / f"{slug}.html", "w", encoding="utf-8") as f:
             f.write(html)
         logger.info(f"Generated category/{slug}.html ({len(cat_books)} books)")
+    # --- Book Detail Pages (SEO) ---
+    book_slugs = {}
+    book_dir = OUTPUT_DIR / "book"
+    book_dir.mkdir(exist_ok=True)
+    template_book = env.get_template("book_detail.html")
+    for book in books:
+        slug = make_slug(book.get("title", ""))
+        if not slug:
+            continue
+        book_slugs[book.get("asin", "")] = slug
+        related = [b for b in books if b.get("primary_category") == book.get("primary_category") and b.get("asin") != book.get("asin")]
+        related = sorted(related, key=lambda b: b.get("value_score", 0), reverse=True)[:6]
+        for r in related:
+            r["slug"] = book_slugs.get(r.get("asin", ""), make_slug(r.get("title", "")))
+        html = template_book.render(
+            book=book,
+            related_books=related,
+            categories=categories,
+            total_books=len(books),
+            build_date=datetime.now().strftime("%B %d, %Y"),
+            static_prefix="..",
+            canonical_path=f"book/{slug}.html",
+        )
+        with open(book_dir / f"{slug}.html", "w", encoding="utf-8") as f:
+            f.write(html)
+        logger.info(f"Generated book/{slug}.html")
+    logger.info(f"Generated {len(books)} book detail pages")
+
 
     public_books = []
     for b in books:
@@ -190,6 +230,10 @@ def build_site():
     add_url("/index.html", "1.0", "daily")
     for cat_name, cat_data in categories.items():
         add_url(f"/category/{cat_data['slug']}.html", "0.9", "daily")
+    for book in books:
+        slug = book_slugs.get(book.get("asin", ""), make_slug(book.get("title", "")))
+        if slug:
+            add_url(f"/book/{slug}.html", "0.7", "weekly")
     xmlstr = minidom.parseString(tostring(urlset)).toprettyxml(indent="  ")
     with open(OUTPUT_DIR / "sitemap.xml", "w", encoding="utf-8") as f:
         f.write(xmlstr)
