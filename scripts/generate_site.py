@@ -1,4 +1,4 @@
-﻿"""
+"""
 Audible Credit Optimizer 鈥?Static Site Generator
 
 Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
@@ -239,7 +239,7 @@ def build_site():
         SubElement(u, "lastmod").text = today
         SubElement(u, "changefreq").text = changefreq
         SubElement(u, "priority").text = priority
-    add_url("/index.html", "1.0", "daily")
+    add_url("/", "1.0", "daily")
     for cat_name, cat_data in categories.items():
         add_url(f"/category/{cat_data['slug']}.html", "0.9", "daily")
     for book in books:
