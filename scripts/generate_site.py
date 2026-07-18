@@ -1,4 +1,4 @@
-"""
+﻿"""
 Audible Credit Optimizer 鈥?Static Site Generator
 
 Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
@@ -219,7 +219,7 @@ def build_site():
         f.write(headers)
 
     # --- Sitemap (SEO) ---
-    SITE_URL = os.environ.get("SITE_URL", "https://2c490895.audible-credit-optimizer.pages.dev")
+    SITE_URL = os.environ.get("SITE_URL", "https://audiobookvalue.com")
     urlset = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     today = datetime.now().strftime("%Y-%m-%d")
     def add_url(loc, priority="0.8", changefreq="daily"):
