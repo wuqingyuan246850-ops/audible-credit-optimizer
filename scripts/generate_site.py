@@ -57,9 +57,9 @@ def compute_value_score(book):
     rating = book.get("rating", 0) or 0
     runtime = book.get("runtime_minutes", 0) or 0
     price_score = min(price, 40)
-    rating_score = (rating / 5) * 30
+    rating_score = (rating / 5) * 30 if rating > 0 else 15
     runtime_hours = runtime / 60
-    runtime_score = min(runtime_hours * 1.5, 30)
+    runtime_score = min(runtime_hours * 1.5, 30) if runtime > 0 else 15
     total = price_score + rating_score + runtime_score
     return round(total, 1)
 
@@ -88,19 +88,25 @@ def enrich_books(books):
         p = book.get("price", 0) or 0
         book["price_formatted"] = f"${p:.2f}" if p > 0 else "Free"
         mins = book.get("runtime_minutes", 0) or 0
-        if mins >= 60:
-            h = mins // 60
-            m = mins % 60
-            book["runtime_formatted"] = f"{h}h {m}m"
+        if mins > 0:
+            if mins >= 60:
+                h = mins // 60
+                m = mins % 60
+                book["runtime_formatted"] = f"{h}h {m}m"
+            else:
+                book["runtime_formatted"] = f"{mins}m"
         else:
-            book["runtime_formatted"] = f"{mins}m"
+            book["runtime_formatted"] = "N/A"
         cats = book.get("categories", [])
         book["primary_category"] = cats[0] if cats else "Other"
         r = book.get("rating", 0) or 0
-        stars_full = int(r)
-        stars_half = 1 if r - stars_full >= 0.3 else 0
-        stars_empty = 5 - stars_full - stars_half
-        book["stars_display"] = "\u2605" * stars_full + "\u00bd" * stars_half + "\u2606" * stars_empty
+        if r > 0:
+            stars_full = int(r)
+            stars_half = 1 if r - stars_full >= 0.3 else 0
+            stars_empty = 5 - stars_full - stars_half
+            book["stars_display"] = "\u2605" * stars_full + "\u00bd" * stars_half + "\u2606" * stars_empty
+        else:
+            book["stars_display"] = ""
         book["slug"] = make_slug(book.get("title", ""))
     return books
 

@@ -98,7 +98,9 @@ def _get_nested(d, *keys, default=None):
             return default
     return c
 
-def parse_item(item):
+def parse_item(item, seed_defaults=None):
+    if seed_defaults is None:
+        seed_defaults = {}
     try:
         asin = item.get("ASIN", item.get("asin", ""))
         if not asin: return None
@@ -132,8 +134,15 @@ def parse_item(item):
         customer_reviews = item.get("customerReviews", {}) or {}
         rating = float(_get_nested(customer_reviews, "starRating", default=0) or 0)
         review_count = int(_get_nested(customer_reviews, "count", default=0) or 0)
+        # Fall back to seed data when API does not return customer reviews or runtime
+        if rating == 0 and seed_defaults.get("rating", 0) > 0:
+            rating = seed_defaults["rating"]
+        if review_count == 0 and seed_defaults.get("review_count", 0) > 0:
+            review_count = seed_defaults["review_count"]
         product_info = _get_nested(info, "productInfo", default={})
         runtime = _get_nested(product_info, "runtime", "value", default=0) or 0
+        if runtime == 0 and seed_defaults.get("runtime_minutes", 0) > 0:
+            runtime = seed_defaults["runtime_minutes"]
         binding = _get_nested(info, "classifications", "binding", "displayValue") or ""
         cover_url = _get_nested(item.get("images",{}), "primary", "large", "url") or ""
         detail_url = item.get("detailPageURL", "")
@@ -154,11 +163,13 @@ def main():
         seeds = json.load(f)
     # Build ASIN -> categories mapping from seed data
     seed_categories = {}
+    seed_defaults = {}
     for s in seeds:
         if isinstance(s, dict):
             asin = s.get("asin", "")
             if asin:
                 seed_categories[asin] = s.get("categories", [])
+                seed_defaults[asin] = s
     asins = list(seed_categories.keys())
     logger.info(f"Loaded {len(asins)} ASINs")
     if not asins:
@@ -166,7 +177,8 @@ def main():
     api_items = fetch_items_by_asin(asins)
     books = []
     for item in api_items:
-        p = parse_item(item)
+        asin = item.get("ASIN", item.get("asin", ""))
+        p = parse_item(item, seed_defaults.get(asin, {}))
         if p:
             # Preserve categories from seed data
             asin = p.get("asin", "")

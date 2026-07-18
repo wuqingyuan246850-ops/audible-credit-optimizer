@@ -2,11 +2,11 @@
 
 {% block title %}{{ book.title }} by {{ book.author }} — Audible Price, Credit Value & Review{% endblock %}
 
-{% block meta_description %}Is {{ book.title }} worth your Audible credit? Cash price {{ book.price_formatted }}, {{ book.rating }}/5 stars, {{ book.runtime_formatted }} runtime. Compare value scores for {{ book.title }} and similar {{ book.primary_category }} audiobooks.{% endblock %}
+{% block meta_description %}Is {{ book.title }} worth your Audible credit? Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5 stars{% else %}rated{% endif %}, {{ book.runtime_formatted }} runtime. Compare value scores for {{ book.title }} and similar {{ book.primary_category }} audiobooks.{% endblock %}
 
 {% block extra_head %}
 <meta property="og:title" content="{{ book.title }} by {{ book.author }} — Audible Credit Value">
-<meta property="og:description" content="Cash price {{ book.price_formatted }}, {{ book.rating }}/5 stars, {{ book.runtime_formatted }} runtime. Is {{ book.title }} worth your Audible credit?">
+<meta property="og:description" content="Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5 stars{% else %}rated{% endif %}, {{ book.runtime_formatted }} runtime. Is {{ book.title }} worth your Audible credit?">
 <meta property="og:type" content="book">
 {% if book.cover_url %}
 <meta property="og:image" content="{{ book.cover_url }}">

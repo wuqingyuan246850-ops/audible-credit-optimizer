@@ -186,7 +186,11 @@
                      <td class="col-category"><span class="category-tag">{{ book.primary_category }}</span></td>
                      <td class="col-rating">
                          <span class="stars">{{ book.stars_display }}</span>
+                         {% if book.rating > 0 %}
                          <span class="rating-num">{{ book.rating }}</span>
+                         {% else %}
+                         <span class="rating-num">N/A</span>
+                         {% endif %}
                      </td>
                      <td class="col-runtime">{{ book.runtime_formatted }}</td>
                      <td class="col-price">{{ book.price_formatted }}</td>

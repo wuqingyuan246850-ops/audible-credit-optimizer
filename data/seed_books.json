@@ -5,9 +5,9 @@
     "author": "Andy Weir",
     "narrator": "Ray Porter",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.7,
+    "review_count": 175000,
+    "runtime_minutes": 960,
     "categories": [
       "Science Fiction"
     ],
@@ -39,9 +39,9 @@
     "author": "Christopher Hopper, J. N. Chaney",
     "narrator": "R.C. Bray",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.5,
+    "review_count": 25000,
+    "runtime_minutes": 540,
     "categories": [
       "Science Fiction"
     ],
@@ -56,9 +56,9 @@
     "author": "Scott Bartlett",
     "narrator": "Mark Boyett",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.3,
+    "review_count": 10000,
+    "runtime_minutes": 600,
     "categories": [
       "Science Fiction"
     ],
@@ -73,9 +73,9 @@
     "author": "Sam A. Miller",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.2,
+    "review_count": 5000,
+    "runtime_minutes": 480,
     "categories": [
       "Science Fiction"
     ],
@@ -90,9 +90,9 @@
     "author": "L. Ron Hubbard",
     "narrator": "Josh Clark, Corey Burton, Fred Tatascorie, Stefan Rudnicki, Nancy Cartwright, R. F. Daley, Kaleo Griffith, Don Leslie, Ralph Lister, Scott Menville, Jim Meskimen, Tamra Meskimen, Phillip Proctor, Michael Yurchak, Full Cast",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 3.8,
+    "review_count": 15000,
+    "runtime_minutes": 1440,
     "categories": [
       "Science Fiction"
     ],
@@ -107,9 +107,9 @@
     "author": "Brandon Sanderson",
     "narrator": "Michael Kramer",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.6,
+    "review_count": 85000,
+    "runtime_minutes": 1020,
     "categories": [
       "Fantasy"
     ],
@@ -158,9 +158,9 @@
     "author": "Mel Robbins",
     "narrator": "Mel Robbins",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.5,
+    "review_count": 50000,
+    "runtime_minutes": 360,
     "categories": [
       "Self Development"
     ],
@@ -192,9 +192,9 @@
     "author": "Patrick Bet-David",
     "narrator": "Patrick Bet-David",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.5,
+    "review_count": 25000,
+    "runtime_minutes": 360,
     "categories": [
       "Business"
     ],
@@ -209,9 +209,9 @@
     "author": "Chris Voss, Tahl Raz",
     "narrator": "Michael Kramer",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.6,
+    "review_count": 40000,
+    "runtime_minutes": 480,
     "categories": [
       "Business"
     ],
@@ -226,9 +226,9 @@
     "author": "Eric Tyson, Jim Schell",
     "narrator": "Brett Barry",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.0,
+    "review_count": 10000,
+    "runtime_minutes": 420,
     "categories": [
       "Business"
     ],
@@ -243,9 +243,9 @@
     "author": "Dave Ramsey",
     "narrator": "Dave Ramsey",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.3,
+    "review_count": 8000,
+    "runtime_minutes": 360,
     "categories": [
       "Business"
     ],
@@ -260,9 +260,9 @@
     "author": "Ben Horowitz",
     "narrator": "Kevin Kenerly",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.4,
+    "review_count": 30000,
+    "runtime_minutes": 540,
     "categories": [
       "Business"
     ],
@@ -277,9 +277,9 @@
     "author": "Bryn Greenwood",
     "narrator": "Kristen Sieh",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.2,
+    "review_count": 5000,
+    "runtime_minutes": 480,
     "categories": [
       "Thriller"
     ],
@@ -311,9 +311,9 @@
     "author": "Freida McFadden",
     "narrator": "Lauryn Allman",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.5,
+    "review_count": 35000,
+    "runtime_minutes": 540,
     "categories": [
       "Thriller"
     ],
@@ -328,9 +328,9 @@
     "author": "John Grisham",
     "narrator": "Michael Beck",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.2,
+    "review_count": 25000,
+    "runtime_minutes": 480,
     "categories": [
       "Thriller"
     ],
@@ -345,9 +345,9 @@
     "author": "Richard Osman",
     "narrator": "Lesley Manville",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.5,
+    "review_count": 20000,
+    "runtime_minutes": 480,
     "categories": [
       "Thriller"
     ],
@@ -362,9 +362,9 @@
     "author": "James Patterson, David Ellis",
     "narrator": "Thérèse Plummer",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.1,
+    "review_count": 20000,
+    "runtime_minutes": 540,
     "categories": [
       "Thriller"
     ],
@@ -379,9 +379,9 @@
     "author": "Blake Pierce",
     "narrator": "Abigail Reno",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.3,
+    "review_count": 15000,
+    "runtime_minutes": 360,
     "categories": [
       "Thriller"
     ],
@@ -396,9 +396,9 @@
     "author": "Kaliane Bradley",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.3,
+    "review_count": 20000,
+    "runtime_minutes": 720,
     "categories": [
       "Science Fiction"
     ],
@@ -719,9 +719,9 @@
     "author": "Adrian Tchaikovsky",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.6,
+    "review_count": 20000,
+    "runtime_minutes": 600,
     "categories": [
       "Science Fiction"
     ],
@@ -787,9 +787,9 @@
     "author": "George Orwell, Joe White - adaptation",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.6,
+    "review_count": 55000,
+    "runtime_minutes": 960,
     "categories": [
       "Science Fiction"
     ],
@@ -1314,9 +1314,9 @@
     "author": "James Clear",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.7,
+    "review_count": 110000,
+    "runtime_minutes": 876,
     "categories": [
       "Self Development"
     ],
@@ -1586,9 +1586,9 @@
     "author": "James Clear",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.6,
+    "review_count": 15000,
+    "runtime_minutes": 120,
     "categories": [
       "Self Development"
     ],
@@ -3439,9 +3439,9 @@
     "author": "Matt Dinniman",
     "narrator": "",
     "price": 0.0,
-    "rating": 0.0,
-    "review_count": 0,
-    "runtime_minutes": 0,
+    "rating": 4.7,
+    "review_count": 35000,
+    "runtime_minutes": 540,
     "categories": [
       "Thriller"
     ],
