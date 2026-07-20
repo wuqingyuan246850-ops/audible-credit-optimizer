@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}{{ book.title }} by {{ book.author }} — Audible Price, Credit Value & Review{% endblock %}
 
@@ -158,7 +158,7 @@
     {% for rel in related_books %}
     <a href="{{ static_prefix }}/book/{{ rel.slug }}.html" class="related-card">
       {% if rel.cover_url %}
-      <img class="related-cover" src="{{ rel.cover_url }}" alt="{{ rel.title }}" loading="lazy">
+      <img class="related-cover" src="{{ rel.cover_url }}" alt="{{ rel.title }}" loading="lazy" width="220" height="293">
       {% else %}
       <div class="related-cover related-cover-placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

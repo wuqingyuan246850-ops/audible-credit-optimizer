@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Best {{ category_name }} Audiobooks — ?Audible Credit Value{% endblock %}
 
@@ -79,14 +79,13 @@
                      data-value-score="{{ book.value_score }}">
                      <td class="col-cover">
                          {% if book.cover_url %}
-                         <img src="{{ book.cover_url }}" alt="" class="cover-thumb" loading="lazy">
+                         <img src="{{ book.cover_url }}" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
                          {% else %}
                          <div class="cover-thumb cover-thumb-placeholder">
                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20"/></svg>
                          </div>
                          {% endif %}
                      </td>
-                    <td class="col-title">{{ book.title }}</td>
                     <td class="col-title"><a href="../book/{{ book.slug }}.html" class="book-title-link">{{ book.title }}</a></td>
                      <td class="col-author">{{ book.author }}</td>
                      <td class="col-rating">

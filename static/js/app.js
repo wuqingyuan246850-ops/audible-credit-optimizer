@@ -1,5 +1,5 @@
  /**
-  * Audible Credit Optimizer â€” Frontend App
+  * Audible Credit Optimizer éˆ?Frontend App
   * Handles table sorting, filtering, and search
   */
  (function() {
@@ -145,11 +145,6 @@
          // Could display count somewhere if needed
      }
  
-     // Observer for filter changes
-     const filterObserver = new MutationObserver(function() { updateCount(); });
-     if (tableBody) {
-         filterObserver.observe(tableBody, { attributes: true, attributeFilter: ['class'], subtree: true });
-     }
  
     // Mobile: hamburger menu for nav
     (function() {
@@ -216,3 +211,5 @@
     })();
 
 })();
+
+

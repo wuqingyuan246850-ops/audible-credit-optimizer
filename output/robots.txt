@@ -1,3 +1,4 @@
+Sitemap: https://audiobookvalue.com/sitemap.xml
+
 User-agent: *
 Allow: /
-Sitemap: https://audiobookvalue.com/sitemap.xml

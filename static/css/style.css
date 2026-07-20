@@ -1,5 +1,5 @@
  /* ===========================================
-    Audible Credit Optimizer — Steam Dark Theme
+    Audible Credit Optimizer 鈥?Steam Dark Theme
     Inspired by store.steampowered.com
     =========================================== */
  
@@ -497,13 +497,13 @@
  }
  .data-table th.sortable:hover { color: var(--text-heading); }
  .data-table th.sortable::after {
-     content: " ↕";
+     content: " 鈫?;
      font-size: 0.7rem;
      color: var(--text-muted);
      opacity: 0.5;
  }
- .data-table th.sort-asc::after { content: " ↑"; opacity: 1; color: var(--accent-primary); }
- .data-table th.sort-desc::after { content: " ↓"; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-asc::after { content: " 鈫?; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-desc::after { content: " 鈫?; opacity: 1; color: var(--accent-primary); }
  
  .data-table tbody tr {
      border-bottom: 1px solid rgba(75, 107, 126, 0.1);
@@ -649,7 +649,19 @@
      .footer-links { flex-direction: column; gap: 8px; }
  }
  
- @media (max-width: 400px) {
+ /* --- Screen Reader Only --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+@media (max-width: 400px) {
      .col-rating { display: none; }
  }
 
@@ -781,3 +793,4 @@
         height: 38px;
     }
 }
+

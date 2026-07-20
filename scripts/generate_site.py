@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 """
-Audible Credit Optimizer 鈥?Static Site Generator
+Audible Credit Optimizer -- Static Site Generator
 
 Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
 """
@@ -126,6 +127,24 @@ def make_slug(text):
     slug = slug.strip('-')[:80]
     return slug or 'book'
 
+
+def minify_css(text):
+    """Simple CSS minifier - removes comments, whitespace."""
+    text = re.sub(r'/\*[^*]*\*+(?:[^/*][^*]*\*+)*/', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'\s*([{}:;,])\s*', r'\1', text)
+    text = re.sub(r';}', '}', text)
+    return text.strip()
+
+
+def minify_js(text):
+    """Simple JS minifier - removes comments, extra whitespace."""
+    text = re.sub(r'//.*', '', text)
+    text = re.sub(r'/\*[^*]*\*+(?:[^/*][^*]*\*+)*/', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'\s*([{}():;=+\-*/%,!])\s*', r'\1', text)
+    return text.strip()
+
 def build_site():
     books = load_books()
     if not books:
@@ -144,6 +163,30 @@ def build_site():
 
     static_out = OUTPUT_DIR / "static"
     shutil.copytree(str(STATIC_DIR), str(static_out))
+
+    # Minify CSS
+    css_path = static_out / "css" / "style.css"
+    if css_path.exists():
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_text = f.read()
+        with open(css_path, "w", encoding="utf-8") as f:
+            f.write(minify_css(css_text))
+        logger.info(f"Minified CSS: {len(css_text)} -> {len(minify_css(css_text))} bytes")
+
+    # Minify JS
+    js_path = static_out / "js" / "app.js"
+    if js_path.exists():
+        # Detect encoding: try UTF-8, fall back to UTF-16 LE
+        raw = open(js_path, "rb").read()
+        try:
+            js_text = raw.decode("utf-8")
+        except UnicodeDecodeError:
+            js_text = raw.decode("utf-16-le")
+        minified = minify_js(js_text)
+        with open(js_path, "w", encoding="utf-8") as f:
+            f.write(minified)
+        logger.info(f"Minified JS: {len(js_text)} -> {len(minified)} bytes")
+    # Remove old block
 
     template = env.get_template("index.html")
     html = template.render(
@@ -244,7 +287,7 @@ def build_site():
         logger.info("Copied Google Search Console verification file")
 
     # --- Sitemap (SEO) ---
-    SITE_URL = os.environ.get("SITE_URL", "") or "https://audiobookvalue.com"
+    SITE_URL = os.environ.get("SITE_URL") or "https://audiobookvalue.com"
     urlset = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     today = datetime.now().strftime("%Y-%m-%d")
     def add_url(loc, priority="0.8", changefreq="daily"):
@@ -284,3 +327,4 @@ Allow: /
 
 if __name__ == "__main__":
     build_site()
+
