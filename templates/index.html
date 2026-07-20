@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block title %}Audible Credit Optimizer →Best Value Audiobooks for Your Credit{% endblock %}
 
@@ -73,7 +73,7 @@
                      {% endif %}
                  </div>
                  {% if book.cover_url %}
-                 <img class="card-cover" src="{{ book.cover_url }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">
+                 {% if loop.first %}<img class="card-cover" src="{{ book.cover_url }}" alt="{{ book.title }}" fetchpriority="high" width="220" height="293">{% else %}<img class="card-cover" src="{{ book.cover_url }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">{% endif %}
                  {% else %}
                  <div class="card-cover card-cover-placeholder">
                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

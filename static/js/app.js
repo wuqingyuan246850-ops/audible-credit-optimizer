@@ -84,10 +84,12 @@
              }
          });
  
-         // Re-append rows in sorted order
+         // Re-append rows in sorted order (batched to avoid forced reflow)
+         var fragment = document.createDocumentFragment();
          sorted.forEach(function(row) {
-             tableBody.appendChild(row);
+             fragment.appendChild(row);
          });
+         tableBody.appendChild(fragment);
  
          // Update sort indicators in header
          document.querySelectorAll('.sortable').forEach(function(th) {

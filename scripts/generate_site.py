@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Audible Credit Optimizer -- Static Site Generator
 
@@ -271,7 +271,7 @@ def build_site():
   Content-Type: text/html; charset=utf-8
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Cache-Control: public, max-age=3600, s-maxage=3600
+  Cache-Control: public, max-age=7200, s-maxage=7200
 
 # SEO files - correct Content-Type
 /robots.txt
@@ -281,7 +281,7 @@ def build_site():
 
 # Static assets with proper cache
 /static/*
-  Cache-Control: public, max-age=86400, immutable
+  Cache-Control: public, max-age=2592000, immutable
 """
     with open(OUTPUT_DIR / "_headers", "w", encoding="utf-8") as f:
         f.write(headers)

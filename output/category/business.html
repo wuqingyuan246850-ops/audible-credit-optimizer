@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2027,13 +2027,25 @@
 
     <script src="../static/js/app.js" defer></script>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W0V3TKXCMR"></script>
+    <!-- Google tag (gtag.js) - deferred -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-W0V3TKXCMR');
+        (function() {
+            function deferGA() {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W0V3TKXCMR';
+                document.head.appendChild(s);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-W0V3TKXCMR');
+            }
+            if (window.requestIdleCallback) {
+                requestIdleCallback(deferGA, {timeout: 3000});
+            } else {
+                setTimeout(deferGA, 1500);
+            }
+        })();
     </script>
 </body>
 </html>
