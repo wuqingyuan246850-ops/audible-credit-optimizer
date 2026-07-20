@@ -288,7 +288,7 @@ def build_site():
 
     headers = """# Cloudflare Pages _headers
 /* 
-  Content-Type: text/html; charset=utf-8
+  # REMOVED: Content-Type: text/html was breaking CSS/JS MIME types
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=86400, s-maxage=86400
