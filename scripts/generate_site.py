@@ -387,6 +387,28 @@ Allow: /
     with open(OUTPUT_DIR / "robots.txt", "w") as f:
         f.write(robots)
     logger.info("Generated robots.txt")
+    # --- llms.txt (AI crawler SEO) ---
+    llms_lines = [f"# Audible Credit Optimizer - Audiobook Value Database"]
+    llms_lines.append("")
+    llms_lines.append("> Find the best audiobooks for your Audible credit. Compare prices, ratings, and runtime.")
+    llms_lines.append("")
+    llms_lines.append("## Core Pages")
+    llms_lines.append(f"- [Home]({SITE_URL}/)")
+    for ln, ld in categories.items():
+        llms_lines.append(f"- [{ln} Audiobooks]({SITE_URL}/category/{ld['slug']}.html)")
+    llms_lines.append("")
+    llms_lines.append("## Top Audiobook Picks")
+    for i, bk in enumerate(top_picks[:10]):
+        bkslug = book_slugs.get(bk.get("asin",""), make_slug(bk.get("title","")))
+        if bkslug:
+            llms_lines.append(f"- [{bk['title']}]({SITE_URL}/book/{bkslug}.html)")
+    llms_lines.append("")
+    llms_lines.append("## About")
+    llms_lines.append("Audible Credit Optimizer helps listeners maximize their Audible credit value.")
+    with open(OUTPUT_DIR / "llms.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(llms_lines))
+    logger.info("Generated llms.txt")
+
 
     logger.info(f"Site built successfully in {OUTPUT_DIR}")
     logger.info(f"  - {len(books)} books indexed")

@@ -183,6 +183,8 @@
  
  /* --- Hero Banner --- */
  .hero-banner {
+    min-height: 320px;
+    contain: layout style;
      position: relative;
      background: var(--bg-hero);
      padding: 60px 20px 40px;
@@ -264,6 +266,7 @@
  
  /* --- Featured Picks (Steam Store Carousel) --- */
  .featured-section {
+    min-height: 400px;
     padding: 32px 0;
     background: var(--bg-secondary);
     border-bottom: 1px solid rgba(75, 107, 126, 0.2);
@@ -633,39 +636,142 @@
      line-height: 1.5;
  }
  
- /* --- Responsive --- */
- @media (max-width: 900px) {
-     .header-inner { gap: 12px; }
+ /* --- Responsive Design - Mobile/Tablet/Desktop --- */
+@media (max-width: 1024px) {
+     .hero-title { font-size: 1.8rem; }
+     .hero-stats { gap: 24px; }
+     .featured-card { flex: 0 0 190px; }
+}
+
+@media (max-width: 900px) {
+     .header-inner { gap: 12px; padding: 0 12px; }
      .main-nav { display: none; }
+     .hamburger { display: flex; }
      .hero-title { font-size: 1.6rem; }
-     .hero-stats { gap: 20px; }
+     .hero-banner { min-height: 260px; padding: 40px 16px 32px; }
+     .hero-stats { gap: 16px; flex-wrap: wrap; }
      .stat-value { font-size: 1.2rem; }
+     .stat-label { font-size: 0.72rem; }
      .table-controls { flex-direction: column; }
      .search-box { min-width: 100%; }
      .filter-group { width: 100%; }
-     .filter-select { flex: 1; }
+     .filter-select { flex: 1; min-height: 48px; }
      .featured-card { flex: 0 0 170px; }
      .col-author, .col-runtime { display: none; }
-     .col-title { min-width: 140px; }
+     .col-title { min-width: 120px; }
      .card-price-badge { display: none; }
- }
- 
- @media (max-width: 600px) {
-     .hero-title { font-size: 1.3rem; }
+     .section-title { font-size: 1.2rem; }
+     .cta-content h2 { font-size: 1.3rem; }
+     .book-detail-layout { flex-direction: column; align-items: center; }
+     .book-cover-col { max-width: 220px; margin-bottom: 20px; }
+     .value-cards { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+     html { font-size: 14px; }
+     .header-inner { padding: 0 10px; }
+     .logo { font-size: 0.95rem; }
+     .logo-text { display: none; }
+     .hero-title { font-size: 1.4rem; }
      .hero-subtitle { font-size: 0.9rem; }
      .btn-hero { font-size: 0.9rem; padding: 0.7em 1.4em; }
+     .hero-stats { gap: 12px; }
+     .stat-value { font-size: 1.1rem; }
+     .featured-card { flex: 0 0 150px; }
+     .card-info { padding: 8px; }
+     .card-title { font-size: 0.78rem; }
+     .card-author { font-size: 0.68rem; }
      .col-cover { width: 36px; }
      .cover-thumb { width: 30px; height: 40px; }
      .col-category { display: none; }
      .col-value { display: none; }
      .data-table { font-size: 0.78rem; }
-     .data-table td { padding: 8px 6px; }
-     .data-table th { padding: 8px 6px; }
-     .btn-table { font-size: 0.7rem; padding: 0.3em 0.5em; }
-     .footer-links { flex-direction: column; gap: 8px; }
- }
- 
- /* --- Screen Reader Only --- */
+     .data-table td { padding: 8px 5px; }
+     .data-table th { padding: 8px 5px; font-size: 0.7rem; }
+     .btn-table { font-size: 0.7rem; padding: 0.3em 0.5em; min-height: 40px; }
+     .footer-links { flex-direction: column; gap: 4px; }
+     .footer-links a { padding: 8px 0; min-height: 44px; }
+     .table-note { font-size: 0.7rem; }
+     .bottom-cta { padding: 40px 16px; }
+     .featured-section { min-height: 300px; }
+     .breadcrumbs { padding: 8px 12px; font-size: 0.78rem; }
+     .book-detail-section { padding: 20px 12px; }
+     .book-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+     html { font-size: 13px; }
+     .site-header { height: 56px; }
+     .header-inner { height: 56px; padding: 0 8px; gap: 8px; }
+     .logo-icon { width: 22px; height: 22px; }
+     .logo { font-size: 0.88rem; }
+     .btn-accent { font-size: 0.78rem; padding: 0.5em 1em; min-height: 40px; }
+     .hero-banner { min-height: 220px; padding: 32px 12px 24px; }
+     .hero-title { font-size: 1.2rem; }
+     .hero-subtitle { font-size: 0.82rem; margin-bottom: 16px; }
+     .btn-hero { font-size: 0.82rem; padding: 0.6em 1.2em; min-height: 44px; }
+     .hero-stats { gap: 8px; }
+     .stat-value { font-size: 1rem; }
+     .stat-label { font-size: 0.65rem; }
+     .featured-card { flex: 0 0 130px; }
+     .card-info { padding: 6px; gap: 1px; }
+     .card-title { font-size: 0.72rem; }
+     .card-author { font-size: 0.62rem; }
+     .card-actions { padding: 6px; }
+     .btn-sm { font-size: 0.72rem; padding: 0.3em 0.5em; min-height: 36px; }
+     .section-header { padding: 0 12px; margin-bottom: 12px; }
+     .section-title { font-size: 1rem; }
+     .section-subtitle { font-size: 0.75rem; }
+     .table-section { padding: 20px 8px; }
+     .table-controls { gap: 6px; }
+     .search-input { padding: 8px 8px 8px 32px; font-size: 0.82rem; }
+     .search-icon { left: 8px; width: 14px; height: 14px; }
+     .filter-select { font-size: 0.75rem; padding: 8px 24px 8px 8px; min-height: 44px; }
+     .data-table { font-size: 0.72rem; }
+     .data-table td { padding: 6px 4px; }
+     .data-table th { padding: 6px 4px; font-size: 0.65rem; }
+     .col-author { display: none; }
+     .col-runtime { display: none; }
+     .col-category { display: none; }
+     .col-value { display: none; }
+     .col-cover { width: 30px; }
+     .cover-thumb { width: 24px; height: 32px; }
+     .col-title { min-width: 80px; }
+     .stars { font-size: 0.68rem; }
+     .rating-num { font-size: 0.65rem; }
+     .category-tag { font-size: 0.62rem; padding: 1px 6px; }
+     .btn-table { font-size: 0.62rem; padding: 0.25em 0.4em; min-height: 36px; }
+     .footer-links a { font-size: 0.75rem; padding: 6px 0; min-height: 40px; }
+     .footer-disclaimer { font-size: 0.65rem; }
+     .bottom-cta { padding: 32px 12px; }
+     .cta-content h2 { font-size: 1.1rem; }
+     .cta-content p { font-size: 0.85rem; }
+     .result-count { font-size: 0.72rem; }
+     .mobile-nav-overlay .nav-link { font-size: 0.9rem; padding: 12px 16px; min-height: 44px; }
+     .mobile-nav-overlay .nav-cta .btn { font-size: 0.85rem; }
+     .scroll-top { bottom: 12px; right: 12px; width: 44px; height: 44px; }
+     .breadcrumbs { padding: 6px 10px; font-size: 0.72rem; }
+     .book-detail-section { padding: 16px 10px; }
+     .book-title { font-size: 1.1rem; }
+}
+
+@media (max-width: 360px) {
+     html { font-size: 12px; }
+     .hero-title { font-size: 1rem; }
+     .hero-subtitle { font-size: 0.75rem; }
+     .stat-value { font-size: 0.85rem; }
+     .stat-label { font-size: 0.6rem; }
+     .featured-card { flex: 0 0 110px; }
+     .card-title { font-size: 0.65rem; }
+     .col-title { min-width: 60px; }
+     .col-rating { display: none; }
+     .data-table td { padding: 4px 3px; }
+     .data-table th { padding: 4px 3px; }
+     .hero-banner { min-height: 200px; }
+}
+
+
+/* --- Screen Reader Only --- */
 .sr-only {
     position: absolute;
     width: 1px;
