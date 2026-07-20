@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Audible Credit Optimizer -- Static Site Generator
 
@@ -234,8 +234,8 @@ def build_site():
     template = env.get_template("index.html")
     html = template.render(
         partner_tag=partner_tag,
-        initial_books=books[:40],
-        books_json_data=books,
+        initial_books=books,
+        
         categories=categories,
         lcp_image_url=lcp_image_url,
         top_picks=top_picks,
@@ -254,8 +254,8 @@ def build_site():
         cat_books = sorted(cat_data["books"], key=lambda b: b["value_score"], reverse=True)
         html = template_cat.render(
             partner_tag=partner_tag,
-            initial_books=cat_books[:40],
-            books_json_data=cat_books,
+            initial_books=cat_books,
+            
             categories=categories,
             category_name=cat_name,
             category_slug=slug,
