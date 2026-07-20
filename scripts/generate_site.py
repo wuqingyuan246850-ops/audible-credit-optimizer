@@ -266,9 +266,10 @@ def build_site():
     logger.info("Generated sitemap.xml")
 
     # --- Robots.txt (SEO) ---
-    robots = f"""User-agent: *
+    robots = f"""Sitemap: {SITE_URL}/sitemap.xml
+
+User-agent: *
 Allow: /
-Sitemap: {SITE_URL}/sitemap.xml
 """
     with open(OUTPUT_DIR / "robots.txt", "w") as f:
         f.write(robots)
