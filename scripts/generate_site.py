@@ -107,7 +107,7 @@ def enrich_books(books):
             stars_empty = 5 - stars_full - stars_half
             book["stars_display"] = "\u2605" * stars_full + "\u00bd" * stars_half + "\u2606" * stars_empty
         else:
-            book["stars_display"] = ""
+            book["stars_display"] = "☆" * 5
         book["slug"] = make_slug(book.get("title", ""))
     return books
 
@@ -178,7 +178,7 @@ def build_site():
     if js_path.exists():
         # Detect encoding: try UTF-8, fall back to UTF-16 LE
         raw = open(js_path, "rb").read()
-        for enc in ("utf-8", "utf-16-le", "latin-1"):
+        for enc in ("utf-8", "latin-1"):
             try:
                 js_text = raw.decode(enc)
                 if enc != "utf-8":
