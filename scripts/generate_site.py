@@ -169,8 +169,7 @@ def build_site():
     top_picks = get_top_picks(books)
     lcp_image_url = ""
     if top_picks and top_picks[0].get("cover_featured"):
-        # LCP is hero text (faster than preloading an image)
-        lcp_image_url = ""
+        lcp_image_url = top_picks[0]["cover_featured"]
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), trim_blocks=True, lstrip_blocks=True)
 
@@ -268,6 +267,7 @@ def build_site():
             build_date=datetime.now().strftime("%B %d, %Y"),
             static_prefix="..",
             canonical_path=f"book/{slug}.html",
+            lcp_image_url=book.get("cover_featured", ""),
         )
         with open(book_dir / f"{slug}.html", "w", encoding="utf-8") as f:
             f.write(html)
@@ -289,7 +289,7 @@ def build_site():
   Content-Type: text/html; charset=utf-8
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Cache-Control: public, max-age=7200, s-maxage=7200
+  Cache-Control: public, max-age=86400, s-maxage=86400
 
 # SEO files - correct Content-Type
 /robots.txt
@@ -299,7 +299,18 @@ def build_site():
 
 # Static assets with proper cache
 /static/*
-  Cache-Control: public, max-age=2592000, immutable
+ Cache-Control: public, max-age=2592000, immutable
+
+# Book & category pages - extended cache
+/book/*
+  Cache-Control: public, max-age=86400, s-maxage=86400
+/category/*
+  Cache-Control: public, max-age=86400, s-maxage=86400
+
+# Images from Amazon proxy
+/images/*
+  Cache-Control: public, max-age=604800, immutable
+
 """
     with open(OUTPUT_DIR / "_headers", "w", encoding="utf-8") as f:
         f.write(headers)

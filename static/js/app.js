@@ -91,13 +91,16 @@
          });
          tableBody.appendChild(fragment);
  
-         // Update sort indicators in header
-         document.querySelectorAll('.sortable').forEach(function(th) {
-             th.classList.remove('sort-asc', 'sort-desc');
-             if (th.dataset.sort === sortKey) {
-                 th.classList.add(direction === 'asc' ? 'sort-asc' : 'sort-desc');
-             }
-         });
+        // Update sort indicators in header (cached reference)
+        if (!sortHeaders) {
+            var sortHeaders = document.querySelectorAll('.sortable');
+        }
+        sortHeaders.forEach(function(th) {
+            th.classList.remove('sort-asc', 'sort-desc');
+            if (th.dataset.sort === sortKey) {
+                th.classList.add(direction === 'asc' ? 'sort-asc' : 'sort-desc');
+            }
+        });
      }
  
      // --- Sort select change ---
@@ -112,7 +115,7 @@
      }
  
      // --- Click on table header to sort ---
-     document.querySelectorAll('.sortable').forEach(function(th) {
+     (typeof sortHeaders !== 'undefined' ? sortHeaders : document.querySelectorAll('.sortable')).forEach(function(th) {
          th.addEventListener('click', function() {
              const sortKey = this.dataset.sort;
              if (!sortKey) return;
@@ -214,13 +217,13 @@
 
         // Hook into existing filter
         if (searchInput) {
-            searchInput.addEventListener('input', function() { setTimeout(updateResultCount, 50); });
+            searchInput.addEventListener('input', function() { window.requestAnimationFrame(updateResultCount); });
         }
         if (categoryFilter) {
-            categoryFilter.addEventListener('change', function() { setTimeout(updateResultCount, 50); });
+            categoryFilter.addEventListener('change', function() { window.requestAnimationFrame(updateResultCount); });
         }
         if (tierFilter) {
-            tierFilter.addEventListener('change', function() { setTimeout(updateResultCount, 50); });
+            tierFilter.addEventListener('change', function() { window.requestAnimationFrame(updateResultCount); });
         }
 
         updateResultCount();

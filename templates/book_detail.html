@@ -118,7 +118,7 @@
 
       {% if book.cover_url %}
 
-      <img class="book-cover-large" src="{{ book.cover_featured }}" alt="{{ book.title }} cover" loading="eager">
+      <img class="book-cover-large" src="{{ book.cover_featured }}" alt="{{ book.title }} cover" loading="eager" fetchpriority="high" width="220" height="293">
 
       {% else %}
 
@@ -349,4 +349,3 @@
 </section>
 
 {% endblock %}
-

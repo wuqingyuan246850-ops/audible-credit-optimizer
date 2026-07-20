@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block title %}Audible Credit Optimizer →Best Value Audiobooks for Your Credit{% endblock %}
 
@@ -12,9 +12,6 @@
 
 <meta property="og:type" content="website">
 
-{% if lcp_image_url %}
-<link rel="preload" as="image" href="{{ lcp_image_url }}" fetchpriority="high">
-{% endif %}
 <script type="application/ld+json">
 
 {
@@ -141,7 +138,7 @@
 
                  {% if book.cover_url %}
 
-                 {% if loop.first %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" fetchpriority="high" width="220" height="293">{% else %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">{% endif %}
+                 {% if loop.first %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" width="220" height="293">{% else %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">{% endif %}
 
                  {% else %}
 
@@ -224,7 +221,7 @@
          <div class="filter-group">
 
             <label for="category-filter" class="sr-only">Category</label>
-            <select id="category-filter" class="filter-select">
+            <select id="category-filter" class="filter-select" aria-label="Filter by category">
                  <option value="all">All Categories</option>
 
                  {% for cat_name in categories.keys() %}
@@ -236,7 +233,7 @@
              </select>
 
             <label for="tier-filter" class="sr-only">Value Tier</label>
-            <select id="tier-filter" class="filter-select">
+            <select id="tier-filter" class="filter-select" aria-label="Filter by value tier">
                  <option value="all">All Value Tiers</option>
 
                 <option value="legendary">→Legendary</option>
@@ -250,7 +247,7 @@
              </select>
 
             <label for="sort-select" class="sr-only">Sort By</label>
-            <select id="sort-select" class="filter-select">
+            <select id="sort-select" class="filter-select" aria-label="Sort audiobooks">
                 <option value="value_score_desc">Sort: Value Score →/option>
 
                 <option value="value_score_asc">Sort: Value Score →/option>

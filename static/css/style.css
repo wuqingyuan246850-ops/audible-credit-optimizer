@@ -1,5 +1,5 @@
- /* ===========================================
-    Audible Credit Optimizer 鈥?Steam Dark Theme
+﻿ /* ===========================================
+    Audible Credit Optimizer 閳?Steam Dark Theme
     Inspired by store.steampowered.com
     =========================================== */
  
@@ -113,7 +113,7 @@
  
  .btn-large { font-size: 1.1rem; padding: 1em 2.2em; }
  
- .btn-sm { font-size: 0.82rem; padding: 0.4em 0.8em; }
+.btn-sm { font-size: 0.82rem; padding: 0.4em 0.8em; min-height: 44px; }
  
  .btn-table {
      background: var(--accent-primary);
@@ -122,7 +122,8 @@
      padding: 0.35em 0.75em;
      border-radius: var(--radius-sm);
  }
- .btn-table:hover { background: #88d0f7; color: #fff; }
+.btn-table { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-table:hover { background: #88d0f7; color: #fff; }
  
  /* --- Header --- */
  .site-header {
@@ -262,10 +263,12 @@
  
  /* --- Featured Picks (Steam Store Carousel) --- */
  .featured-section {
-     padding: 32px 0;
-     background: var(--bg-secondary);
-     border-bottom: 1px solid rgba(75, 107, 126, 0.2);
- }
+    padding: 32px 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid rgba(75, 107, 126, 0.2);
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}
  
  .featured-carousel {
      max-width: 1360px;
@@ -400,10 +403,12 @@
  
  /* --- Table Section --- */
  .table-section {
-     max-width: 1360px;
-     margin: 0 auto;
-     padding: 32px 20px;
- }
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    content-visibility: auto;
+    contain-intrinsic-size: 1500px;
+}
  
  /* --- Table Controls --- */
  .table-controls {
@@ -501,13 +506,13 @@
  }
  .data-table th.sortable:hover { color: var(--text-heading); }
  .data-table th.sortable::after {
-     content: " ↕";
+     content: " 鈫?;
      font-size: 0.7rem;
      color: var(--text-muted);
      opacity: 0.5;
  }
- .data-table th.sort-asc::after { content: " ▲"; opacity: 1; color: var(--accent-primary); }
- .data-table th.sort-desc::after { content: " ▼"; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-asc::after { content: " 鈻?; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-desc::after { content: " 鈻?; opacity: 1; color: var(--accent-primary); }
  
  .data-table tbody tr {
      border-bottom: 1px solid rgba(75, 107, 126, 0.1);
@@ -580,11 +585,13 @@
  
  /* --- Bottom CTA --- */
  .bottom-cta {
-     background: var(--bg-hero);
-     text-align: center;
-     padding: 60px 20px;
-     border-top: 1px solid rgba(75, 107, 126, 0.2);
- }
+    background: var(--bg-hero);
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(75, 107, 126, 0.2);
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+}
  .cta-content {
      max-width: 600px;
      margin: 0 auto;
@@ -799,4 +806,5 @@
         height: 38px;
     }
 }
+
 
