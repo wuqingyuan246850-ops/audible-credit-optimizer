@@ -116,20 +116,23 @@
          </div>
         <div class="result-count" id="result-count">Showing <strong>{{ total_books }}</strong> audiobooks</div>
          <div class="filter-group">
-             <select id="category-filter" class="filter-select" aria-label="Filter by category">
+            <label for="category-filter" class="sr-only">Category</label>
+            <select id="category-filter" class="filter-select">
                  <option value="all">All Categories</option>
                  {% for cat_name in categories.keys() %}
                  <option value="{{ cat_name }}">{{ cat_name }}</option>
                  {% endfor %}
              </select>
-             <select id="tier-filter" class="filter-select" aria-label="Filter by value tier">
+            <label for="tier-filter" class="sr-only">Value Tier</label>
+            <select id="tier-filter" class="filter-select">
                  <option value="all">All Value Tiers</option>
                 <option value="legendary">鈫?Legendary</option>
                 <option value="excellent">鈫?Excellent</option>
                 <option value="great">鈫?Great</option>
                 <option value="good">鈫?Good</option>
              </select>
-             <select id="sort-select" class="filter-select" aria-label="Sort by">
+            <label for="sort-select" class="sr-only">Sort By</label>
+            <select id="sort-select" class="filter-select">
                 <option value="value_score_desc">Sort: Value Score 鈫?/option>
                 <option value="value_score_asc">Sort: Value Score 鈫?/option>
                 <option value="price_desc">Sort: Price 鈫?/option>
