@@ -1,6 +1,5 @@
 # Cloudflare Pages _headers
 /* 
-  # REMOVED: Content-Type: text/html was breaking CSS/JS MIME types
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=86400, s-maxage=86400
@@ -11,15 +10,25 @@
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
 
+# CSS files - explicit MIME type
+/static/css/*
+  Content-Type: text/css
+
+# JS files - explicit MIME type
+/static/js/*
+  Content-Type: application/javascript
+
 # Static assets with proper cache
 /static/*
- Cache-Control: public, max-age=2592000, immutable
+  Cache-Control: public, max-age=2592000, immutable
 
 # Book & category pages - extended cache
 /book/*
   Cache-Control: public, max-age=86400, s-maxage=86400
+  Content-Type: text/html; charset=utf-8
 /category/*
   Cache-Control: public, max-age=86400, s-maxage=86400
+  Content-Type: text/html; charset=utf-8
 
 # Images from Amazon proxy
 /images/*

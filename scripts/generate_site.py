@@ -158,6 +158,25 @@ def minify_js(text):
     text = re.sub(r'\s*([{}():;=+\-*/%,!])\s*', r'\1', text)
     return text.strip()
 
+def get_partner_tag():
+    """Read Amazon Associate tag from environment."""
+    tag = os.environ.get("AMAZON_ASSOCIATE_TAG") or os.environ.get("AMAZON_PARTNER_TAG") or ""
+    if not tag:
+        env_path = ROOT_DIR / ".env"
+        if env_path.exists():
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line.startswith("AMAZON_ASSOCIATE_TAG="):
+                        tag = line.split("=", 1)[1].strip().strip("\"'")
+                        break
+        if not tag:
+            logger.warning("AMAZON_ASSOCIATE_TAG not found in environment or .env file")
+    else:
+        logger.info(f"Using Amazon Associate Tag: {tag}")
+    return tag
+ 
+ 
 def build_site():
     books = load_books()
     if not books:
@@ -172,6 +191,7 @@ def build_site():
         lcp_image_url = top_picks[0]["cover_featured"]
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), trim_blocks=True, lstrip_blocks=True)
+    partner_tag = get_partner_tag()
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(str(OUTPUT_DIR))
@@ -213,6 +233,7 @@ def build_site():
 
     template = env.get_template("index.html")
     html = template.render(
+        partner_tag=partner_tag,
         initial_books=books[:40],
         books_json_data=books,
         categories=categories,
@@ -232,6 +253,7 @@ def build_site():
         slug = cat_data["slug"]
         cat_books = sorted(cat_data["books"], key=lambda b: b["value_score"], reverse=True)
         html = template_cat.render(
+            partner_tag=partner_tag,
             initial_books=cat_books[:40],
             books_json_data=cat_books,
             categories=categories,
@@ -262,6 +284,7 @@ def build_site():
         for r in related:
             r["slug"] = book_slugs.get(r.get("asin", ""), make_slug(r.get("title", "")))
         html = template_book.render(
+            partner_tag=partner_tag,
             book=book,
             related_books=related,
             categories=categories,
@@ -288,7 +311,6 @@ def build_site():
 
     headers = """# Cloudflare Pages _headers
 /* 
-  # REMOVED: Content-Type: text/html was breaking CSS/JS MIME types
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Cache-Control: public, max-age=86400, s-maxage=86400
@@ -299,15 +321,25 @@ def build_site():
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
 
+# CSS files - explicit MIME type
+/static/css/*
+  Content-Type: text/css
+
+# JS files - explicit MIME type
+/static/js/*
+  Content-Type: application/javascript
+
 # Static assets with proper cache
 /static/*
- Cache-Control: public, max-age=2592000, immutable
+  Cache-Control: public, max-age=2592000, immutable
 
 # Book & category pages - extended cache
 /book/*
   Cache-Control: public, max-age=86400, s-maxage=86400
+  Content-Type: text/html; charset=utf-8
 /category/*
   Cache-Control: public, max-age=86400, s-maxage=86400
+  Content-Type: text/html; charset=utf-8
 
 # Images from Amazon proxy
 /images/*
