@@ -501,13 +501,13 @@
  }
  .data-table th.sortable:hover { color: var(--text-heading); }
  .data-table th.sortable::after {
-     content: " 鈫?;
+     content: " ↕";
      font-size: 0.7rem;
      color: var(--text-muted);
      opacity: 0.5;
  }
- .data-table th.sort-asc::after { content: " 鈫?; opacity: 1; color: var(--accent-primary); }
- .data-table th.sort-desc::after { content: " 鈫?; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-asc::after { content: " ▲"; opacity: 1; color: var(--accent-primary); }
+ .data-table th.sort-desc::after { content: " ▼"; opacity: 1; color: var(--accent-primary); }
  
  .data-table tbody tr {
      border-bottom: 1px solid rgba(75, 107, 126, 0.1);

@@ -1,4 +1,4 @@
- /**
+﻿ /**
   * Audible Credit Optimizer - Frontend App
   * Handles table sorting, filtering, and search
   */
@@ -130,14 +130,21 @@
          });
      });
  
-     // --- Initial sort: by value_score descending ---
-     if (sortSelect && sortSelect.value) {
-         const match = sortSelect.value.match(/^(.+)_(asc|desc)$/);
-         if (match) {
-             sortRows(match[1], match[2]);
-         }
+     // --- Initial sort: deferred after paint to avoid forced reflow ---
+     function runInitialSort() {
+        // Books already sorted by Value Score in HTML.
+        // Skipping DOM sort eliminates forced reflow.
+    }
+     if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', function() {
+             window.requestAnimationFrame(function() {
+                 window.requestAnimationFrame(runInitialSort);
+             });
+         });
      } else {
-         sortRows('value_score', 'desc');
+         window.requestAnimationFrame(function() {
+             window.requestAnimationFrame(runInitialSort);
+         });
      }
  
      // --- Update count after filter ---
@@ -175,11 +182,18 @@
         var scrollBtn = document.getElementById('scroll-top');
         if (!scrollBtn) return;
 
+        var scrollTicking = false;
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 400) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
+            if (!scrollTicking) {
+                window.requestAnimationFrame(function() {
+                    if (window.scrollY > 400) {
+                        scrollBtn.classList.add('visible');
+                    } else {
+                        scrollBtn.classList.remove('visible');
+                    }
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
             }
         });
 
@@ -213,5 +227,6 @@
     })();
 
 })();
+
 
 

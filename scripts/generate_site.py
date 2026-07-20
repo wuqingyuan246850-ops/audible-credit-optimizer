@@ -9,6 +9,7 @@ import json
 import os
 import logging
 import re
+import sys
 import shutil
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
@@ -79,6 +80,7 @@ def compute_value_tier(score):
 
 
 def enrich_books(books):
+    import re as _re
     for book in books:
         CREDIT_COST = 14.95
         if "credit_value" not in book or not book["credit_value"]:
@@ -86,6 +88,17 @@ def enrich_books(books):
             book["credit_value"] = round(price / CREDIT_COST, 1) if price > 0 else 0
         book["value_score"] = compute_value_score(book)
         book["value_tier"] = compute_value_tier(book["value_score"])
+
+        # Optimize cover images: use smaller Amazon sizes
+        cover = book.get("cover_url", "") or ""
+        if cover:
+            book["cover_thumb"] = _re.sub(r"_(?:SL|SX|SY)(\d+)_", r"_SL75_", cover)
+            book["cover_featured"] = _re.sub(r"_(?:SL|SX|SY)(\d+)_", r"_SL220_", cover)
+        else:
+            book["cover_thumb"] = ""
+            book["cover_featured"] = ""
+        if book.get("rating", 0) and book["rating"] > 5.0:
+            book["rating"] = round(book["rating"] / 2, 1)
         p = book.get("price", 0) or 0
         book["price_formatted"] = f"${p:.2f}" if p > 0 else "Free"
         mins = book.get("runtime_minutes", 0) or 0
@@ -107,7 +120,7 @@ def enrich_books(books):
             stars_empty = 5 - stars_full - stars_half
             book["stars_display"] = "\u2605" * stars_full + "\u00bd" * stars_half + "\u2606" * stars_empty
         else:
-            book["stars_display"] = "☆" * 5
+            book["stars_display"] = "\u2606" * 5
         book["slug"] = make_slug(book.get("title", ""))
     return books
 
@@ -154,8 +167,12 @@ def build_site():
     books = enrich_books(books)
     categories = categorize_books(books)
     top_picks = get_top_picks(books)
+    lcp_image_url = ""
+    if top_picks and top_picks[0].get("cover_featured"):
+        # LCP is hero text (faster than preloading an image)
+        lcp_image_url = ""
 
-    env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
+    env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), trim_blocks=True, lstrip_blocks=True)
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(str(OUTPUT_DIR))
@@ -199,6 +216,7 @@ def build_site():
     html = template.render(
         books=books,
         categories=categories,
+        lcp_image_url=lcp_image_url,
         top_picks=top_picks,
         total_books=len(books),
         build_date=datetime.now().strftime("%B %d, %Y"),
@@ -334,4 +352,8 @@ Allow: /
 
 if __name__ == "__main__":
     build_site()
+
+
+
+
 

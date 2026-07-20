@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -90,7 +90,7 @@
 
     <script src="{{ static_prefix }}/static/js/app.js" defer></script>
     {% block extra_scripts %}{% endblock %}
-    <!-- Google tag (gtag.js) - deferred -->
+    <!-- Google tag (gtag.js) - deferred after full page load -->
     <script>
         (function() {
             function deferGA() {
@@ -104,9 +104,13 @@
                 gtag('config', 'G-W0V3TKXCMR');
             }
             if (window.requestIdleCallback) {
-                requestIdleCallback(deferGA, {timeout: 3000});
+                window.addEventListener('load', function() {
+                    requestIdleCallback(deferGA, {timeout: 5000});
+                });
             } else {
-                setTimeout(deferGA, 1500);
+                window.addEventListener('load', function() {
+                    setTimeout(deferGA, 3000);
+                });
             }
         })();
     </script>
