@@ -178,10 +178,17 @@ def build_site():
     if js_path.exists():
         # Detect encoding: try UTF-8, fall back to UTF-16 LE
         raw = open(js_path, "rb").read()
-        try:
-            js_text = raw.decode("utf-8")
-        except UnicodeDecodeError:
-            js_text = raw.decode("utf-16-le")
+        for enc in ("utf-8", "utf-16-le", "latin-1"):
+            try:
+                js_text = raw.decode(enc)
+                if enc != "utf-8":
+                    logger.warning("JS file decoded with %s encoding", enc)
+                break
+            except (UnicodeDecodeError, ValueError):
+                continue
+        else:
+            js_text = raw.decode("latin-1")
+            logger.warning("JS file decoded with latin-1 (lossy fallback)")
         minified = minify_js(js_text)
         with open(js_path, "w", encoding="utf-8") as f:
             f.write(minified)

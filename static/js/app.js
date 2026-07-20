@@ -1,5 +1,5 @@
  /**
-  * Audible Credit Optimizer éˆ?Frontend App
+  * Audible Credit Optimizer - Frontend App
   * Handles table sorting, filtering, and search
   */
  (function() {
