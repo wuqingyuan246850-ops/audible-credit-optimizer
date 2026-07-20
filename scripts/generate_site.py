@@ -213,7 +213,8 @@ def build_site():
 
     template = env.get_template("index.html")
     html = template.render(
-        books=books,
+        initial_books=books[:40],
+        books_json_data=books,
         categories=categories,
         lcp_image_url=lcp_image_url,
         top_picks=top_picks,
@@ -231,7 +232,8 @@ def build_site():
         slug = cat_data["slug"]
         cat_books = sorted(cat_data["books"], key=lambda b: b["value_score"], reverse=True)
         html = template_cat.render(
-            books=cat_books,
+            initial_books=cat_books[:40],
+            books_json_data=cat_books,
             categories=categories,
             category_name=cat_name,
             category_slug=slug,

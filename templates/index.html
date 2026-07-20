@@ -138,7 +138,7 @@
 
                  {% if book.cover_url %}
 
-                 {% if loop.first %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" width="220" height="293">{% else %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">{% endif %}
+                 {% if loop.first %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" width="220" height="293" fetchpriority="high">{% else %}<img class="card-cover" src="{{ book.cover_featured }}" alt="{{ book.title }}" loading="lazy" width="220" height="293">{% endif %}
 
                  {% else %}
 
@@ -304,7 +304,7 @@
 
              <tbody id="table-body">
 
-                 {% for book in books %}
+                 {% for book in initial_books %}
 
                  <tr class="book-row" 
 
@@ -407,6 +407,9 @@
      </p>
 
 </section>
+
+<!-- Full book data for client-side rendering -->
+<script id="books-json-data" type="application/json">{{ books_json_data | tojson | safe }}</script>
 
 <!-- Bottom CTA -->
 

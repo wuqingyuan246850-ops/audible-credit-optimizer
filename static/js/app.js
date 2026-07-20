@@ -15,6 +15,67 @@
  
      // Get all rows
      const rows = Array.from(tableBody.querySelectorAll('.book-row'));
+
+    // --- Load remaining books from embedded JSON (paginated) ---
+    (function() {
+        var dataScript = document.getElementById('books-json-data');
+        if (!dataScript) return;
+        var allBooks;
+        try { allBooks = JSON.parse(dataScript.textContent); } catch(e) { return; }
+        // First 40 are already in HTML
+        var remaining = allBooks.slice(40);
+        if (remaining.length === 0) return;
+        
+        function esc(t) { return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+        
+        var rIdx = 0, BATCH = 40;
+        var frag = document.createDocumentFragment();
+        
+        function insertBatch() {
+            var end = Math.min(rIdx + BATCH, remaining.length);
+            for (; rIdx < end; rIdx++) {
+                var b = remaining[rIdx];
+                var tr = document.createElement('tr');
+                tr.className = 'book-row';
+                tr.dataset.title = (b.title||'').toLowerCase();
+                tr.dataset.author = (b.author||'').toLowerCase();
+                tr.dataset.narrator = (b.narrator||'').toLowerCase();
+                tr.dataset.category = b.primary_category||'';
+                tr.dataset.valueTier = b.value_tier||'';
+                tr.dataset.price = String(b.price||0);
+                tr.dataset.rating = String(b.rating||0);
+                tr.dataset.runtime = String(b.runtime_minutes||0);
+                tr.dataset.valueScore = String(b.value_score||0);
+                var h = '';
+                h += '<td class="col-cover">';
+                if (b.cover_url) { h += '<img src="'+esc(b.cover_thumb)+'" alt="" class="cover-thumb" loading="lazy" width="40" height="54">'; }
+                else { h += '<div class="cover-thumb cover-thumb-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20"/></svg></div>'; }
+                h += '</td>';
+                h += '<td class="col-title"><a href="book/'+esc(b.slug)+'.html" class="book-title-link">'+esc(b.title)+'</a></td>';
+                h += '<td class="col-author">'+esc(b.author)+'</td>';
+                h += '<td class="col-category"><span class="category-tag">'+esc(b.primary_category)+'</span></td>';
+                h += '<td class="col-rating"><span class="stars">'+(b.stars_display||'')+'</span>';
+                if (b.rating > 0) { h += '<span class="rating-num">'+b.rating+'</span>'; }
+                else { h += '<span class="rating-num">N/A</span>'; }
+                h += '</td>';
+                h += '<td class="col-runtime">'+(b.runtime_formatted||'N/A')+'</td>';
+                h += '<td class="col-price">'+(b.price_formatted||'')+'</td>';
+                h += '<td class="col-value"><span class="value-badge badge-'+esc(b.value_tier)+'" title="Value Score: '+b.value_score+'">'+b.value_score+'</span></td>';
+                h += '<td class="col-action"><a href="'+esc(b.affiliate_url)+'" target="_blank" rel="noopener sponsored" class="btn btn-table">Get on Audible</a></td>';
+                tr.innerHTML = h;
+                frag.appendChild(tr);
+                rows.push(tr);
+            }
+            if (frag.children.length > 0) { tableBody.appendChild(frag); frag = document.createDocumentFragment(); }
+            if (rIdx < remaining.length) { requestAnimationFrame(insertBatch); }
+        }
+        
+        // Start after paint
+        var startLoad = function() { requestAnimationFrame(function() { requestAnimationFrame(insertBatch); }); };
+        if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', startLoad); }
+        else { startLoad(); }
+    })();
+
  
      // --- Search ---
      function filterRows() {
