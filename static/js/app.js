@@ -1,4 +1,4 @@
- /**
+﻿ /**
   * Audible Credit Optimizer - Frontend App
   * Handles table sorting, filtering, and search
   */
@@ -162,28 +162,6 @@
      }
  
  
-    // Mobile: hamburger menu for nav
-    (function() {
-        var hamburger = document.getElementById('hamburger-btn');
-        var mobileNav = document.getElementById('mobile-nav');
-        if (!hamburger || !mobileNav) return;
-
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('open');
-            document.body.classList.toggle('mobile-nav-open');
-        });
-
-        // Close mobile nav when clicking a link
-        mobileNav.querySelectorAll('.nav-link').forEach(function(link) {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('open');
-                document.body.classList.remove('mobile-nav-open');
-            });
-        });
-    })();
-
     // --- Scroll-to-top button ---
     (function() {
         var scrollBtn = document.getElementById('scroll-top');
