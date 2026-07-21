@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +17,9 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
 .main-nav{display:flex;gap:2px;flex-wrap:nowrap;flex:1;overflow:hidden}
 .nav-link{color:var(--text-secondary);font-size:.8rem;text-decoration:none;padding:6px 8px;min-height:44px;display:inline-flex;align-items:center;border-radius:var(--radius-sm);white-space:nowrap}
 .header-cta{flex-shrink:0}
-.hamburger{display:none!important;background:none;flex-direction:column;justify-content:center;gap:4px;border:none;padding:8px;cursor:pointer;flex-shrink:0;min-width:48px;min-height:48px;align-items:center}
+.hamburger{display:none!important;background:rgba(255,255,255,.05);flex-direction:column;justify-content:center;align-items:center;gap:4px;border:1px solid rgba(75,107,126,.3);border-radius:3px;padding:8px;cursor:pointer;flex-shrink:0;min-width:48px;min-height:48px}.hamburger:hover{background:rgba(255,255,255,.1);border-color:var(--accent-primary)}
 @media (max-width:1024px){.main-nav{display:none!important}.hamburger{display:inline-flex!important}.header-cta{display:none!important}}
-@media (min-width:1025px){.hamburger{display:none!important}.main-nav{display:flex!important}.header-cta{display:flex!important}}
+@media (min-width:1025px){.hamburger{display:none!important}.main-nav{display:flex!important}.header-cta{display:flex!important}}@media(max-width:768px){.logo-text{display:none}}@media(max-width:480px){.site-header{height:52px}.header-inner{height:52px;padding:0 6px;gap:6px}.btn-accent{font-size:.75rem;padding:.4em .8em;min-height:36px}}
 .btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-family);font-weight:500;font-size:.9rem;padding:.55em 1.1em;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:all .15s ease;text-decoration:none;white-space:nowrap}
 .btn-accent{background:linear-gradient(135deg,#54a0d3,#66c0f4);color:#fff;font-weight:600;padding:.6em 1.3em;min-height:44px}
 .breadcrumbs{max-width:1200px;margin:0 auto;padding:12px 20px;font-size:.85rem;color:var(--text-secondary)}.breadcrumbs a{color:var(--accent-primary)}.breadcrumb-sep{margin:0 8px;color:var(--border-light)}.breadcrumb-current{color:var(--text-primary)}.hero-banner{position:relative;background:var(--bg-hero);padding:60px 20px 40px;text-align:center;overflow:hidden;min-height:320px;contain:layout style}
@@ -56,8 +56,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
      <meta name="description" content="Discover the best Fantasy Audiobooks 鈥?worth your Audible credit. Compare value scores, ratings, and cash prices to maximize every credit.">
      <title>Best Fantasy Audiobooks 鈥?Audible Credit Value</title>
      <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
     <link rel="preload" href="../static/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="high">
     <noscript><link rel="stylesheet" href="../static/css/style.css"></noscript>
@@ -76,12 +75,6 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
 <meta property="og:title" content="Best Fantasy Audiobooks | Audible Credit Value">
 
 <meta property="og:description" content="Discover the best Fantasy Audiobooks worth your Audible credit. Compare value scores, ratings, and cash prices.">
-
-<meta property="og:type" content="website">
-
-<meta property="og:title" content="Best Fantasy Audiobooks 鈥?Audible Credit Value">
-
-<meta property="og:description" content="Discover the best Fantasy Audiobooks 鈥?worth your Audible credit. Compare value scores, ratings, and cash prices.">
 
 <meta property="og:type" content="website">
 
@@ -161,7 +154,6 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
     </button>
 
     <main class="main-content">
-
 
 <!-- Breadcrumbs -->
 <nav class="breadcrumbs">
@@ -279,7 +271,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/61rYqiz8yJL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/61rYqiz8yJL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -346,7 +338,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/512ignuVnAL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/512ignuVnAL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -413,7 +405,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51gnKytbRxL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51gnKytbRxL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -480,7 +472,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51LtwJyVzZL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51LtwJyVzZL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -547,7 +539,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51Rv94ClJjL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51Rv94ClJjL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -614,7 +606,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51f1IKkwENS._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51f1IKkwENS._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -681,7 +673,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51qV17KT+ZL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51qV17KT+ZL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -748,7 +740,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51iXgWlBp2L._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51iXgWlBp2L._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -815,7 +807,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51OngNjOVQL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51OngNjOVQL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -882,7 +874,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51vf0278YxL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51vf0278YxL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -949,7 +941,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51k2g6uPmfL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51k2g6uPmfL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1016,7 +1008,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51z-WQaZ24L._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51z-WQaZ24L._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1083,7 +1075,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51x86adi7EL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51x86adi7EL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1150,7 +1142,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51ZHUBzLdQL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51ZHUBzLdQL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1217,7 +1209,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/519ezwnktFL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/519ezwnktFL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1284,7 +1276,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51G4GbFkpmL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51G4GbFkpmL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1351,7 +1343,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51KQVRMLjyL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51KQVRMLjyL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1418,7 +1410,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51WDXXeEbBL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51WDXXeEbBL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1485,7 +1477,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51fMQEAIzkL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51fMQEAIzkL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1552,7 +1544,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51Z6oEg+TGL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51Z6oEg+TGL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1619,7 +1611,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51k4yIdbjCL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51k4yIdbjCL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1686,7 +1678,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/61ulpSkaMmL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/61ulpSkaMmL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1753,7 +1745,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51+xouvLEfL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51+xouvLEfL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1820,7 +1812,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51t5lvMWi7L._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51t5lvMWi7L._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1887,7 +1879,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51Rxq+zhyBL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51Rxq+zhyBL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -1954,7 +1946,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
                      <td class="col-cover">
 
 
-                         <img src="https://m.media-amazon.com/images/I/51ix008lQYL._SL75_.jpg" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="https://m.media-amazon.com/images/I/51ix008lQYL._SL75_.jpg" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
 
                      </td>
@@ -2024,7 +2016,7 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
 
     <script src="../static/js/app.js" defer></script>
 
-    <!-- Inline hamburger toggle -->
+    
     <script>
     (function(){
         var h=document.getElementById("hamburger-btn");
@@ -2046,52 +2038,18 @@ h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
         }
     })();
     </script>
-
-    <!-- Inline hamburger toggle -->
+    <!-- Google tag (gtag.js) - deferred -->
     <script>
-    (function(){
-        var h=document.getElementById("hamburger-btn");
-        var m=document.getElementById("mobile-nav");
-        if(h&&m){
-            h.addEventListener("click",function(e){
-                e.stopPropagation();
-                h.classList.toggle("active");
-                m.classList.toggle("open");
-                document.body.classList.toggle("mobile-nav-open");
-            });
-            m.querySelectorAll(".nav-link").forEach(function(l){
-                l.addEventListener("click",function(){
-                    h.classList.remove("active");
-                    m.classList.remove("open");
-                    document.body.classList.remove("mobile-nav-open");
-                });
-            });
-        }
-    })();
-    </script>
-    <!-- Google tag (gtag.js) - deferred after full page load -->
-    <script>
-        (function() {
-            function deferGA() {
-                var s = document.createElement('script');
-                s.async = true;
-                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W0V3TKXCMR';
-                document.head.appendChild(s);
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-W0V3TKXCMR');
-            }
-            if (window.requestIdleCallback) {
-                window.addEventListener('load', function() {
-                    requestIdleCallback(deferGA, {timeout: 5000});
-                });
-            } else {
-                window.addEventListener('load', function() {
-                    setTimeout(deferGA, 3000);
-                });
-            }
-        })();
+        window.addEventListener('load', function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W0V3TKXCMR';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W0V3TKXCMR');
+        });
     </script>
 </body>
 </html>

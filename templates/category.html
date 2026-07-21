@@ -18,12 +18,6 @@
 
 <meta property="og:type" content="website">
 
-<meta property="og:title" content="Best {{ category_name }} Audiobooks 鈥?Audible Credit Value">
-
-<meta property="og:description" content="Discover the best {{ category_name }} Audiobooks 鈥?worth your Audible credit. Compare value scores, ratings, and cash prices.">
-
-<meta property="og:type" content="website">
-
 <script type="application/ld+json">
 
 {
@@ -47,7 +41,7 @@
 {% endblock %}
 
 {% block content %}
-
+
 <!-- Breadcrumbs -->
 <nav class="breadcrumbs">
   <a href="{{ static_prefix }}/index.html">All Books</a>
@@ -166,7 +160,7 @@
 
                          {% if book.cover_url %}
 
-                         <img src="{{ book.cover_thumb }}" alt="" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="{{ book.cover_thumb }}" alt="Book cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
                          {% else %}
 
@@ -229,5 +223,4 @@
 </section>
 
 {% endblock %}
-
 

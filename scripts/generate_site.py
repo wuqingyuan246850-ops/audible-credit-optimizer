@@ -339,11 +339,11 @@ def build_site():
 
 # CSS files - explicit MIME type
 /static/css/*
-  Content-Type: text/css
+  Content-Type: text/css; charset=utf-8
 
 # JS files - explicit MIME type
 /static/js/*
-  Content-Type: application/javascript
+  Content-Type: application/javascript; charset=utf-8
 
 # Static assets with proper cache
 /static/*
@@ -416,9 +416,9 @@ Allow: /
         f.write(robots)
     logger.info("Generated robots.txt")
     # --- llms.txt (AI crawler SEO) ---
-    llms_lines = [f"# Audible Credit Optimizer - Audiobook Value Database"]
+    llms_lines = ["# Audible Credit Optimizer - Audiobook Value Database"]
     llms_lines.append("")
-    llms_lines.append("> Find the best audiobooks for your Audible credit. Compare prices, ratings, and runtime.")
+    llms_lines.append("Find the best audiobooks for your Audible credit. Compare prices, ratings, and runtime.")
     llms_lines.append("")
     llms_lines.append("## Core Pages")
     llms_lines.append(f"- [Home]({SITE_URL}/)")
