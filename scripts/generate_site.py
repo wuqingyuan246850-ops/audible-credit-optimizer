@@ -300,6 +300,22 @@ def build_site():
     logger.info(f"Generated {len(books)} book detail pages")
 
 
+
+    # --- 404 Page ---
+    template_404 = env.get_template("404.html")
+    html_404 = template_404.render(
+        partner_tag=partner_tag,
+        categories=categories,
+        total_books=len(books),
+        build_date=datetime.now().strftime("%B %d, %Y"),
+        static_prefix="./",
+        lcp_image_url="",
+        canonical_path="",
+    )
+    with open(OUTPUT_DIR / "404.html", "w", encoding="utf-8") as f:
+        f.write(html_404)
+    logger.info("Generated 404.html")
+
     public_books = []
     for b in books:
         public_books.append({

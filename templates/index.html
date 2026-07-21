@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Audible Credit Optimizer →Best Value Audiobooks for Your Credit{% endblock %}
 
@@ -176,7 +176,7 @@
 
                     <a href="book/{{ book.slug }}.html" class="btn btn-sm btn-primary">
 
-                        View Details
+                        View {{ book.title[:50] }}{% if book.title|length > 50 %}...{% endif %} &rarr;
 
                     </a>
 
@@ -439,4 +439,5 @@
 </section>
 
 {% endblock %}
+
 

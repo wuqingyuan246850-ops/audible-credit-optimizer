@@ -1,0 +1,17 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Page Not Found | Audible Credit Value{% endblock %}
+
+{% block meta_description %}The page you were looking for does not exist. Browse the best value audiobooks for your Audible credit.{% endblock %}
+
+{% block content %}
+
+<div style="text-align:center;padding:80px 20px;max-width:600px;margin:0 auto">
+  <h1 style="font-size:3rem;margin-bottom:16px;color:var(--text-heading)">404</h1>
+  <p style="font-size:1.1rem;color:var(--text-secondary);margin-bottom:32px;line-height:1.6">
+    Page not found. The audiobook you're looking for might have been moved or doesn't exist.
+  </p>
+  <a href="{{ static_prefix }}/index.html" class="btn btn-hero btn-large" style="display:inline-block">Browse All Audiobooks &rarr;</a>
+</div>
+
+{% endblock %}

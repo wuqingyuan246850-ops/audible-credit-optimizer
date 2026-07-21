@@ -1,4 +1,4 @@
-﻿ /* ===========================================
+ /* ===========================================
     Audible Credit Optimizer 閳?Steam Dark Theme
     Inspired by store.steampowered.com
     =========================================== */
@@ -241,7 +241,11 @@
      letter-spacing: 0.05em;
  }
  
- /* --- Category Hero --- */
+ 
+/* --- Breadcrumbs --- */
+.breadcrumbs{padding:12px 20px;font-size:.85rem;color:var(--text-secondary);max-width:1360px;margin:0 auto}.breadcrumbs a{color:var(--accent-primary);text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}.breadcrumb-sep{margin:0 8px;color:var(--border-light)}.breadcrumb-current{color:var(--text-primary)}
+
+/* --- Category Hero --- */
  .category-hero {
      background: var(--bg-hero);
      padding: 40px 20px;
