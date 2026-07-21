@@ -640,9 +640,6 @@
  /* --- Responsive Design - Mobile/Tablet/Desktop --- */
  @media (max-width: 1024px) {
      .header-inner { gap: 10px; padding: 0 12px; }
-     .main-nav { display: none; }
-     .hamburger { display: flex; }
-     .header-cta { display: none; }
      .hero-title { font-size: 1.8rem; }
      .hero-stats { gap: 24px; }
      .featured-card { flex: 0 0 190px; }
@@ -875,6 +872,18 @@
     font-size: 0.95rem;
 }
 
+
+/* Responsive Navigation - hide desktop nav on mobile, show hamburger */
+@media (max-width: 1024px) {
+    .main-nav { display: none !important; }
+    .hamburger { display: inline-flex !important; }
+    .header-cta { display: none !important; }
+}
+@media (min-width: 1025px) {
+    .main-nav { display: flex !important; }
+    .hamburger { display: none !important; }
+    .header-cta { display: flex !important; }
+}
 /* --- Scroll to Top --- */
 .scroll-top {
     position: fixed;
@@ -909,12 +918,7 @@
     height: 20px;
 }
 
-@media (max-width: 900px) {
-    .hamburger { display: flex; }
-}
- @media (min-width: 1025px) {
-     .hamburger { display: none; }
- }
+
 @media (max-width: 600px) {
     .scroll-top {
         bottom: 16px;

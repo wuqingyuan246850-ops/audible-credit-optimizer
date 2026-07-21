@@ -188,9 +188,21 @@ def main():
     if not books:
         logger.info("Fallback to seed data")
         books = seeds
+    # Merge with existing books to preserve books that failed to fetch
+    existing = []
+    if OUTPUT_FILE.exists():
+        try:
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+        except:
+            pass
+    merged = {b.get("asin", ""): b for b in existing}
+    for b in books:
+        merged[b.get("asin", "")] = b
+    merged_books = list(merged.values())
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(books, f, indent=2, ensure_ascii=False)
-    logger.info(f"Saved {len(books)} books")
+        json.dump(merged_books, f, indent=2, ensure_ascii=False)
+    logger.info(f"Saved {len(merged_books)} books ({len(books)} fresh + {len(merged_books)-len(books)} preserved)")
 
 if __name__ == "__main__":
     main()
