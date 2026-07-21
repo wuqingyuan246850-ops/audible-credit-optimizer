@@ -21,7 +21,11 @@
     <link rel="preload" href="{{ static_prefix }}/static/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="high">
     <noscript><link rel="stylesheet" href="{{ static_prefix }}/static/css/style.css"></noscript>
     <link rel="canonical" href="https://audiobookvalue.com/{{ canonical_path or '' }}">
-     {% block extra_head %}{% endblock %}
+    <meta property="og:site_name" content="Audible Credit Optimizer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Audible Credit Optimizer — Best Value Audiobooks{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Compare audiobook prices, ratings, and credit value. Get the most out of every Audible credit.{% endblock %}">
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
      <header class="site-header">
