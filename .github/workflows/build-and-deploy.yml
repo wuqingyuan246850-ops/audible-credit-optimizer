@@ -27,6 +27,7 @@ jobs:
       - name: Generate static site (uses committed data/books.json)
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
+          AMAZON_ASSOCIATE_TAG: ${{ secrets.AMAZON_ASSOCIATE_TAG }}
         run: python scripts/generate_site.py
       - name: Deploy to Cloudflare Pages
         env:

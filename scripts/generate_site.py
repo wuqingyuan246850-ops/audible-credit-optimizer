@@ -192,6 +192,7 @@ def build_site():
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), trim_blocks=True, lstrip_blocks=True)
     partner_tag = get_partner_tag()
+    build_version = datetime.now().strftime("%Y%m%d%H%M")
 
     if OUTPUT_DIR.exists():
         shutil.rmtree(str(OUTPUT_DIR))
@@ -241,6 +242,7 @@ def build_site():
         top_picks=top_picks,
         total_books=len(books),
         build_date=datetime.now().strftime("%B %d, %Y"),
+        build_version=build_version,
         static_prefix=".",
         canonical_path="",
     )
@@ -261,6 +263,7 @@ def build_site():
             category_slug=slug,
             total_books=len(cat_books),
             build_date=datetime.now().strftime("%B %d, %Y"),
+        build_version=build_version,
             static_prefix="..",
             canonical_path=f"category/{slug}.html",
         )
@@ -290,6 +293,7 @@ def build_site():
             categories=categories,
             total_books=len(books),
             build_date=datetime.now().strftime("%B %d, %Y"),
+        build_version=build_version,
             static_prefix="..",
             canonical_path=f"book/{slug}.html",
             lcp_image_url=book.get("cover_featured", ""),
@@ -308,6 +312,7 @@ def build_site():
         categories=categories,
         total_books=len(books),
         build_date=datetime.now().strftime("%B %d, %Y"),
+        build_version=build_version,
         static_prefix="./",
         lcp_image_url="",
         canonical_path="",
