@@ -350,6 +350,18 @@ def build_site():
         f.write(headers)
 
 
+    # --- _routes.json for Cloudflare Pages ---
+    import json as _json
+    routes_config = {
+        "version": 1,
+        "include": ["/*"],
+        "exclude": ["/static/*", "/robots.txt", "/sitemap.xml", "/llms.txt", "/books.json", "/google*.html", "/_headers"]
+    }
+    with open(OUTPUT_DIR / "_routes.json", "w", encoding="utf-8") as f:
+        _json.dump(routes_config, f, indent=2)
+    logger.info("Generated _routes.json")
+
+
     # --- Google Search Console verification ---
     google_verify = ROOT_DIR / "google0d3944acb60592a6.html"
     if google_verify.exists():
