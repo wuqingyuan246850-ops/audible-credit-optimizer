@@ -805,6 +805,7 @@
 /* --- Hamburger Menu --- */
 .hamburger {
     display: none;
+    display: none !important;
     flex-direction: column;
     justify-content: center;
     gap: 4px;
@@ -837,6 +838,7 @@
 .mobile-nav-open { overflow: hidden; }
 .mobile-nav-overlay {
     display: none;
+    display: none !important;
     position: fixed;
     top: var(--header-height);
     left: 0;
@@ -849,7 +851,7 @@
     gap: 4px;
     overflow-y: auto;
 }
-.mobile-nav-overlay.open { display: flex; }
+.mobile-nav-overlay.open { display: flex !important; }
 .mobile-nav-overlay .nav-link {
     font-size: 1rem;
     padding: 14px 20px;
