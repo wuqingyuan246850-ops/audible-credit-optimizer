@@ -4,13 +4,14 @@
 
 {% block meta_description %}Is {{ book.title }} worth your Audible credit? Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5 stars{% else %}rated{% endif %}, {{ book.runtime_formatted }} runtime. Compare value scores for {{ book.title }} and similar {{ book.primary_category }} audiobooks.{% endblock %}
 
+{% block twitter_title %}{{ book.title }} by {{ book.author }}'s Audible Credit Value{% endblock %}
+{% block twitter_description %}Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5 stars{% else %}rated{% endif %}, {{ book.runtime_formatted }} runtime. Is {{ book.title }} worth your Audible credit?{% endblock %}
+
 {% block extra_head %}
 
 <meta property="og:url" content="https://audiobookvalue.com/book/{{ book.slug }}.html">
 <meta property="og:site_name" content="Audible Credit Optimizer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ book.title }} by {{ book.author }}'s Audible Credit Value">
-<meta name="twitter:description" content="Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5 stars{% else %}rated{% endif %}, {{ book.runtime_formatted }} runtime. Is {{ book.title }} worth your Audible credit?">
 
 <meta property="og:title" content="{{ book.title }} by {{ book.author }}'s Audible Credit Value">
 
@@ -21,10 +22,6 @@
 {% if book.cover_url %}
 
 <meta property="og:image" content="{{ book.cover_url }}">
-
-{% endif %}
-
-{% if book.cover_url %}
 
 {% endif %}
 
@@ -62,7 +59,7 @@
 
     "narrator": "{{ book.narrator }}",
 
-    "datePublished": "{{ book.last_updated[:10] if book.last_updated }}",
+    "datePublished": "{{ book.last_updated[:10] if book.last_updated else "" }}",
 
     "bookFormat": "https://schema.org/AudiobookFormat",
 
@@ -80,15 +77,13 @@
 
     },
 
+    {% if book.rating > 0 %}
     "aggregateRating": {
-
       "@type": "AggregateRating",
-
       "ratingValue": "{{ book.rating }}",
-
       "reviewCount": "{{ book.review_count }}"
-
     }
+    {% endif %}
 
   }
 
