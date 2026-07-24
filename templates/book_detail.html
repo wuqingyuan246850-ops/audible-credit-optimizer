@@ -75,9 +75,8 @@
 
       "availability": "https://schema.org/InStock"
 
-    },
-
-    {% if book.rating > 0 %}
+    }
+    {% if book.rating > 0 %},
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "{{ book.rating }}",
