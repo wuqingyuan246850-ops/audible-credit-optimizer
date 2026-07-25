@@ -41,9 +41,17 @@
              const matchesCategory = !category || category === 'all' || rowCategory === category;
              const matchesTier = !tier || tier === 'all' || rowTier === tier;
  
-             row.classList.toggle('row-hidden', !(matchesSearch && matchesCategory && matchesTier));
-         });
-     }
+            row.classList.toggle('row-hidden', !(matchesSearch && matchesCategory && matchesTier));
+        });
+        // Re-sort after filter so the table refreshes visually
+        if (sortSelect) {
+            const val = sortSelect.value;
+            const match = val.match(/^(.+)_(asc|desc)$/);
+            if (match) {
+                sortRows(match[1], match[2]);
+            }
+        }
+    }
  
      if (searchInput) searchInput.addEventListener('input', filterRows);
      if (categoryFilter) categoryFilter.addEventListener('change', filterRows);
@@ -139,8 +147,7 @@
  
      // --- Initial sort: deferred after paint to avoid forced reflow ---
      function runInitialSort() {
-        // Books already sorted by Value Score in HTML.
-        // Skipping DOM sort eliminates forced reflow.
+        sortRows("value_score", "desc");
     }
      if (document.readyState === 'loading') {
          document.addEventListener('DOMContentLoaded', function() {
@@ -212,6 +219,3 @@
     })();
 
 })();
-
-
-
