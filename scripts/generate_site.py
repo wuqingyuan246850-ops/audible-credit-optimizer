@@ -6,6 +6,7 @@ Reads books.json -> applies Jinja2 templates -> outputs static HTML/CSS/JS
 """
 
 import json
+import random
 import os
 import logging
 import re
@@ -127,6 +128,11 @@ def enrich_books(books):
 
 def get_top_picks(books, count=5):
     sorted_books = sorted(books, key=lambda b: b["value_score"], reverse=True)
+    # Randomly pick from high-value books (credit_value >= 1.5 = 1.5x+ credit value)
+    pool = [b for b in sorted_books if b.get("credit_value", 0) >= 1.5]
+    if len(pool) >= count:
+        return random.sample(pool, count)
+    # Fallback: top value_score
     return sorted_books[:count]
 
 

@@ -1,4 +1,4 @@
-"""Audible Credit Optimizer - Amazon Creators API Data Fetcher v3.x"""
+﻿"""Audible Credit Optimizer - Amazon Creators API Data Fetcher v3.x"""
 
 import json, os, sys, time, logging
 from datetime import datetime
@@ -155,6 +155,34 @@ def parse_item(item, seed_defaults=None):
         logger.warning(f"Parse failed: {e}")
         return None
 
+
+
+def _scrape_rating_runtime(asin):
+    """Fallback: extract rating and runtime from Amazon product page HTML."""
+    import re, requests
+    url = f"https://www.amazon.com/dp/{asin}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    try:
+        resp = requests.get(url, headers=headers, timeout=15)
+        html = resp.text
+    except Exception:
+        return (0.0, 0)
+    # Rating: find 'X.X out of 5 stars'
+    rating = 0.0
+    rm = re.findall(r"([\d.]+)\s*out of 5 stars", html)
+    if rm:
+        try: rating = float(rm[0])
+        except: pass
+    # Runtime: find 'X hours Y minutes'
+    runtime = 0
+    tm = re.findall(r"(\d+)\s*hours?\s*(?:and\s*)?(\d+)?\s*minutes?", html, re.IGNORECASE)
+    if tm and tm[0][0]:
+        runtime = int(tm[0][0]) * 60 + (int(tm[0][1]) if tm[0][1] else 0)
+    return (rating, runtime)
+
 def main():
     if not SEED_FILE.exists():
         logger.warning("No seed file found")
@@ -200,6 +228,35 @@ def main():
     for b in books:
         merged[b.get("asin", "")] = b
     merged_books = list(merged.values())
+
+    # Scrape fallback for books missing rating or runtime
+    missing = [b for b in merged_books if b.get("rating", 0) == 0 or b.get("runtime_minutes", 0) == 0]
+    if missing:
+        logger.info(f"Scraping {len(missing)} books in parallel (5 workers)...")
+        asin_map = {b.get("asin", ""): b for b in missing if b.get("asin", "")}
+        scraped = 0
+        done = 0
+        def _scrape_one(asin):
+            rating, runtime = _scrape_rating_runtime(asin)
+            time.sleep(0.1)
+            return (asin, rating, runtime)
+        with ThreadPoolExecutor(max_workers=5) as pool:
+            futures = {pool.submit(_scrape_one, a): a for a in asin_map}
+            for fut in as_completed(futures):
+                asin, rating, runtime = fut.result()
+                done += 1
+                b = asin_map.get(asin)
+                if b:
+                    if rating > 0 and b.get("rating", 0) == 0:
+                        b["rating"] = rating
+                        scraped += 1
+                    if runtime > 0 and b.get("runtime_minutes", 0) == 0:
+                        b["runtime_minutes"] = runtime
+                if done % 30 == 0 or done == len(asin_map):
+                    pct = done * 100 // len(asin_map)
+                    logger.info(f"  Progress: {done}/{len(asin_map)} ({pct}%), {scraped} enriched so far")
+        logger.info(f"Scraped rating/runtime for {scraped}/{len(asin_map)} books")
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(merged_books, f, indent=2, ensure_ascii=False)
     logger.info(f"Saved {len(merged_books)} books ({len(books)} fresh + {len(merged_books)-len(books)} preserved)")
