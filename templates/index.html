@@ -1,20 +1,20 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
-{% block title %}Audible Credit Optimizer &rarr;Best Value Audiobooks for Your Credit{% endblock %}
+{% block title %}Audible积分价值优化器 → 最佳价值有声书{% endblock %}
 
-{% block meta_description %}Compare audiobook prices, ratings, and credit value. Find the best sci-fi, fantasy, thriller, and self-development audiobooks worth your Audible credit.{% endblock %}
+{% block meta_description %}比较有声书价格、评分和积分价值。寻找最佳科幻、奇幻、惊悚和自我发展类有声书，充分发挥您的Audible积分价值。{% endblock %}
 
 {% block extra_head %}
 
 <meta property="og:url" content="https://audiobookvalue.com/">
 
-<meta name="twitter:title" content="Audible Credit Optimizer ? Best Value Audiobooks">
+<meta name="twitter:title" content="Audible积分价值优化器 → 最佳价值有声书">
 
-<meta name="twitter:description" content="Compare audiobook prices, ratings, and credit value. Get the most out of every Audible credit.">
+<meta name="twitter:description" content="比较有声书价格、评分和积分价值。充分利用每个Audible积分。">
 
-<meta property="og:title" content="Audible Credit Optimizer &rarr;Best Value Audiobooks">
+<meta property="og:title" content="Audible积分价值优化器 → 最佳价值有声书">
 
-<meta property="og:description" content="Compare audiobook prices, ratings, and credit value. Get the most out of every Audible credit.">
+<meta property="og:description" content="比较有声书价格、评分和积分价值。充分利用每个Audible积分。">
 
 <meta property="og:type" content="website">
 
@@ -26,9 +26,9 @@
 
   "@type": "WebSite",
 
-  "name": "Audible Credit Optimizer",
+  "name": "Audible积分价值优化器",
 
-  "description": "Find the best value audiobooks for your Audible credits",
+  "description": "寻找最适合您Audible积分的最佳价值有声书",
 
   "url": "https://audiobookvalue.com"
 
@@ -48,13 +48,11 @@
 
      <div class="hero-content">
 
-         <h1 class="hero-title">Get the <span class="text-accent">Most Value</span> From Every Audible Credit</h1>
+         <h1 class="hero-title">让每个Audible积分发挥<span class="text-accent">最大价值</span></h1>
 
          <p class="hero-subtitle">
 
-             Compare {{ total_books }} audiobooks by cash price, rating, and runtime.
-
-             Never waste a credit on a cheap book again.
+             比较{{ total_books }}本有声书的现金价格、评分和时长。再也不要在一个廉价书上浪费积分。
 
          </p>
 
@@ -64,7 +62,7 @@
 
                    target="_blank" rel="noopener sponsored" class="btn btn-hero">
 
-                    &rarr;Start Your Free 30-Day Trial &rarr;Get 1 Free Book
+                    →开始30天免费试用 →获赠1本免费有声书
 
                 </a>
 
@@ -76,15 +74,15 @@
 
                  <span class="stat-value">{{ total_books }}</span>
 
-                 <span class="stat-label">Books Analyzed</span>
+                 <span class="stat-label">已分析书籍</span>
 
              </div>
 
              <div class="stat">
 
-                 <span class="stat-value">{{ categories.keys() | list | length }}</span>
+                 <span class="stat-value">{{ 分类.keys() | list | length }}</span>
 
-                 <span class="stat-label">Categories</span>
+                 <span class="stat-label">分类</span>
 
              </div>
 
@@ -92,7 +90,7 @@
 
                  <span class="stat-value">$20</span>
 
-                 <span class="stat-label">Earned Per Referral</span>
+                 <span class="stat-label">每推荐收入</span>
 
              </div>
 
@@ -110,9 +108,9 @@
 
      <div class="section-header">
 
-        <h2 class="section-title">&rarr;Top Value Picks</h2>
+        <h2 class="section-title">→最佳价值推荐</h2>
 
-         <span class="section-subtitle">Highest credit-value audiobooks</span>
+         <span class="section-subtitle">最高积分价值的有声书</span>
 
      </div>
 
@@ -132,11 +130,11 @@
 
                      {% if book.price > 0 %}
 
-                     <span class="price-label">Cash Price</span>
+                     <span class="price-label">现金价格</span>
 
                      <span class="price-value">{{ book.price_formatted }}</span>
 
-                     <span class="credit-value">= <strong>{{ book.credit_value | int }}</strong>x Credit Value</span>
+                     <span class="credit-value">= <strong>{{ book.credit_value | int }}</strong>倍积分价值</span>
 
                      {% endif %}
 
@@ -176,7 +174,7 @@
 
                     <a href="book/{{ book.slug }}.html" class="btn btn-sm btn-primary">
 
-                        View {{ book.title[:50] }}{% if book.title|length > 50 %}...{% endif %} &rarr;
+                        查看更多 →
 
                     </a>
 
@@ -200,9 +198,9 @@
 
      <div class="section-header">
 
-        <h2 class="section-title">&rarr;Audiobook Credit Value Database</h2>
+        <h2 class="section-title">→有声书积分价值数据库</h2>
 
-        <span class="section-subtitle">Sort, filter, and compare &rarr;find your next listen</span>
+        <span class="section-subtitle">排序、筛选和比较 → 找到您下一本有声书</span>
 
      </div>
 
@@ -218,19 +216,19 @@
 
              </svg>
 
-             <input type="text" id="search-input" class="search-input" placeholder="Search by title, author, or narrator..." autocomplete="off" aria-label="Search audiobooks">
+             <input type="text" id="search-input" class="search-input" placeholder="搜索书名、作者或朗读者..." autocomplete="off" aria-label="Search audiobooks">
 
          </div>
 
-        <div class="result-count" id="result-count">Showing <strong>{{ total_books }}</strong> audiobooks</div>
+        <div class="result-count" id="result-count">显示 <strong>{{ total_books }}</strong> 本有声书</div>
 
          <div class="filter-group">
 
             <label for="category-filter" class="sr-only">Category</label>
             <select id="category-filter" class="filter-select" aria-label="Filter by category">
-                 <option value="all">All Categories</option>
+                 <option value="all">All 分类</option>
 
-                 {% for cat_name in categories.keys() %}
+                 {% for cat_name in 分类.keys() %}
 
                  <option value="{{ cat_name }}">{{ cat_name }}</option>
 
@@ -240,37 +238,37 @@
 
             <label for="tier-filter" class="sr-only">Value Tier</label>
             <select id="tier-filter" class="filter-select" aria-label="Filter by value tier">
-                 <option value="all">All Value Tiers</option>
+                 <option value="all">全部价值等级</option>
 
-                <option value="legendary">&rarr;Legendary</option>
+                <option value="传奇">传奇</option>
 
-                <option value="excellent">&rarr;Excellent</option>
+                <option value="优秀">优秀</option>
 
-                <option value="great">&rarr;Great</option>
+                <option value="很好">很好</option>
 
-                <option value="good">&rarr;Good</option>
+                <option value="良好">良好</option>
 
              
-                <option value="decent">&rarr;Fair</option>
+                <option value="decent">一般</option>
 </select>
 
             <label for="sort-select" class="sr-only">Sort By</label>
             <select id="sort-select" class="filter-select" aria-label="排序">
-                <option value="value_score_desc" selected>Value Score ↓</option>
+                <option value="value_score_desc" selected>价值评分（高到低）</option>
 
-                <option value="value_score_asc">Value Score ↑</option>
+                <option value="value_score_asc">价值评分（低到高）</option>
 
-                <option value="price_desc">Price ↓</option>
+                <option value="price_desc">价格（高到低）</option>
 
-                <option value="price_asc">Price ↑</option>
+                <option value="price_asc">价格（低到高）</option>
 
-                <option value="rating_desc">Rating ↓</option>
+                <option value="rating_desc">评分（高到低）</option>
 
-                <option value="rating_asc">Rating ↑</option>
+                <option value="rating_asc">评分（低到高）</option>
 
-                <option value="title_asc">Title A-Z</option>
+                <option value="title_asc">书名 A-Z</option>
 
-                <option value="runtime_desc">Runtime ↓</option>
+                <option value="runtime_desc">时长（长到短）</option>
 
              </select>
 
@@ -288,23 +286,23 @@
 
                  <tr>
 
-                     <th class="col-cover">Cover</th>
+                     <th class="col-cover">封面</th>
 
-                     <th class="col-title sortable" data-sort="title">Title</th>
+                     <th class="col-title sortable" data-sort="title">书名</th>
 
-                     <th class="col-author sortable" data-sort="author">Author</th>
+                     <th class="col-author sortable" data-sort="author">作者</th>
 
-                     <th class="col-category sortable" data-sort="category">Category</th>
+                     <th class="col-category sortable" data-sort="category">分类</th>
 
-                     <th class="col-rating sortable" data-sort="rating">Rating</th>
+                     <th class="col-rating sortable" data-sort="rating">评分</th>
 
-                     <th class="col-runtime sortable" data-sort="runtime">Runtime</th>
+                     <th class="col-runtime sortable" data-sort="runtime">时长</th>
 
-                     <th class="col-price sortable" data-sort="price">Price</th>
+                     <th class="col-price sortable" data-sort="price">价格</th>
 
-                     <th class="col-value sortable" data-sort="value_score">Value Score</th>
+                     <th class="col-value sortable" data-sort="value_score">价值评分</th>
 
-                     <th class="col-action">Get It</th>
+                     <th class="col-action">获取</th>
 
                  </tr>
 
@@ -392,7 +390,7 @@
 
                          <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-table">
 
-                             Get on Audible
+                             在Audible获取
 
                          </a>
 
@@ -410,7 +408,7 @@
 
      <p class="table-note">
 
-         * Value Score factors: cash price (higher = more credit value), rating, and runtime.
+         * 价值评分因素：现金价格、评分和时长
 
      </p>
 
@@ -424,15 +422,15 @@
 
      <div class="cta-content">
 
-         <h2>Ready to Start Listening?</h2>
+         <h2>准备好开始聆听了吗？</h2>
 
-        <p>Try Audible free for 30 days. Get one free audiobook &mdash;yours to keep even if you cancel.</p>
+        <p>免费试用Audible 30天。获赠一本免费有声书——即使取消也归您所有。</p>
 
             <a href="https://www.amazon.com/hz/audible/mlp/mdp/?tag={{ partner_tag }}" 
 
                target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
 
-                &rarr;Start Free Trial
+                →开始免费试用
 
             </a>
 
@@ -441,5 +439,6 @@
 </section>
 
 {% endblock %}
+
 
 
