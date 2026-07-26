@@ -80,9 +80,9 @@
 
              <div class="stat">
 
-                 <span class="stat-value">{{ 分类.keys() | list | length }}</span>
+                 <span class="stat-value">{{ categories.keys() | list | length }}</span>
 
-                 <span class="stat-label">分类</span>
+                 <span class="stat-label">categories</span>
 
              </div>
 
@@ -226,9 +226,9 @@
 
             <label for="category-filter" class="sr-only">Category</label>
             <select id="category-filter" class="filter-select" aria-label="Filter by category">
-                 <option value="all">All 分类</option>
+                 <option value="all">All categories</option>
 
-                 {% for cat_name in 分类.keys() %}
+                 {% for cat_name in categories.keys() %}
 
                  <option value="{{ cat_name }}">{{ cat_name }}</option>
 
@@ -292,7 +292,7 @@
 
                      <th class="col-author sortable" data-sort="author">作者</th>
 
-                     <th class="col-category sortable" data-sort="category">分类</th>
+                     <th class="col-category sortable" data-sort="category">categories</th>
 
                      <th class="col-rating sortable" data-sort="rating">评分</th>
 
