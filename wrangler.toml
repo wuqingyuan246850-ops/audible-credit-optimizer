@@ -1,1 +1,2 @@
-name = " audible-credit-optimizer\n
+name = 'audible-credit-optimizer'
+pages_build_output_dir = './output'
