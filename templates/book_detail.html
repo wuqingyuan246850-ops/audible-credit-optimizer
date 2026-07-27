@@ -1,21 +1,21 @@
 ﻿{% extends "base.html" %}
 
-{% block title %}{{ book.title }} 作者：{{ book.author }} — Audible价格、积分价值与评价{% endblock %}
+{% block title %}{{ book.title }} Author:{{ book.author }} — AudiblePrice, Credit Value & Ratings{% endblock %}
 
-{% block meta_description %}{{ book.title }}是否值得您的Audible积分？现金价格{{ book.price_formatted }}，{% if book.rating > 0 %}{{ book.rating }}/5分{% else %}暂无评分{% endif %}，时长{{ book.runtime_formatted }}。比较{{ book.title }}及同类{{ book.primary_category }}有声书的价值评分。{% endblock %}
+{% block meta_description %}Is {{ book.title }} worth your Audible credit? Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5{% else %}No ratings yet{% endif %}, Runtime{{ book.runtime_formatted }}.Compare {{ book.title }} & Similar{{ book.primary_category }} Audiobooks's ValueRating.{% endblock %}
 
-{% block twitter_title %}{{ book.title }} 作者：{{ book.author }} 的Audible积分价值{% endblock %}
-{% block twitter_description %}现金价格{{ book.price_formatted }}，{% if book.rating > 0 %}{{ book.rating }}/5分{% else %}暂无评分{% endif %}，时长{{ book.runtime_formatted }}。{{ book.title }}是否值得您的Audible积分？{% endblock %}
+{% block twitter_title %}{{ book.title }} by {{ book.author }} AudibleCredit Value{% endblock %}
+{% block twitter_description %}Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5{% else %}No ratings yet{% endif %}, Runtime{{ book.runtime_formatted }}.{{ book.title }}Is it worth your Audible credit?{% endblock %}
 
 {% block extra_head %}
 
 <meta property="og:url" content="https://audiobookvalue.com/book/{{ book.slug }}.html">
-<meta property="og:site_name" content="Audible积分价值优化器">
+<meta property="og:site_name" content="Audible Credit Optimizer">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta property="og:title" content="{{ book.title }} 作者：{{ book.author }} 的Audible积分价值">
+<meta property="og:title" content="{{ book.title }} by {{ book.author }} AudibleCredit Value">
 
-<meta property="og:description" content="现金价格{{ book.price_formatted }}，{% if book.rating > 0 %}{{ book.rating }}/5分{% else %}暂无评分{% endif %}，时长{{ book.runtime_formatted }}。{{ book.title }}是否值得您的Audible积分？">
+<meta property="og:description" content="Cash price {{ book.price_formatted }}, {% if book.rating > 0 %}{{ book.rating }}/5{% else %}No ratings yet{% endif %}, Runtime{{ book.runtime_formatted }}.{{ book.title }}Is it worth your Audible credit?">
 
 <meta property="og:type" content="book">
 
@@ -37,7 +37,7 @@
 
     "itemListElement": [
 
-      {"@type": "ListItem", "position": 1, "name": "所有书籍", "item": "https://audiobookvalue.com/"},
+      {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
 
       {"@type": "ListItem", "position": 2, "name": "{{ book.primary_category }}", "item": "https://audiobookvalue.com/category/{{ book.primary_category | lower | replace(' ', '-') }}.html"},
 
@@ -98,7 +98,7 @@
 
 <nav class="breadcrumbs">
 
-  <a href="{{ static_prefix }}/index.html">所有书籍</a>
+  <a href="{{ static_prefix }}/index.html">All Books</a>
 
   <span class="breadcrumb-sep">/</span>
 
@@ -122,7 +122,7 @@
 
       {% if book.cover_url %}
 
-      <img class="book-cover-large" src="{{ book.cover_featured }}" alt="{{ book.title }} 封面" loading="eager" fetchpriority="high" width="220" height="293">
+      <img class="book-cover-large" src="{{ book.cover_featured }}" alt="{{ book.title }} Cover" loading="eager" fetchpriority="high" width="220" height="293">
 
       {% else %}
 
@@ -154,7 +154,7 @@
 
         <div class="meta-row">
 
-          <span class="meta-label">作者：</span>
+          <span class="meta-label">Author:</span>
 
           <span class="meta-value">{{ book.author }}</span>
 
@@ -166,7 +166,7 @@
 
         <div class="meta-row">
 
-          <span class="meta-label">讲述者：</span>
+          <span class="meta-label">Narrator: </span>
 
           <span class="meta-value">{{ book.narrator }}</span>
 
@@ -176,7 +176,7 @@
 
         <div class="meta-row">
 
-          <span class="meta-label">时长：</span>
+          <span class="meta-label">Runtime: </span>
 
           <span class="meta-value">{{ book.runtime_formatted }}</span>
 
@@ -184,7 +184,7 @@
 
         <div class="meta-row">
 
-          <span class="meta-label">分类：</span>
+          <span class="meta-label">Category: </span>
 
           <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="category-link">{{ book.primary_category }}</a>
 
@@ -194,13 +194,13 @@
 
         <div class="meta-row">
 
-          <span class="meta-label">评分：</span>
+          <span class="meta-label">Rating: </span>
 
           <span class="meta-value">
 
             <span class="stars">{{ book.stars_display }}</span>
 
-            <span class="rating-num">({{ book.review_count }}条评论)</span>
+            <span class="rating-num">({{ book.review_count }}reviews)</span>
 
           </span>
 
@@ -216,7 +216,7 @@
 
         <div class="value-card price-card">
 
-          <div class="value-card-label">现金价格</div>
+          <div class="value-card-label">Cash Price</div>
 
           <div class="value-card-number">{{ book.price_formatted }}</div>
 
@@ -224,17 +224,17 @@
 
         <div class="value-card credit-card">
 
-          <div class="value-card-label">积分价值</div>
+          <div class="value-card-label">Credit Value</div>
 
           <div class="value-card-number">{{ book.credit_value }}x</div>
 
-          <div class="value-card-sub">1个积分 ≈ $14.99</div>
+          <div class="value-card-sub">1 Credit &asymp; $14.99</div>
 
         </div>
 
         <div class="value-card score-card badge-{{ book.value_tier }}">
 
-          <div class="value-card-label">价值评分</div>
+          <div class="value-card-label">ValueRating</div>
 
           <div class="value-card-number">{{ book.value_score }}</div>
 
@@ -250,21 +250,21 @@
 
         <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
 
-          在Audible上购买
+          Buy on Audible
 
         </a>
 
         {% if book.price > 0 %}
 
-        <p class="book-cta-note">使用1个积分（价值约$14.99）购买本书——
+        <p class="book-cta-note">Buy with 1 credit (valued at ~$14.99) &mdash;
 
           {% if book.price > 14.99 %}
 
-          <strong>节省${{ "%.2f" % (book.price - 14.99) }}</strong>（与现金购买相比）
+          <strong>Save ${{ "%.2f" % (book.price - 14.99) }}</strong>(vs the cash price)
 
           {% else %}
 
-          <strong>由您的积分覆盖，比现金购买更划算</strong>
+          <strong>Covered by your credit &mdash; better than paying cash</strong>
 
           {% endif %}
 
@@ -288,9 +288,9 @@
 
   <div class="section-header">
 
-    <h2 class="section-title">更多{{ book.primary_category }}有声书</h2>
+    <h2 class="section-title">More{{ book.primary_category }} Audiobooks</h2>
 
-    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">查看全部 &rarr;</a>
+    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">View All &rarr;</a>
 
   </div>
 
@@ -344,9 +344,9 @@
 
   <div class="section-header">
 
-    <h2 class="section-title">全部{{ book.primary_category }}有声书</h2>
+    <h2 class="section-title">All {{ book.primary_category }} Audiobooks</h2>
 
-    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">全部分类 &rarr;</a>
+    <a href="{{ static_prefix }}/category/{{ book.primary_category | lower | replace(' ', '-') }}.html" class="section-link">All Categories &rarr;</a>
 
   </div>
 

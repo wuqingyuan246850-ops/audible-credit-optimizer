@@ -1,20 +1,20 @@
 ﻿{% extends "base.html" %}
 
-{% block title %}最佳{{ category_name }}有声书 – Audible积分价值{% endblock %}
+{% block title %}Best {{ category_name }} Audiobooks – AudibleCredit Value{% endblock %}
 
-{% block meta_description %}发现最佳{{ category_name }}有声书——值得您的Audible积分。比较价值评分、评价和现金价格，充分利用每一积分。{% endblock %}
+{% block meta_description %}Discover the best {{ category_name }} audiobooks worth your Audible credit. Compare value scores, ratings, and cash prices.{% endblock %}
 
 {% block extra_head %}
 
 <meta property="og:url" content="https://audiobookvalue.com/category/{{ category_slug }}.html">
 <meta property="og:site_name" content="Audible Credit Optimizer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="最佳{{ category_name }}有声书 | Audible积分价值">
-<meta name="twitter:description" content="发现最佳{{ category_name }}有声书——值得您的Audible积分。比较价值评分、评价和现金价格。">
+<meta name="twitter:title" content="Best {{ category_name }} Audiobooks | AudibleCredit Value">
+<meta name="twitter:description" content="Discover the best {{ category_name }} audiobooks worth your Audible credit. Compare value scores, ratings, and cash prices.">
 
-<meta property="og:title" content="最佳{{ category_name }}有声书 | Audible积分价值">
+<meta property="og:title" content="Best {{ category_name }} Audiobooks | AudibleCredit Value">
 
-<meta property="og:description" content="发现最佳{{ category_name }}有声书——值得您的Audible积分。比较价值评分、评价和现金价格。">
+<meta property="og:description" content="Discover the best {{ category_name }} audiobooks worth your Audible credit. Compare value scores, ratings, and cash prices.">
 
 <meta property="og:type" content="website">
 
@@ -28,7 +28,7 @@
 
   "itemListElement": [
 
-    {"@type": "ListItem", "position": 1, "name": "全部书籍", "item": "https://audiobookvalue.com/"},
+    {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
 
     {"@type": "ListItem", "position": 2, "name": "{{ category_name }}", "item": "https://audiobookvalue.com/category/{{ category_slug }}.html"}
 
@@ -44,7 +44,7 @@
 
 <!-- Breadcrumbs -->
 <nav class="breadcrumbs">
-  <a href="{{ static_prefix }}/index.html">全部书籍</a>
+  <a href="{{ static_prefix }}/index.html">All Books</a>
   <span class="breadcrumb-sep">/</span>
   <span class="breadcrumb-current">{{ category_name }}</span>
 </nav>
@@ -54,9 +54,9 @@
 
      <div class="hero-content">
 
-         <h1 class="hero-title">最佳<span class="text-accent">{{ category_name }}</span>有声书</h1>
+         <h1 class="hero-title">Best <span class="text-accent">{{ category_name }}</span> Audiobooks</h1>
 
-         <p class="hero-subtitle">共{{ total_books }}本有声书 – 积分价值分析。寻找您的下一本听书。</p>
+         <p class="hero-subtitle"> {{ total_books }}audiobooks – Credit Value analyzed.Find your next listen.</p>
 
      </div>
 
@@ -76,27 +76,27 @@
 
              </svg>
 
-             <input type="text" id="search-input" class="search-input" placeholder="在{{ category_name }}中搜索..." autocomplete="off">
+             <input type="text" id="search-input" class="search-input" placeholder="Search in {{ category_name }}..." autocomplete="off">
 
          </div>
 
          <div class="filter-group">
 
-             <select id="sort-select" class="filter-select" aria-label="排序有声书">
+             <select id="sort-select" class="filter-select" aria-label="SortAudiobooks">
 
-                 <option value="value_score_desc">排序：价值评分 ↓</option>
+                 <option value="value_score_desc">Sort:ValueRating ↓</option>
 
-                 <option value="value_score_asc">排序：价值评分 ↓</option>
+                 <option value="value_score_asc">Sort:ValueRating ↓</option>
 
-                 <option value="price_desc">排序：价格 ↓</option>
+                 <option value="price_desc">Sort:Price ↓</option>
 
-                 <option value="price_asc">排序：价格 ↑</option>
+                 <option value="price_asc">Sort:Price ↑</option>
 
-                 <option value="rating_desc">排序：评分 ↓</option>
+                 <option value="rating_desc">Sort:Rating ↓</option>
 
-                 <option value="title_asc">排序：书名 A-Z</option>
+                 <option value="title_asc">Sort:Title A-Z</option>
 
-                 <option value="runtime_desc">排序：时长 ↓</option>
+                 <option value="runtime_desc">Sort:Runtime ↓</option>
 
              </select>
 
@@ -112,21 +112,21 @@
 
                  <tr>
 
-                     <th class="col-cover">封面</th>
+                     <th class="col-cover">Cover</th>
 
-                     <th class="col-title sortable" data-sort="title">书名</th>
+                     <th class="col-title sortable" data-sort="title">Title</th>
 
-                     <th class="col-author sortable" data-sort="author">作者</th>
+                     <th class="col-author sortable" data-sort="author">Author</th>
 
-                     <th class="col-rating sortable" data-sort="rating">评分</th>
+                     <th class="col-rating sortable" data-sort="rating">Rating</th>
 
-                     <th class="col-runtime sortable" data-sort="runtime">时长</th>
+                     <th class="col-runtime sortable" data-sort="runtime">Runtime</th>
 
-                     <th class="col-price sortable" data-sort="price">价格</th>
+                     <th class="col-price sortable" data-sort="price">Price</th>
 
-                     <th class="col-value sortable" data-sort="value_score">价值</th>
+                     <th class="col-value sortable" data-sort="value_score">Value</th>
 
-                     <th class="col-action">获取</th>
+                     <th class="col-action">Get It</th>
 
                  </tr>
 
@@ -160,7 +160,7 @@
 
                          {% if book.cover_url %}
 
-                         <img src="{{ book.cover_thumb }}" alt="书籍封面" class="cover-thumb" loading="lazy" width="40" height="54">
+                         <img src="{{ book.cover_thumb }}" alt="Book Cover" class="cover-thumb" loading="lazy" width="40" height="54">
 
                          {% else %}
 
@@ -192,7 +192,7 @@
 
                      <td class="col-value">
 
-                         <span class="value-badge badge-{{ book.value_tier }}" title="价值评分：{{ book.value_score }}">
+                         <span class="value-badge badge-{{ book.value_tier }}" title="ValueRating: {{ book.value_score }}">
 
                              {{ book.value_score }}
 
@@ -204,7 +204,7 @@
 
                          <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener sponsored" class="btn btn-table">
 
-                             在Audible上获取
+                             on Audible on Get It
 
                          </a>
 
