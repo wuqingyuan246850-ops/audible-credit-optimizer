@@ -1,5 +1,3 @@
 name = 'audible-credit-optimizer'
 compatibility_date = '2026-07-27'
-
-[assets]
-directory = './output'
+pages_build_output_dir = './output'
