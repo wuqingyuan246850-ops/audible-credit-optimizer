@@ -1,0 +1,754 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<style id="critical-css">
+:root{--bg-primary:#1b2838;--bg-secondary:#171a21;--bg-hero:linear-gradient(135deg,#171a21 0%,#1b2838 40%,#2a475e 100%);--text-heading:#fff;--text-primary:#c6d4df;--text-secondary:#8f98a0;--accent-primary:#66c0f4;--border-light:#3a4f5e;--radius-sm:3px;--radius-md:5px;--font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--header-height:64px;--bg-card:#2a475e;--bg-input:#2a3f4e;--text-accent:#66c0f4}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px;font-family:var(--font-family);background:var(--bg-primary);color:var(--text-primary)}
+body{min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-primary);text-decoration:none}
+img{max-width:100%;height:auto;vertical-align:middle}
+h1,h2,h3,h4{color:var(--text-heading);font-weight:600;line-height:1.3}
+.site-header{background:var(--bg-secondary);border-bottom:1px solid var(--border-light);position:sticky;top:0;z-index:100;height:var(--header-height)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;height:100%;padding:0 20px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:1.1rem;color:var(--text-heading);flex-shrink:0}
+.logo-accent{color:var(--accent-primary)}
+@media(max-width:768px){.logo-text{display:none}}@media(max-width:480px){.site-header{height:52px}.header-inner{height:52px;padding:0 6px;gap:6px}.btn-accent{font-size:.75rem;padding:.4em .8em;min-height:36px}}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-family);font-weight:500;font-size:.9rem;padding:.55em 1.1em;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:all .15s ease;text-decoration:none;white-space:nowrap}
+.btn-accent{background:linear-gradient(135deg,#54a0d3,#66c0f4);color:#fff;font-weight:600;padding:.6em 1.3em;min-height:44px}
+.breadcrumbs{max-width:1200px;margin:0 auto;padding:12px 20px;font-size:.85rem;color:var(--text-secondary)}.breadcrumbs a{color:var(--accent-primary)}.breadcrumb-sep{margin:0 8px;color:var(--border-light)}.breadcrumb-current{color:var(--text-primary)}.hero-banner{position:relative;background:var(--bg-hero);padding:60px 20px 40px;text-align:center;overflow:hidden;min-height:320px;contain:layout style}
+.hero-bg{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(102,192,244,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(164,208,7,.05) 0%,transparent 50%);pointer-events:none}
+.hero-content{position:relative;max-width:800px;margin:0 auto;z-index:1}
+.hero-title{font-size:2.2rem;font-weight:700;margin-bottom:12px;color:var(--text-heading);line-height:1.2}
+.hero-subtitle{color:var(--text-secondary);font-size:1.05rem;max-width:600px;margin:0 auto 24px;line-height:1.5}
+.hero-actions{text-align:center;margin-bottom:32px}
+.btn-hero{background:linear-gradient(135deg,#54a0d3,#66c0f4);color:#fff;font-size:1.05rem;font-weight:600;padding:.8em 1.8em;border-radius:var(--radius-md);box-shadow:0 4px 15px rgba(102,192,244,.3);text-decoration:none;display:inline-block;min-height:48px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:50;width:48px;height:48px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:50%;color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .2s;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:var(--bg-card-hover);color:var(--text-primary)}
+.scroll-top svg{width:20px;height:20px}
+
+/* Nav inline */
+.main-nav{display:flex;gap:2px;flex:1;overflow:hidden}
+.nav-link{color:var(--text-secondary);padding:8px 12px;border-radius:var(--radius-sm);font-size:.9rem;font-weight:500;white-space:nowrap;text-decoration:none}
+.nav-link:hover{color:var(--text-heading);background:rgba(255,255,255,.05)}
+.nav-link.active{color:var(--accent-primary);background:rgba(102,192,244,.1)}
+.hamburger{display:none!important;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;background:0 0;border:none;cursor:pointer;padding:8px;gap:5px}
+.hamburger-line{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:all .2s ease}
+.hamburger.active .hamburger-line:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active .hamburger-line:nth-child(2){opacity:0}
+.hamburger.active .hamburger-line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-nav-open{overflow:hidden}
+@media(max-width:1024px){
+    .main-nav{display:none;position:fixed;top:var(--header-height,64px);left:0;right:0;background:var(--bg-secondary);z-index:99;flex-direction:column;padding:16px;border-top:1px solid var(--border-light);max-height:calc(100vh - var(--header-height));overflow-y:auto}
+    .main-nav.open{display:flex!important}
+    .main-nav.open .nav-link{display:block;padding:14px 16px;font-size:1rem;border-bottom:1px solid var(--border-light);min-height:44px;width:100%}
+.header-cta{display:flex;align-items:center;gap:8px}
+}
+@media(max-width:1024px){
+    .main-nav{display:none!important}
+    .hamburger{display:inline-flex!important}
+    .header-cta{display:none!important}
+    .site-header{height:56px}
+    .header-inner{height:56px}
+    .logo{font-size:.95rem}
+}
+@media(min-width:1025px){
+    .main-nav{display:flex!important}
+    .hamburger{display:none!important}
+    .header-cta{display:flex!important}
+}
+
+
+/* === Hero Stats === */
+.hero-stats{display:flex;justify-content:center;gap:40px}
+.stat{text-align:center}
+.stat-value{display:block;font-size:1.6rem;font-weight:700;color:var(--accent-primary)}
+.stat-label{font-size:.8rem;color:var(--text-muted, #626366);text-transform:uppercase;letter-spacing:.05em}
+
+/* === Text Accent === */
+.text-accent{color:var(--accent-primary)}
+
+/* === Section Headers === */
+.section-header{max-width:1360px;margin:0 auto 20px;padding:0 20px}
+.section-title{font-size:1.4rem;font-weight:600;display:inline;margin-right:12px}
+.section-subtitle{color:var(--text-secondary);font-size:.88rem}
+
+/* === Buttons === */
+.btn-primary{background:var(--accent-primary);color:#fff}
+.btn-primary:hover{background:#88d0f7;color:#fff}
+.btn-sm{font-size:.82rem;padding:.4em .8em;min-height:48px}
+.btn-table{background:var(--accent-primary);color:#fff;font-size:.8rem;padding:.35em .75em;border-radius:var(--radius-sm);min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+.btn-table:hover{background:#88d0f7;color:#fff}
+.btn-large{font-size:1.1rem;padding:1em 2.2em}
+
+/* === Featured Section === */
+.featured-section{min-height:400px;padding:32px 0;background:var(--bg-secondary);border-bottom:1px solid rgba(75,107,126,.2)}
+.featured-carousel{max-width:1360px;margin:0 auto;padding:0 20px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--accent-secondary, #4b6b7e) transparent}
+.carousel-track{display:flex;gap:16px;padding-bottom:8px}
+.featured-card{flex:0 0 220px;background:var(--bg-card);border-radius:var(--radius-md);border:1px solid rgba(75,107,126,.3);overflow:hidden;position:relative;display:flex;flex-direction:column;transition:all .2s}
+.featured-card:hover{background:var(--bg-card-hover);border-color:var(--accent-primary);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.card-badge{position:absolute;top:8px;left:8px;z-index:2;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:var(--radius-sm);text-transform:uppercase;letter-spacing:.05em}
+.badge-legendary{background:var(--accent-purple, #8b5cf6);color:#fff}
+.badge-excellent{background:var(--accent-green, #a4d007);color:#1b2838}
+.badge-great{background:var(--accent-primary);color:#1b2838}
+.badge-good{background:var(--accent-secondary, #4b6b7e);color:#fff}
+.badge-decent{background:var(--text-muted, #626366);color:#fff}
+.card-rating{position:absolute;top:8px;right:8px;z-index:2;font-size:.75rem;color:#c4b007}
+.card-price-badge{position:absolute;bottom:80px;right:8px;z-index:2;background:rgba(23,26,33,.9);border-radius:var(--radius-sm);padding:4px 8px;text-align:right;font-size:.7rem}
+.price-label{display:block;color:var(--text-muted, #626366);font-size:.65rem}
+.price-value{display:block;color:var(--accent-green, #a4d007);font-weight:600;font-size:.9rem}
+.credit-value{display:block;color:var(--accent-primary);font-size:.65rem}
+.card-cover{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--bg-input)}
+.card-cover-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-muted, #626366);font-size:.75rem;text-align:center;padding:20px}
+.card-cover-placeholder svg{width:36px;height:36px;opacity:.5}
+.card-info{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:2px}
+.card-title{font-size:.85rem;font-weight:600;color:var(--text-heading);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-author{font-size:.75rem;color:var(--text-secondary)}
+.card-category{font-size:.68rem;color:var(--accent-primary);margin-top:auto}
+.card-actions{padding:8px 12px;border-top:1px solid rgba(75,107,126,.2)}
+.card-actions .btn{width:100%;justify-content:center}
+
+/* === Table Controls === */
+.table-section{max-width:1360px;margin:0 auto;padding:32px 20px}
+.table-controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.search-box{position:relative;flex:1;min-width:250px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--text-muted, #626366);pointer-events:none}
+.search-input{width:100%;padding:10px 12px 10px 36px;background:var(--bg-input);border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-family);font-size:.88rem}
+.search-input:focus{outline:none;border-color:var(--accent-primary)}
+.filter-group{display:flex;gap:8px;flex-wrap:wrap}
+.filter-select{background:var(--bg-input);border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-family);font-size:.82rem;padding:10px 28px 10px 12px;min-height:48px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238f98a0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.filter-select:focus{outline:none;border-color:var(--accent-primary)}
+.result-count{color:var(--text-secondary);font-size:.82rem;white-space:nowrap;padding:10px 0}
+.result-count strong{color:var(--text-primary)}
+
+/* === Data Table === */
+.table-wrapper{overflow-x:auto;border:1px solid rgba(75,107,126,.2);border-radius:var(--radius-md);background:var(--bg-secondary)}
+.data-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.data-table thead{background:var(--bg-secondary);border-bottom:2px solid var(--accent-secondary, #4b6b7e)}
+.data-table th{padding:12px 10px;text-align:left;color:var(--text-secondary);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;user-select:none}
+.data-table tbody tr{border-bottom:1px solid rgba(75,107,126,.1)}
+.data-table tbody tr:nth-child(even){background:var(--bg-table-row-alt, #1a2c3a)}
+.data-table tbody tr:nth-child(odd){background:var(--bg-table-row, #1e3040)}
+.data-table tbody tr:hover{background:var(--bg-table-hover, #2a475e)}
+.data-table tbody tr.row-hidden{display:none}
+.data-table td{padding:10px;vertical-align:middle}
+.col-cover{width:50px}
+.col-title{min-width:200px}
+.col-author{min-width:140px}
+.col-category{width:100px}
+.col-rating{width:100px}
+.col-runtime{width:80px}
+.col-price{width:80px}
+.col-value{width:70px}
+.col-action{width:100px}
+.cover-thumb{width:40px;height:54px;object-fit:cover;border-radius:2px;background:var(--bg-input);display:block}
+.cover-thumb-placeholder{display:flex;align-items:center;justify-content:center;background:var(--bg-input);color:var(--text-muted, #626366)}
+.cover-thumb-placeholder svg{width:20px;height:20px}
+.category-tag{display:inline-block;background:rgba(102,192,244,.1);color:var(--accent-primary);font-size:.72rem;padding:2px 8px;border-radius:10px}
+.stars{color:#c4b007;font-size:.8rem}
+.rating-num{color:var(--text-secondary);font-size:.75rem;margin-left:4px}
+.value-badge{display:inline-block;font-weight:700;font-size:.8rem;padding:2px 8px;border-radius:var(--radius-sm);min-width:30px;text-align:center}
+.table-note{margin-top:12px;color:var(--text-muted, #626366);font-size:.78rem}
+
+/* === Bottom CTA === */
+.bottom-cta{background:var(--bg-hero);text-align:center;padding:60px 20px;border-top:1px solid rgba(75,107,126,.2)}
+.cta-content{max-width:600px;margin:0 auto}
+.cta-content h2{font-size:1.6rem;margin-bottom:10px}
+.cta-content p{color:var(--text-secondary);margin-bottom:24px;font-size:1rem}
+
+/* === Footer === */
+.site-footer{background:var(--bg-secondary);border-top:1px solid rgba(75,107,126,.2);padding:24px 20px}
+.footer-inner{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-muted, #626366);font-size:.82rem;padding:10px 0;min-height:48px;display:inline-block}
+.footer-links a:hover{color:var(--accent-primary)}
+
+/* === Responsive (critical) === */
+@media(max-width:1024px){
+  .hero-stats{gap:24px}
+  .featured-card{flex:0 0 190px}
+}
+@media(max-width:900px){
+  .hero-title{font-size:1.6rem}
+  .hero-banner{min-height:260px;padding:40px 16px 32px}
+  .hero-stats{gap:16px;flex-wrap:wrap}
+  .stat-value{font-size:1.2rem}
+  .stat-label{font-size:.72rem}
+  .table-controls{flex-direction:column}
+  .search-box{min-width:100%}
+  .filter-group{width:100%}
+  .filter-select{flex:1;min-height:48px}
+  .featured-card{flex:0 0 170px}
+  .col-author,.col-runtime{display:none}
+  .col-title{min-width:120px}
+  .card-price-badge{display:none}
+  .section-title{font-size:1.2rem}
+  .cta-content h2{font-size:1.3rem}
+}
+@media(max-width:768px){
+  .hero-title{font-size:1.4rem}
+  .hero-subtitle{font-size:.9rem}
+  .btn-hero{font-size:.9rem;padding:.7em 1.4em}
+  .hero-stats{gap:12px}
+  .stat-value{font-size:1.1rem}
+  .featured-card{flex:0 0 150px}
+  .card-info{padding:8px}
+  .card-title{font-size:.78rem}
+  .card-author{font-size:.68rem}
+  .col-cover{width:36px}
+  .cover-thumb{width:30px;height:40px}
+  .col-category{display:none}
+  .col-value{display:none}
+  .data-table{font-size:.78rem}
+  .data-table td{padding:8px 5px}
+  .data-table th{padding:8px 5px;font-size:.7rem}
+  .btn-table{font-size:.7rem;padding:.3em .5em;min-height:40px}
+  .footer-links{flex-direction:column;gap:4px}
+  .footer-links a{padding:8px 0;min-height:44px}
+  .table-note{font-size:.7rem}
+  .bottom-cta{padding:40px 16px}
+  .featured-section{min-height:300px}
+}
+@media(max-width:480px){
+  .hero-title{font-size:1.2rem}
+  .hero-subtitle{font-size:.82rem;margin-bottom:16px}
+  .btn-hero{font-size:.82rem;padding:.6em 1.2em;min-height:44px}
+  .hero-stats{gap:8px}
+  .stat-value{font-size:1rem}
+  .stat-label{font-size:.65rem}
+  .featured-card{flex:0 0 130px}
+  .card-info{padding:6px;gap:1px}
+  .card-title{font-size:.72rem}
+  .card-author{font-size:.62rem}
+  .card-actions{padding:6px}
+  .btn-sm{font-size:.72rem;padding:.3em .5em;min-height:36px}
+  .section-header{padding:0 12px;margin-bottom:12px}
+  .section-title{font-size:1rem}
+  .section-subtitle{font-size:.75rem}
+  .table-section{padding:20px 8px}
+  .table-controls{gap:6px}
+  .search-input{padding:8px 8px 8px 32px;font-size:.82rem}
+  .search-icon{left:8px;width:14px;height:14px}
+  .filter-select{font-size:.75rem;padding:8px 24px 8px 8px;min-height:44px}
+  .data-table{font-size:.72rem}
+  .data-table td{padding:6px 4px}
+  .data-table th{padding:6px 4px;font-size:.65rem}
+  .col-author{display:none}
+  .col-runtime{display:none}
+  .col-category{display:none}
+  .col-value{display:none}
+  .col-cover{width:30px}
+  .cover-thumb{width:24px;height:32px}
+  .col-title{min-width:80px}
+  .stars{font-size:.68rem}
+  .rating-num{font-size:.65rem}
+  .category-tag{font-size:.62rem;padding:1px 6px}
+  .btn-table{font-size:.62rem;padding:.25em .4em;min-height:36px}
+  .footer-links a{font-size:.75rem;padding:6px 0;min-height:40px}
+  .bottom-cta{padding:32px 12px}
+  .cta-content h2{font-size:1.1rem}
+  .cta-content p{font-size:.85rem}
+  .result-count{font-size:.72rem}
+}
+@media(max-width:360px){
+  .hero-title{font-size:1rem}
+  .hero-subtitle{font-size:.75rem}
+  .stat-value{font-size:.85rem}
+  .stat-label{font-size:.6rem}
+  .featured-card{flex:0 0 110px}
+  .card-title{font-size:.65rem}
+  .col-title{min-width:60px}
+  .col-rating{display:none}
+  .data-table td{padding:4px 3px}
+  .data-table th{padding:4px 3px}
+  .hero-banner{min-height:200px}
+}
+</style>
+
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://m.media-amazon.com">
+    <link rel="preconnect" href="https://m.media-amazon.com">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Is Case Study: A Dystopian Novel about Absolute Empathy worth your Audible credit? Cash price $18.86, No ratings yet, RuntimeN/A.Compare Case Study: A Dystopian Novel about Absolute Empathy & SimilarScience Fiction Audiobooks's ValueRating.">
+     <title>Case Study: A Dystopian Novel about Absolute Empathy Author:Arsenii Moskvichoff — AudiblePrice, Credit Value & Ratings</title>
+<link rel="preload" as="image" href="https://m.media-amazon.com/images/I/51FNSOTESdL._SL220_.jpg" fetchpriority="high">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet"></noscript>
+    <link rel="preload" href="../static/css/style.css?v=202607272101" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="high">
+    <noscript><link rel="stylesheet" href="../static/css/style.css?v=202607272101"></noscript>
+    <link rel="canonical" href="https://audiobookvalue.com/book/case-study-a-dystopian-novel-about-absolute-empathy.html">
+    <meta property="og:site_name" content="Audible Credit Optimizer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Case Study: A Dystopian Novel about Absolute Empathy by Arsenii Moskvichoff AudibleCredit Value">
+    <meta name="twitter:description" content="Cash price $18.86, No ratings yet, RuntimeN/A.Case Study: A Dystopian Novel about Absolute EmpathyIs it worth your Audible credit?">
+
+<meta property="og:url" content="https://audiobookvalue.com/book/case-study-a-dystopian-novel-about-absolute-empathy.html">
+<meta property="og:site_name" content="Audible Credit Optimizer">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta property="og:title" content="Case Study: A Dystopian Novel about Absolute Empathy by Arsenii Moskvichoff AudibleCredit Value">
+
+<meta property="og:description" content="Cash price $18.86, No ratings yet, RuntimeN/A.Case Study: A Dystopian Novel about Absolute EmpathyIs it worth your Audible credit?">
+
+<meta property="og:type" content="book">
+
+
+<meta property="og:image" content="https://m.media-amazon.com/images/I/51FNSOTESdL._SL500_.jpg">
+
+
+<script type="application/ld+json">
+
+[
+
+  {
+
+    "@context": "https://schema.org",
+
+    "@type": "BreadcrumbList",
+
+    "itemListElement": [
+
+      {"@type": "ListItem", "position": 1, "name": "All Books", "item": "https://audiobookvalue.com/"},
+
+      {"@type": "ListItem", "position": 2, "name": "Science Fiction", "item": "https://audiobookvalue.com/category/science-fiction.html"},
+
+      {"@type": "ListItem", "position": 3, "name": "Case Study: A Dystopian Novel about Absolute Empathy"}
+
+    ]
+
+  },
+
+  {
+
+    "@context": "https://schema.org",
+
+    "@type": "Audiobook",
+
+    "name": "Case Study: A Dystopian Novel about Absolute Empathy",
+
+    "author": "Arsenii Moskvichoff",
+
+    "narrator": "Jonathan Davis",
+
+    "datePublished": "2026-07-25",
+
+    "bookFormat": "https://schema.org/AudiobookFormat",
+
+"image": "https://m.media-amazon.com/images/I/51FNSOTESdL._SL500_.jpg",
+    "offers": {
+
+      "@type": "Offer",
+
+      "price": "18.86",
+
+      "priceCurrency": "USD",
+
+      "availability": "https://schema.org/InStock"
+
+    }
+
+  }
+
+]
+
+</script>
+
+</head>
+<body>
+     <header class="site-header">
+         <div class="header-inner">
+             <a href="../index.html" class="logo">
+                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <path d="M12 6v12M8 8v8M16 8v8M4 10v4M20 10v4M3 3l18 18" stroke-linecap="round"/>
+                 </svg>
+                 <span class="logo-text">Audible<span class="logo-accent">Credit</span>Optimizer</span>
+             </a>
+         <nav class="main-nav">
+             <a href="../index.html" class="nav-link active">All Books</a>
+             <a href="../category/thriller.html" class="nav-link">Thriller</a>
+             <a href="../category/business.html" class="nav-link">Business</a>
+             <a href="../category/science-fiction.html" class="nav-link">Science Fiction</a>
+             <a href="../category/self-development.html" class="nav-link">Self Development</a>
+             <a href="../category/fantasy.html" class="nav-link">Fantasy</a>
+             <a href="../category/romance.html" class="nav-link">Romance</a>
+             <a href="../category/non-fiction.html" class="nav-link">Non-Fiction</a>
+             <a href="../category/horror.html" class="nav-link">Horror</a>
+         </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <div class="header-cta">
+             <a href="https://www.amazon.com/hz/audible/mlp/mdp/?tag=yuanyuan07-20" 
+                target="_blank" rel="noopener sponsored" class="btn btn-accent">
+                Free 30-Day Trial
+             </a>
+         </div>
+         </div>
+    </header><!-- Scroll to top button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <main class="main-content">
+
+<!-- Breadcrumbs -->
+
+<nav class="breadcrumbs">
+
+  <a href="../index.html">All Books</a>
+
+  <span class="breadcrumb-sep">/</span>
+
+  <a href="../category/science-fiction.html">Science Fiction</a>
+
+  <span class="breadcrumb-sep">/</span>
+
+  <span class="breadcrumb-current">Case Study: A Dystopian Novel about Absolute Empathy</span>
+
+</nav>
+
+<!-- Book Detail -->
+
+<section class="book-detail-section">
+
+  <div class="book-detail-layout">
+
+    <!-- Cover Column -->
+
+    <div class="book-cover-col">
+
+
+      <img class="book-cover-large" src="https://m.media-amazon.com/images/I/51FNSOTESdL._SL220_.jpg" alt="Case Study: A Dystopian Novel about Absolute Empathy Cover" loading="eager" fetchpriority="high" width="220" height="293">
+
+
+    </div>
+
+    <!-- Info Column -->
+
+    <div class="book-info-col">
+
+      <h1 class="book-title">Case Study: A Dystopian Novel about Absolute Empathy</h1>
+
+      <div class="book-meta">
+
+
+        <div class="meta-row">
+
+          <span class="meta-label">Author:</span>
+
+          <span class="meta-value">Arsenii Moskvichoff</span>
+
+        </div>
+
+
+
+        <div class="meta-row">
+
+          <span class="meta-label">Narrator: </span>
+
+          <span class="meta-value">Jonathan Davis</span>
+
+        </div>
+
+
+        <div class="meta-row">
+
+          <span class="meta-label">Runtime: </span>
+
+          <span class="meta-value">N/A</span>
+
+        </div>
+
+        <div class="meta-row">
+
+          <span class="meta-label">Category: </span>
+
+          <a href="../category/science-fiction.html" class="category-link">Science Fiction</a>
+
+        </div>
+
+
+      </div>
+
+      <!-- Price & Value Cards -->
+
+      <div class="value-cards">
+
+        <div class="value-card price-card">
+
+          <div class="value-card-label">Cash Price</div>
+
+          <div class="value-card-number">$18.86</div>
+
+        </div>
+
+        <div class="value-card credit-card">
+
+          <div class="value-card-label">Credit Value</div>
+
+          <div class="value-card-number">1.3x</div>
+
+          <div class="value-card-sub">1 Credit &asymp; $14.99</div>
+
+        </div>
+
+        <div class="value-card score-card badge-great">
+
+          <div class="value-card-label">ValueRating</div>
+
+          <div class="value-card-number">48.9</div>
+
+          <div class="value-card-sub">Great</div>
+
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+
+      <div class="book-cta">
+
+        <a href="https://www.amazon.com/dp/B0G6MP1J3C?tag=yuanyuan07-20&linkCode=ogi&th=1&psc=1" target="_blank" rel="noopener sponsored" class="btn btn-hero btn-large">
+
+          Buy on Audible
+
+        </a>
+
+
+        <p class="book-cta-note">Buy with 1 credit (valued at ~$14.99) &mdash;
+
+
+          <strong>Save $3.87</strong>(vs the cash price)
+
+
+        </p>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Related Books -->
+
+
+<section class="related-section">
+
+  <div class="section-header">
+
+    <h2 class="section-title">MoreScience Fiction Audiobooks</h2>
+
+    <a href="../category/science-fiction.html" class="section-link">View All &rarr;</a>
+
+  </div>
+
+  <div class="related-grid">
+
+
+    <a href="../book/battlefield-earth-post-apocalyptic-sci-fi-and-new-york-times-bestseller.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/61cbN+H7UIL._SL220_.jpg" alt="Battlefield Earth: Post-Apocalyptic Sci-Fi and New York Times Bestseller" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">Battlefield Earth: Post-Apocalyptic Sci-Fi and New York Times Bestseller</div>
+
+        <div class="related-author">L. Ron Hubbard</div>
+
+        <div class="related-score badge-legendary">79.3</div>
+
+      </div>
+
+    </a>
+
+
+    <a href="../book/project-hail-mary.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/51POf8gOyLL._SL220_.jpg" alt="Project Hail Mary" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">Project Hail Mary</div>
+
+        <div class="related-author">Andy Weir</div>
+
+        <div class="related-score badge-excellent">74.3</div>
+
+      </div>
+
+    </a>
+
+
+    <a href="../book/starship-new-jersey-box-set-the-complete-10-book-scifi-series.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/51kJo4UwSaL._SL220_.jpg" alt="Starship New Jersey Box Set: The Complete 10-Book SciFi Series" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">Starship New Jersey Box Set: The Complete 10-Book SciFi Series</div>
+
+        <div class="related-author">Scott Bartlett</div>
+
+        <div class="related-score badge-excellent">69.6</div>
+
+      </div>
+
+    </a>
+
+
+    <a href="../book/morning-star-book-iii-of-the-red-rising-trilogy.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/41uGVHtH2pL._SL220_.jpg" alt="Morning Star: Book III of the Red Rising Trilogy" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">Morning Star: Book III of the Red Rising Trilogy</div>
+
+        <div class="related-author">Pierce Brown</div>
+
+        <div class="related-score badge-excellent">66.2</div>
+
+      </div>
+
+    </a>
+
+
+    <a href="../book/george-orwells-1984-an-audible-original-adaptation.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/51Q4bVdHu9L._SL220_.jpg" alt="George Orwell’s 1984: An Audible Original adaptation" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">George Orwell’s 1984: An Audible Original adaptation</div>
+
+        <div class="related-author">George Orwell, Joe White - adaptation</div>
+
+        <div class="related-score badge-excellent">63.0</div>
+
+      </div>
+
+    </a>
+
+
+    <a href="../book/ground-state-expeditionary-force-book-19.html" class="related-card">
+
+
+      <img class="related-cover" src="https://m.media-amazon.com/images/I/51nNOcGqOtL._SL220_.jpg" alt="Ground State: Expeditionary Force, Book 19" loading="lazy" width="220" height="293">
+
+
+      <div class="related-info">
+
+        <div class="related-title">Ground State: Expeditionary Force, Book 19</div>
+
+        <div class="related-author">Craig Alanson</div>
+
+        <div class="related-score badge-excellent">62.2</div>
+
+      </div>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<!-- Also show the data table for same category, filtered -->
+
+<section class="table-section">
+
+  <div class="section-header">
+
+    <h2 class="section-title">All Science Fiction Audiobooks</h2>
+
+    <a href="../category/science-fiction.html" class="section-link">All Categories &rarr;</a>
+
+  </div>
+
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+         <div class="footer-inner">
+             <div class="footer-links">
+                 <a href="../index.html">Home</a>
+                 <a href="https://www.audible.com/" target="_blank" rel="noopener">Audible.com</a>
+                 <a href="https://www.amazon.com/hz/audible/mlp/mdp/?tag=yuanyuan07-20" target="_blank" rel="noopener sponsored">Free Trial</a>
+             </div>
+
+         </div>
+     </footer>
+
+    <script src="../static/js/app.js?v=202607272101" defer></script>
+
+    
+    <script>
+    (function(){
+       var h=document.getElementById("hamburger-btn");
+       var m=document.querySelector(".main-nav");
+        if(h&&m){
+            h.addEventListener("click",function(e){
+                e.stopPropagation();
+                h.classList.toggle("active");
+                m.classList.toggle("open");
+                document.body.classList.toggle("mobile-nav-open");
+            });
+            m.querySelectorAll(".nav-link").forEach(function(l){
+                l.addEventListener("click",function(){
+                    if(window.innerWidth<=1024){
+                        h.classList.remove("active");
+                        m.classList.remove("open");
+                        document.body.classList.remove("mobile-nav-open");
+                    }
+                });
+            });
+            document.addEventListener("click",function(e){
+                if(m.classList.contains("open") && !m.contains(e.target) && !h.contains(e.target)){
+                    h.classList.remove("active");
+                    m.classList.remove("open");
+                    document.body.classList.remove("mobile-nav-open");
+                }
+            });
+        }
+    })();
+    </script>
+    <!-- Google tag (gtag.js) - deferred -->
+    <script>
+        window.addEventListener('load', function() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W0V3TKXCMR';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W0V3TKXCMR');
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+# Audible Credit Optimizer - Audiobook Value Database
+
+Find the best audiobooks for your Audible credit. Compare prices, ratings, and runtime.
+
+## Core Pages
+- [Home](https://audiobookvalue.com/)
+- [Thriller Audiobooks](https://audiobookvalue.com/category/thriller.html)
+- [Business Audiobooks](https://audiobookvalue.com/category/business.html)
+- [Science Fiction Audiobooks](https://audiobookvalue.com/category/science-fiction.html)
+- [Self Development Audiobooks](https://audiobookvalue.com/category/self-development.html)
+- [Fantasy Audiobooks](https://audiobookvalue.com/category/fantasy.html)
+- [Romance Audiobooks](https://audiobookvalue.com/category/romance.html)
+- [Non-Fiction Audiobooks](https://audiobookvalue.com/category/non-fiction.html)
+- [Horror Audiobooks](https://audiobookvalue.com/category/horror.html)
+
+## Top Audiobook Picks
+- [One Dark Window](https://audiobookvalue.com/book/one-dark-window.html)
+- [The 21 Irrefutable Laws of Leadership: 25th Anniversary: Follow Them and People Will Follow You](https://audiobookvalue.com/book/the-21-irrefutable-laws-of-leadership-25th-anniversary-follow-them-and-people-wi.html)
+- [Vows of Blood and Deception: A Dark Enemies to Lovers Fantasy Romance Novel (The Hirathean Path, Book 2)](https://audiobookvalue.com/book/vows-of-blood-and-deception-a-dark-enemies-to-lovers-fantasy-romance-novel-the-h.html)
+- [I, Starship: A Space Opera](https://audiobookvalue.com/book/i-starship-a-space-opera.html)
+- [Unscripted: Life, Liberty, and the Pursuit of Entrepreneurship](https://audiobookvalue.com/book/unscripted-life-liberty-and-the-pursuit-of-entrepreneurship.html)
+
+## About
+Audible Credit Optimizer helps listeners maximize their Audible credit value.

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/static/*",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/llms.txt",
+    "/books.json",
+    "/google*.html",
+    "/_headers"
+  ]
+}

@@ -16,7 +16,6 @@ scripts/patch_seed.py
 data/books.json
 
 # Built site (committed for Cloudflare Pages)
-output/
 
 # OS files
 .DS_Store
