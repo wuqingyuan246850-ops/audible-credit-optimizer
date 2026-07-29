@@ -1,0 +1,696 @@
+{
+  "site": {
+    "name": "AudibleCreditOptimizer",
+    "domain": "audiobookvalue.com",
+    "tag": "yuanyuan07-20",
+    "description": "Find the best value Audible audiobooks.",
+    "affiliateDisclaimer": "As an Amazon Associate we earn from qualifying purchases."
+  },
+  "categories": [
+    {
+      "id": "arts-entertainment",
+      "name": "Arts & Entertainment",
+      "icon": "🎭"
+    },
+    {
+      "id": "biographies-memoirs",
+      "name": "Biographies & Memoirs",
+      "icon": "📖"
+    },
+    {
+      "id": "business",
+      "name": "Business & Careers",
+      "icon": "💼"
+    },
+    {
+      "id": "children",
+      "name": "Children's Audiobooks",
+      "icon": "🧒"
+    },
+    {
+      "id": "classics",
+      "name": "Classics",
+      "icon": "🏛️"
+    },
+    {
+      "id": "comedy",
+      "name": "Comedy & Humor",
+      "icon": "😂"
+    },
+    {
+      "id": "hobbies-home",
+      "name": "Crafts, Hobbies & Home",
+      "icon": "🛠️"
+    },
+    {
+      "id": "education",
+      "name": "Education & Learning",
+      "icon": "🎓"
+    },
+    {
+      "id": "fantasy",
+      "name": "Fantasy",
+      "icon": "🐉"
+    },
+    {
+      "id": "fiction",
+      "name": "Fiction & Literature",
+      "icon": "📚"
+    },
+    {
+      "id": "health-wellness",
+      "name": "Health & Wellness",
+      "icon": "🧠"
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "icon": "📜"
+    },
+    {
+      "id": "language",
+      "name": "Language Instruction",
+      "icon": "🗣️"
+    },
+    {
+      "id": "lgbtq",
+      "name": "LGBTQ+",
+      "icon": "🌈"
+    },
+    {
+      "id": "medical",
+      "name": "Medical",
+      "icon": "🏥"
+    },
+    {
+      "id": "money-finance",
+      "name": "Money & Finance",
+      "icon": "💰"
+    },
+    {
+      "id": "mystery-thriller",
+      "name": "Mystery, Thriller & Suspense",
+      "icon": "🔍"
+    },
+    {
+      "id": "nonfiction",
+      "name": "Nonfiction",
+      "icon": "📓"
+    },
+    {
+      "id": "parenting-families",
+      "name": "Parenting & Families",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    {
+      "id": "politics-social",
+      "name": "Politics & Social Sciences",
+      "icon": "🗳️"
+    },
+    {
+      "id": "religion-spirituality",
+      "name": "Religion & Spirituality",
+      "icon": "🕊️"
+    },
+    {
+      "id": "romance",
+      "name": "Romance",
+      "icon": "💕"
+    },
+    {
+      "id": "science",
+      "name": "Science & Engineering",
+      "icon": "🔬"
+    },
+    {
+      "id": "sci-fi",
+      "name": "Science Fiction",
+      "icon": "👾"
+    },
+    {
+      "id": "self-improvement",
+      "name": "Self-Development",
+      "icon": "🚀"
+    },
+    {
+      "id": "sports-outdoors",
+      "name": "Sports & Outdoors",
+      "icon": "⚽"
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "icon": "💻"
+    },
+    {
+      "id": "teen-young-adult",
+      "name": "Teen & Young Adult",
+      "icon": "🧑"
+    },
+    {
+      "id": "travel",
+      "name": "Travel & Tourism",
+      "icon": "✈️"
+    },
+    {
+      "id": "true-crime",
+      "name": "True Crime",
+      "icon": "🔪"
+    }
+  ],
+  "books": [
+    {
+      "asin": "B01EI1V7GQ",
+      "slug": "atomic-habits-james-clear",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "narrator": "James Clear",
+      "coverUrl": "https://m.media-amazon.com/images/I/51b1lXR29JL._SL500_.jpg",
+      "duration": "5h 35m",
+      "durationMinutes": 335,
+      "rating": 4.8,
+      "ratingCount": 185000,
+      "listPrice": 14.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "self-improvement"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "quick-read"
+      ],
+      "description": "No matter your goals, Atomic Habits offers a proven framework for improving every day.",
+      "releaseDate": "2018-10-16"
+    },
+    {
+      "asin": "B07BZ3T3K",
+      "slug": "can-hurt-me-david-goggins",
+      "title": "Can't Hurt Me",
+      "author": "David Goggins",
+      "narrator": "David Goggins, Adam Skolnick",
+      "coverUrl": "https://m.media-amazon.com/images/I/41wMPMMhD-L._SL500_.jpg",
+      "duration": "13h 44m",
+      "durationMinutes": 824,
+      "rating": 4.9,
+      "ratingCount": 120000,
+      "listPrice": 17.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "self-improvement",
+        "health-wellness"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "David Goggins story of transformation from depressed young man to US Armed Forces icon.",
+      "releaseDate": "2018-11-15"
+    },
+    {
+      "asin": "B002V5A2JQ",
+      "slug": "the-power-of-now-eckhart-tolle",
+      "title": "The Power of Now",
+      "author": "Eckhart Tolle",
+      "narrator": "Eckhart Tolle",
+      "coverUrl": "https://m.media-amazon.com/images/I/51dG-PdMXKL._SL500_.jpg",
+      "duration": "7h 28m",
+      "durationMinutes": 448,
+      "rating": 4.7,
+      "ratingCount": 95000,
+      "listPrice": 13.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "self-improvement",
+        "health-wellness"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "classic"
+      ],
+      "description": "Eckhart Tolle guide to present-moment awareness and inner peace.",
+      "releaseDate": "2008-03-01"
+    },
+    {
+      "asin": "B07QWH8L5G",
+      "slug": "the-psychology-of-money-morgan-housel",
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "narrator": "Chris Hill",
+      "coverUrl": "https://m.media-amazon.com/images/I/51iWwXN6J6L._SL500_.jpg",
+      "duration": "5h 41m",
+      "durationMinutes": 341,
+      "rating": 4.7,
+      "ratingCount": 95000,
+      "listPrice": 13.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "quick-read"
+      ],
+      "description": "Timeless lessons on wealth greed and happiness.",
+      "releaseDate": "2020-09-08"
+    },
+    {
+      "asin": "B079D2LJ5R",
+      "slug": "educated-tara-westover",
+      "title": "Educated",
+      "author": "Tara Westover",
+      "narrator": "Julia Whelan",
+      "coverUrl": "https://m.media-amazon.com/images/I/51tWeWrR3lL._SL500_.jpg",
+      "duration": "12h 5m",
+      "durationMinutes": 725,
+      "rating": 4.6,
+      "ratingCount": 110000,
+      "listPrice": 16.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "history",
+        "self-improvement"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "A memoir about leaving a survivalist family to earn a PhD from Cambridge.",
+      "releaseDate": "2018-02-20"
+    },
+    {
+      "asin": "B00H7QDS3M",
+      "slug": "the-subtle-art-of-not-giving-a-fck-mark-manson",
+      "title": "The Subtle Art of Not Giving a F*ck",
+      "author": "Mark Manson",
+      "narrator": "Roger Wayne",
+      "coverUrl": "https://m.media-amazon.com/images/I/41pR-fDkdUL._SL500_.jpg",
+      "duration": "5h 42m",
+      "durationMinutes": 342,
+      "rating": 4.6,
+      "ratingCount": 140000,
+      "listPrice": 12.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "self-improvement"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "quick-read"
+      ],
+      "description": "Mark Manson counterintuitive approach to living a good life.",
+      "releaseDate": "2016-09-13"
+    },
+    {
+      "asin": "B07DJX91Q3",
+      "slug": "deep-work-cal-newport",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "narrator": "Jeff Bottoms",
+      "coverUrl": "https://m.media-amazon.com/images/I/4101NwT0DPL._SL500_.jpg",
+      "duration": "7h 50m",
+      "durationMinutes": 470,
+      "rating": 4.6,
+      "ratingCount": 55000,
+      "listPrice": 14.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement",
+        "science"
+      ],
+      "tags": [
+        "top-rated",
+        "productivity"
+      ],
+      "description": "Deep work: the ability to focus without distraction on demanding tasks.",
+      "releaseDate": "2016-01-05"
+    },
+    {
+      "asin": "B00NQ4E0GS",
+      "slug": "sapiens-yuval-noah-harari",
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "narrator": "Derek Perkins",
+      "coverUrl": "https://m.media-amazon.com/images/I/51F8RoL8TZL._SL500_.jpg",
+      "duration": "15h 19m",
+      "durationMinutes": 919,
+      "rating": 4.6,
+      "ratingCount": 130000,
+      "listPrice": 19.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "history",
+        "science"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "A brief history of humankind from the Cognitive Revolution to today.",
+      "releaseDate": "2015-02-10"
+    },
+    {
+      "asin": "B01COQ1E4I",
+      "slug": "when-breath-becomes-air-paul-kalanithi",
+      "title": "When Breath Becomes Air",
+      "author": "Paul Kalanithi",
+      "narrator": "Sunil Malhotra",
+      "coverUrl": "https://m.media-amazon.com/images/I/51dKfUy2hWL._SL500_.jpg",
+      "duration": "5h 26m",
+      "durationMinutes": 326,
+      "rating": 4.8,
+      "ratingCount": 75000,
+      "listPrice": 11.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "health-wellness",
+        "history"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "quick-read"
+      ],
+      "description": "A neurosurgeon reflects on life and meaning in the face of terminal cancer.",
+      "releaseDate": "2016-04-06"
+    },
+    {
+      "asin": "B08D4YQJ2Q",
+      "slug": "the-almanack-of-naval-ravikant-eric-jorgenson",
+      "title": "The Almanack of Naval Ravikant",
+      "author": "Eric Jorgenson",
+      "narrator": "Vikas Adam",
+      "coverUrl": "https://m.media-amazon.com/images/I/41n4K7+7qkL._SL500_.jpg",
+      "duration": "7h 28m",
+      "durationMinutes": 448,
+      "rating": 4.7,
+      "ratingCount": 25000,
+      "listPrice": 13.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "top-rated",
+        "wealth"
+      ],
+      "description": "Wisdom on wealth happiness and building a purposeful life.",
+      "releaseDate": "2020-09-08"
+    },
+    {
+      "asin": "B00DI1I1GK",
+      "slug": "thinking-fast-and-slow-daniel-kahneman",
+      "title": "Thinking Fast and Slow",
+      "author": "Daniel Kahneman",
+      "narrator": "Patrick Egan",
+      "coverUrl": "https://m.media-amazon.com/images/I/414dPTV-4hL._SL500_.jpg",
+      "duration": "20h 8m",
+      "durationMinutes": 1208,
+      "rating": 4.6,
+      "ratingCount": 70000,
+      "listPrice": 21.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "science",
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "top-rated",
+        "long-read",
+        "classic"
+      ],
+      "description": "Nobel Prize winner reveals the two systems of thought that drive our decisions.",
+      "releaseDate": "2011-10-25"
+    },
+    {
+      "asin": "B07P2YJFSX",
+      "slug": "the-richest-man-in-babylon-george-s-clason",
+      "title": "The Richest Man in Babylon",
+      "author": "George S Clason",
+      "narrator": "Jeffrey Gitt",
+      "coverUrl": "https://m.media-amazon.com/images/I/41ZwWjRSs6L._SL500_.jpg",
+      "duration": "4h 2m",
+      "durationMinutes": 242,
+      "rating": 4.7,
+      "ratingCount": 50000,
+      "listPrice": 9.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "classic",
+        "top-rated"
+      ],
+      "description": "Timeless parables of wealth and success set in ancient Babylon.",
+      "releaseDate": "2018-12-05"
+    },
+    {
+      "asin": "B07KPY46ML",
+      "slug": "dare-to-lead-brene-brown",
+      "title": "Dare to Lead",
+      "author": "Brene Brown",
+      "narrator": "Brene Brown",
+      "coverUrl": "https://m.media-amazon.com/images/I/513IYj3d7nL._SL500_.jpg",
+      "duration": "8h 3m",
+      "durationMinutes": 483,
+      "rating": 4.7,
+      "ratingCount": 40000,
+      "listPrice": 14.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "top-rated",
+        "leadership"
+      ],
+      "description": "Brene Brown research-backed guide to brave leadership.",
+      "releaseDate": "2018-10-09"
+    },
+    {
+      "asin": "B000H2NJU0",
+      "slug": "1984-george-orwell",
+      "title": "1984",
+      "author": "George Orwell",
+      "narrator": "Simon Prebble",
+      "coverUrl": "https://m.media-amazon.com/images/I/51m6s4bM8eL._SL500_.jpg",
+      "duration": "11h 19m",
+      "durationMinutes": 679,
+      "rating": 4.6,
+      "ratingCount": 85000,
+      "listPrice": 14.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "fiction"
+      ],
+      "tags": [
+        "classic",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "George Orwell dystopian masterpiece of surveillance and totalitarianism.",
+      "releaseDate": "2006-03-06"
+    },
+    {
+      "asin": "B01J4VWY9E",
+      "slug": "the-7-habits-of-highly-effective-people-stephen-covey",
+      "title": "The 7 Habits of Highly Effective People",
+      "author": "Stephen R Covey",
+      "narrator": "Stephen R Covey",
+      "coverUrl": "https://m.media-amazon.com/images/I/41KFPvMaoNL._SL500_.jpg",
+      "duration": "14h 52m",
+      "durationMinutes": 892,
+      "rating": 4.6,
+      "ratingCount": 60000,
+      "listPrice": 17.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "self-improvement",
+        "business"
+      ],
+      "tags": [
+        "classic",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "Principle-centered approach for personal and professional effectiveness.",
+      "releaseDate": "2010-12-15"
+    },
+    {
+      "asin": "B07N4L385Y",
+      "slug": "the-body-keeps-the-score-bessel-van-der-kolk",
+      "title": "The Body Keeps the Score",
+      "author": "Bessel van der Kolk",
+      "narrator": "Sean Pratt",
+      "coverUrl": "https://m.media-amazon.com/images/I/51gQObNVTwL._SL500_.jpg",
+      "duration": "17h 40m",
+      "durationMinutes": 1060,
+      "rating": 4.7,
+      "ratingCount": 50000,
+      "listPrice": 19.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "health-wellness",
+        "science"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated",
+        "long-read"
+      ],
+      "description": "How traumatic experiences reshape both body and brain.",
+      "releaseDate": "2019-04-16"
+    },
+    {
+      "asin": "B01MSZS1CX",
+      "slug": "mans-search-for-meaning-viktor-frankl",
+      "title": "Man's Search for Meaning",
+      "author": "Viktor E Frankl",
+      "narrator": "Simon Vance",
+      "coverUrl": "https://m.media-amazon.com/images/I/51jAR-Gn3pL._SL500_.jpg",
+      "duration": "5h 57m",
+      "durationMinutes": 357,
+      "rating": 4.7,
+      "ratingCount": 70000,
+      "listPrice": 12.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "health-wellness",
+        "self-improvement",
+        "history"
+      ],
+      "tags": [
+        "classic",
+        "top-rated"
+      ],
+      "description": "Viktor Frankl memoir of survival in Nazi camps and finding meaning.",
+      "releaseDate": "2006-09-25"
+    },
+    {
+      "asin": "B07QH6BJN1",
+      "slug": "the-infinite-game-simon-sinek",
+      "title": "The Infinite Game",
+      "author": "Simon Sinek",
+      "narrator": "Simon Sinek",
+      "coverUrl": "https://m.media-amazon.com/images/I/415aEALVqbL._SL500_.jpg",
+      "duration": "6h 57m",
+      "durationMinutes": 417,
+      "rating": 4.6,
+      "ratingCount": 25000,
+      "listPrice": 14.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "business",
+        "self-improvement"
+      ],
+      "tags": [
+        "top-rated",
+        "leadership"
+      ],
+      "description": "Why leaders who adopt an infinite mindset will thrive.",
+      "releaseDate": "2019-10-15"
+    },
+    {
+      "asin": "B07BBN3V2P",
+      "slug": "factfulness-hans-rosling",
+      "title": "Factfulness",
+      "author": "Hans Rosling",
+      "narrator": "Simon Vance",
+      "coverUrl": "https://m.media-amazon.com/images/I/51hMvVRE7zL._SL500_.jpg",
+      "duration": "8h 46m",
+      "durationMinutes": 526,
+      "rating": 4.7,
+      "ratingCount": 35000,
+      "listPrice": 14.99,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "science",
+        "self-improvement"
+      ],
+      "tags": [
+        "best-seller",
+        "top-rated"
+      ],
+      "description": "Hans Rosling reveals the ten instincts that distort our view of the world.",
+      "releaseDate": "2018-04-03"
+    },
+    {
+      "asin": "B0031TJA0S",
+      "slug": "a-short-history-of-nearly-everything-bill-bryson",
+      "title": "A Short History of Nearly Everything",
+      "author": "Bill Bryson",
+      "narrator": "Richard Matthews",
+      "coverUrl": "https://m.media-amazon.com/images/I/51N6KAo3GVL._SL500_.jpg",
+      "duration": "18h 32m",
+      "durationMinutes": 1112,
+      "rating": 4.6,
+      "ratingCount": 45000,
+      "listPrice": 19.95,
+      "audiblePrice": 0,
+      "isCreditEligible": true,
+      "isPlusCatalog": false,
+      "categories": [
+        "science",
+        "history"
+      ],
+      "tags": [
+        "long-read",
+        "top-rated",
+        "classic"
+      ],
+      "description": "Bill Bryson journey through the cosmos Earth history and evolution of life.",
+      "releaseDate": "2003-05-06"
+    }
+  ]
+}
