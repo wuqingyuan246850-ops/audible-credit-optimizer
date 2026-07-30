@@ -183,7 +183,14 @@
         "quick-read"
       ],
       "description": "No matter your goals, Atomic Habits offers a proven framework for improving every day.",
-      "releaseDate": "2018-10-16"
+      "releaseDate": "2018-10-16",
+      "questions": {
+        "q1": "Atomic Habits by James Clear is a #1 New York Times bestseller that provides a proven framework for building good habits and breaking bad ones. Narrated by the author, this 5h 35m audiobook holds a 4.8-star rating from 185,000+ listeners on Audible — one of the highest-rated audiobooks available.",
+        "q2": "For anyone who has ever struggled to stick with a new habit, whether exercising, reading, or saving money. It solves why most people fail to change behavior — because they focus on goals instead of systems. If you have tried and failed to build habits before, this book shows why and how to fix it.",
+        "q3": "Perfect for daily commutes — at 5 hours you can finish in a week. Also excellent for morning routines or exercise. Concise chapters make it easy to digest in short sessions.",
+        "q4": "Unlike most self-help books heavy on theory, Atomic Habits provides a concrete 4-step model (Cue, Craving, Response, Reward) you can apply immediately. The author's narration adds authenticity. The concept of getting '1 percent better every day' has resonated with millions worldwide.",
+        "q5": "Absolutely. Click the link, start your free 30-day Audible trial (cancel anytime), download instantly, and listen within 2 minutes. You don't need to finish the book to start seeing results — the first chapter alone changes how you think about habits."
+      }
     },
     {
       "asin": "B07BZ3T3K",
@@ -210,7 +217,14 @@
         "long-read"
       ],
       "description": "David Goggins story of transformation from depressed young man to US Armed Forces icon.",
-      "releaseDate": "2018-11-15"
+      "releaseDate": "2018-11-15",
+      "questions": {
+        "q1": "Can't Hurt Me by David Goggins is a raw memoir of overcoming extreme adversity through mental toughness. Narrated by Goggins himself, this 13h 44m audiobook has a near-perfect 4.9-star rating from 120,000+ listeners — one of the highest-rated audiobooks of all time on Audible.",
+        "q2": "For anyone who feels stuck or limited by circumstances. It shows that the only thing holding you back is your own mind. Perfect for people going through tough times who need proof that transformation is possible.",
+        "q3": "Ideal for long commutes, gym sessions where Goggins' intensity fuels your workout, or road trips. At 14 hours it provides a full week of commute listening.",
+        "q4": "Unlike polished memoirs, Goggins' narration is raw and unfiltered. The book includes 'challenge' segments at each chapter end that push you to apply lessons immediately. It has spawned a massive online community known as 'the Goggins effect.'",
+        "q5": "Yes. Start your free trial, download Can't Hurt Me, and listen immediately. The first chapter shifts your mindset. The 'Cookie Jar' method is introduced early and you can use it today."
+      }
     },
     {
       "asin": "B002V5A2JQ",
@@ -237,7 +251,14 @@
         "classic"
       ],
       "description": "Eckhart Tolle guide to present-moment awareness and inner peace.",
-      "releaseDate": "2008-03-01"
+      "releaseDate": "2008-03-01",
+      "questions": {
+        "q1": "The Power of Now by Eckhart Tolle is a spiritual classic teaching present-moment awareness as a path to inner peace. Narrated by Tolle, this 7h 28m audiobook has a 4.7-star rating from 95,000+ listeners — one of the most transformative spiritual books of our time.",
+        "q2": "For people suffering from anxiety, chronic worry, overthinking, or dissatisfaction with life. It solves suffering caused by over-identification with the thinking mind, offering practical paths to inner peace without requiring religious belief.",
+        "q3": "Excellent for morning meditation, quiet evenings, or resetting your mental state. The 7.5-hour length works well over a 2-week free trial. Best in calm environments where you can pause and absorb between chapters.",
+        "q4": "Unlike self-help focused on external goals, The Power of Now targets the root cause of suffering: the thinking mind itself. Tolle's calm narration creates a meditative experience. One of the few books readers consistently say 'changed my life.'",
+        "q5": "Absolutely. Start your free trial, download, and press play. Tolle's teachings work from the first chapter. The exercise on watching the thinker can be practiced within minutes."
+      }
     },
     {
       "asin": "B07QWH8L5G",
@@ -264,7 +285,14 @@
         "quick-read"
       ],
       "description": "Timeless lessons on wealth greed and happiness.",
-      "releaseDate": "2020-09-08"
+      "releaseDate": "2020-09-08",
+      "questions": {
+        "q1": "The Psychology of Money by Morgan Housel explores the strange ways people think about money and wealth through 19 short stories. Narrated by Chris Hill, this 5h 41m audiobook has a 4.7-star rating from 95,000+ listeners, becoming a modern personal finance classic.",
+        "q2": "For anyone wanting to build wealth but intimidated by traditional finance. It solves that most money problems aren't about math — they're about behavior, ego, and emotional control. Perfect for beginners and experienced investors alike.",
+        "q3": "Ideal for daily commutes — each 15-minute chapter is one per trip. Also great for lunch breaks or before financial decisions. Easy to finish within a commuting week.",
+        "q4": "Unlike dense finance books full of formulas, Housel uses storytelling and history to illustrate timeless principles. Each chapter is a standalone lesson. Called 'the most important finance book you will read' by multiple reviewers including Bill Gates.",
+        "q5": "Definitely. Start your free trial, download, and listen to the first chapter on your next commute. The stories about luck and risk are immediately applicable. No prior financial knowledge needed."
+      }
     },
     {
       "asin": "B079D2LJ5R",
@@ -291,7 +319,14 @@
         "long-read"
       ],
       "description": "A memoir about leaving a survivalist family to earn a PhD from Cambridge.",
-      "releaseDate": "2018-02-20"
+      "releaseDate": "2018-02-20",
+      "questions": {
+        "q1": "Educated by Tara Westover is an extraordinary memoir of leaving a survivalist family to earn a PhD from Cambridge. Narrated by Julia Whelan, this 12h 5m audiobook has a 4.6-star rating from 110,000+ listeners — one of the decade's best books per The New York Times.",
+        "q2": "For anyone who has felt trapped by their circumstances or background. It proves that education and determination can overcome extreme obstacles. Also powerful for anyone who loves transformative true stories.",
+        "q3": "Perfect for road trips, daily commutes over 2-3 weeks, or immersive weekend listening. Julia Whelan's masterful narration adds emotional depth to every scene.",
+        "q4": "Unlike typical memoirs, Educated reads like a psychological thriller while being entirely true. The story is so unbelievable reviewers remind themselves it is nonfiction. Chosen as a favorite by both Bill Gates and Barack Obama.",
+        "q5": "Yes. Start your free trial, and you'll be hooked within 15 minutes. The opening chapter about growing up without birth certificates is immediately gripping. Many finish within days."
+      }
     },
     {
       "asin": "B00H7QDS3M",
@@ -317,7 +352,14 @@
         "quick-read"
       ],
       "description": "Mark Manson counterintuitive approach to living a good life.",
-      "releaseDate": "2016-09-13"
+      "releaseDate": "2016-09-13",
+      "questions": {
+        "q1": "The Subtle Art of Not Giving a F*ck by Mark Manson is a counterintuitive approach to living a good life that became a generation-defining self-help book. Narrated by Roger Wayne, this 5h 42m audiobook has a 4.6-star rating from 140,000+ listeners with millions of copies sold since 2016.",
+        "q2": "For people tired of positive thinking platitudes wanting a brutally honest approach to happiness. It solves caring too much about things that dont matter, helping focus energy on what truly counts. Perfect for anyone who finds traditional self-help naive.",
+        "q3": "Quick chapters perfect for short commutes, gym sessions, or lunch breaks. At 5.5 hours its finishable within a few commuting days. The irreverent tone makes unwinding while learning easy.",
+        "q4": "Unlike conventional self-help telling you to be positive, Manson argues accepting negative experiences is the actual key to happiness. His backwards law and responsibility/fault distinction are insights you will remember for life.",
+        "q5": "Absolutely. Start your free trial, download, and listen to the first chapter. Mansons perspective is refreshing and applicable within 10 minutes. You will start rethinking priorities before finishing the first chapter."
+      }
     },
     {
       "asin": "B07DJX91Q3",
@@ -344,7 +386,14 @@
         "productivity"
       ],
       "description": "Deep work: the ability to focus without distraction on demanding tasks.",
-      "releaseDate": "2016-01-05"
+      "releaseDate": "2016-01-05",
+      "questions": {
+        "q1": "Deep Work by Cal Newport is the definitive guide to focused success in a distracted world. Narrated by Jeff Bottoms, this 7h 50m audiobook has a 4.6-star rating from 55,000+ listeners. Newport is a Georgetown professor who spent a decade studying focus science.",
+        "q2": "For knowledge workers, students, and creatives struggling with constant distraction. It solves feeling busy but unproductive — teaching how to produce meaningful output instead of reacting to others' requests.",
+        "q3": "Perfect for morning commutes to set your productivity mindset, or weekend deep-dives to plan work routines. Immediately implementable framework for reclaiming focus.",
+        "q4": "Unlike vague productivity advice, Newport provides specific rules backed by neuroscience. His shutdown ritual and 4DX framework are concrete techniques you can use today. Adopted by Fortune 500 companies as productivity gold standard.",
+        "q5": "Yes. Download with your free trial and start implementing the shutdown ritual by chapter's end. You'll see productivity differences within the first week."
+      }
     },
     {
       "asin": "B00NQ4E0GS",
@@ -371,7 +420,14 @@
         "long-read"
       ],
       "description": "A brief history of humankind from the Cognitive Revolution to today.",
-      "releaseDate": "2015-02-10"
+      "releaseDate": "2015-02-10",
+      "questions": {
+        "q1": "Sapiens by Yuval Noah Harari is a groundbreaking history of humankind from the Stone Age to today. Narrated by Derek Perkins, this 15h 19m audiobook has a 4.6-star rating from 130,000+ listeners — essential reading per Gates, Zuckerberg, and Obama.",
+        "q2": "For curious minds wanting to understand human civilization's big picture. It connects anthropology, biology, history, and economics into one coherent narrative of why the world is as it is today.",
+        "q3": "Ideal for road trips, cross-country flights, or week-long commutes. 15+ hours provides exceptional value for one credit. Each section is engaging enough for extended listening.",
+        "q4": "Unlike dense academic history, Harari writes with clarity and provocative insights that challenge everything you thought you knew. His Cognitive, Agricultural, and Scientific Revolution framework will permanently change how you see the world.",
+        "q5": "Absolutely. Start your free trial and you'll be captivated within 15 minutes. The opening about Homo sapiens conquering the world is immediately mind-expanding."
+      }
     },
     {
       "asin": "B01COQ1E4I",
@@ -398,7 +454,14 @@
         "quick-read"
       ],
       "description": "A neurosurgeon reflects on life and meaning in the face of terminal cancer.",
-      "releaseDate": "2016-04-06"
+      "releaseDate": "2016-04-06",
+      "questions": {
+        "q1": "When Breath Becomes Air by Dr. Paul Kalanithi is a profoundly moving memoir about a neurosurgeon facing terminal cancer at 36. Narrated by Sunil Malhotra, this 5h 26m audiobook has a 4.8-star rating from 75,000+ listeners — a #1 NYT bestseller.",
+        "q2": "For anyone grappling with mortality, purpose, or what makes life meaningful. Powerful for medical professionals and anyone facing serious illness, but its themes of love and meaning are universal.",
+        "q3": "Best in quiet, contemplative settings. The 5.5-hour length works for a weekend of immersive listening. Best for evening or weekend listening when you can fully absorb the emotional depth.",
+        "q4": "Unlike most illness memoirs, Kalanithi writes with a neurosurgeon's precision and a poet's soul. His dual perspective as doctor and patient provides unique dying insights. The epilogue by his wife Lucy adds heartbreaking depth.",
+        "q5": "Yes. Start your free trial. The prologue alone moves you deeply. Complete within your trial period — a book that stays with you for life."
+      }
     },
     {
       "asin": "B08D4YQJ2Q",
@@ -424,7 +487,14 @@
         "wealth"
       ],
       "description": "Wisdom on wealth happiness and building a purposeful life.",
-      "releaseDate": "2020-09-08"
+      "releaseDate": "2020-09-08",
+      "questions": {
+        "q1": "The Almanack of Naval Ravikant by Eric Jorgenson distills wisdom from one of Silicon Valley's most insightful thinkers on wealth, happiness, and purposeful living. Narrated by Vikas Adam, this 7h 28m audiobook has a 4.7-star rating from 25,000+ listeners.",
+        "q2": "For entrepreneurs, freelancers, and anyone seeking financial independence. It solves scattered advice by providing a cohesive mental model for building wealth without sacrificing happiness.",
+        "q3": "Great for daily commutes, morning walks, or side projects. Tweet-length insights digest easily in short bursts. Excellent as a morning mindset listen.",
+        "q4": "Unlike typical business books, Naval's philosophy combines Stoicism, Buddhism, and Silicon Valley pragmatism uniquely. 'Specific knowledge' and 'accountability with leverage' provide a completely new career framework.",
+        "q5": "Absolutely. Start your free trial and find a paradigm-shifting insight in the first 15 minutes. Apply 'specific knowledge' to your career today."
+      }
     },
     {
       "asin": "B00DI1I1GK",
@@ -452,7 +522,14 @@
         "classic"
       ],
       "description": "Nobel Prize winner reveals the two systems of thought that drive our decisions.",
-      "releaseDate": "2011-10-25"
+      "releaseDate": "2011-10-25",
+      "questions": {
+        "q1": "Thinking, Fast and Slow by Nobel Prize winner Daniel Kahneman is the definitive guide to how our minds make decisions. Narrated by Patrick Egan, this 20h 8m audiobook has a 4.6-star rating representing a lifetime of Nobel-winning research on cognitive biases.",
+        "q2": "For anyone wanting better decisions in business, investing, or life. It solves unconscious biases leading to poor choices by teaching you to recognize when intuition leads you astray. Essential for investors, managers, and anyone whose decisions affect others.",
+        "q3": "Best for dedicated sessions given its 20-hour length. Perfect for long-haul flights, road trips, or a month of commutes. Exceptional value for one credit.",
+        "q4": "Unlike pop psychology, Kahneman presents Nobel-winning research accessibly. System 1 vs System 2 thinking has become foundational in behavioral economics, influencing marketing to government policy.",
+        "q5": "Yes. Start your free trial. The first chapters on System 1 and 2 immediately change how you think about thinking. You'll notice cognitive biases in daily decisions within hours."
+      }
     },
     {
       "asin": "B07P2YJFSX",
@@ -478,7 +555,14 @@
         "top-rated"
       ],
       "description": "Timeless parables of wealth and success set in ancient Babylon.",
-      "releaseDate": "2018-12-05"
+      "releaseDate": "2018-12-05",
+      "questions": {
+        "q1": "The Richest Man in Babylon by George S. Clason is a timeless finance classic teaching wealth-building through ancient Babylonian parables. Narrated by Jeffrey Gitt, this 4h 2m audiobook has a 4.7-star rating from 50,000+ listeners over nearly a century.",
+        "q2": "For anyone starting their financial journey. It solves not knowing basic principles of saving and investing through simple, memorable stories. Perfect for young adults or those intimidated by finance books.",
+        "q3": "Perfect for a weekend afternoon or a few commutes. At 4 hours it's one of the quickest high-value listens. Parables are short enough to digest one at a time.",
+        "q4": "Unlike modern finance books full of jargon, the Babylonian parables convey timeless principles relevant for 100+ years. 'Pay yourself first' and 'make your gold multiply' are lessons you'll remember for life. Warren Buffett recommends this book.",
+        "q5": "Absolutely. Start your free trial and finish in one afternoon. The first parable — 'Pay Yourself First' — applies to your very next paycheck."
+      }
     },
     {
       "asin": "B07KPY46ML",
@@ -504,7 +588,14 @@
         "leadership"
       ],
       "description": "Brene Brown research-backed guide to brave leadership.",
-      "releaseDate": "2018-10-09"
+      "releaseDate": "2018-10-09",
+      "questions": {
+        "q1": "Dare to Lead by Brené Brown is a research-backed brave leadership guide. Narrated by Brown, this 8h 3m audiobook has a 4.7-star rating based on 20 years of courage, vulnerability, and empathy research at the University of Houston.",
+        "q2": "For managers, leaders, and entrepreneurs wanting braver teams. It solves workplace cultures built on fear and cover-your-back mentality, showing how vulnerability leads to better innovation and trust.",
+        "q3": "Excellent for commutes over 2 weeks or morning walks. Brown's storytelling makes research feel personal. Great before team meetings or leadership reviews.",
+        "q4": "Unlike anecdotal leadership books, Dare to Lead is grounded in rigorous research. Brown provides specific tools like 'the rumble starter' and 'armory assessment' teams can implement immediately.",
+        "q5": "Yes. Start your free trial and use the armory assessment in your next team meeting. By chapter two you'll have specific language for difficult conversations."
+      }
     },
     {
       "asin": "B000H2NJU0",
@@ -530,7 +621,14 @@
         "long-read"
       ],
       "description": "George Orwell dystopian masterpiece of surveillance and totalitarianism.",
-      "releaseDate": "2006-03-06"
+      "releaseDate": "2006-03-06",
+      "questions": {
+        "q1": "1984 by George Orwell is the most celebrated dystopian novel of the 20th century, shaping our understanding of surveillance and totalitarianism. Narrated by Simon Prebble, this 11h 19m audiobook has a 4.6-star rating from 85,000+ listeners.",
+        "q2": "For anyone interested in politics or understanding modern society's forces. Essential in an age of fake news and algorithmic manipulation. If you've wondered how societies lose freedom, this is the clearest warning ever written.",
+        "q3": "Ideal for immersive listening — the compelling narrative makes you keep going. Great for evening listening or road trips. Each part builds tension rewarding sustained listening.",
+        "q4": "Unlike modern dystopian fiction, 1984's warning feels terrifyingly prescient. 'Big Brother,' 'doublethink,' and 'newspeak' entered our vocabulary for a reason. Simon Prebble's narration captures the bleak atmosphere perfectly.",
+        "q5": "Absolutely. Start your free trial and you'll be drawn into Winston's world within the first chapter. A book that changes how you see the world."
+      }
     },
     {
       "asin": "B01J4VWY9E",
@@ -557,7 +655,14 @@
         "long-read"
       ],
       "description": "Principle-centered approach for personal and professional effectiveness.",
-      "releaseDate": "2010-12-15"
+      "releaseDate": "2010-12-15",
+      "questions": {
+        "q1": "The 7 Habits of Highly Effective People by Stephen R. Covey is one of the most influential self-improvement books ever with 40M+ copies sold. Narrated by Covey, this 14h 52m audiobook has a 4.6-star rating from 60,000+ listeners.",
+        "q2": "For professionals, leaders, and anyone seeking better effectiveness in work and life. It solves reactive, scattered living through a principle-centered framework for proactive, intentional action.",
+        "q3": "Excellent for daily commutes over 2-3 weeks. Each habit can be absorbed over a few days with practice time. Ideal for morning listening.",
+        "q4": "Unlike quick-fix productivity books, Covey's habits are deep frameworks compounding over time. The author's narration adds authenticity. 'Begin with the end in mind' and 'sharpen the saw' have become cultural touchstones for good reason.",
+        "q5": "Absolutely. Practice Habit 1 — 'Be Proactive' — in your next challenging situation. The mindset shift happens the moment you choose it."
+      }
     },
     {
       "asin": "B07N4L385Y",
@@ -584,7 +689,14 @@
         "long-read"
       ],
       "description": "How traumatic experiences reshape both body and brain.",
-      "releaseDate": "2019-04-16"
+      "releaseDate": "2019-04-16",
+      "questions": {
+        "q1": "The Body Keeps the Score by Bessel van der Kolk is the definitive trauma healing guide. Narrated by Sean Pratt, this 17h 40m audiobook has a 4.7-star rating from 50,000+ listeners based on decades of pioneering research at the Trauma Center in Boston.",
+        "q2": "For trauma survivors, mental health professionals, and anyone understanding how past experiences shape present behavior. It solves feeling stuck by providing both scientific understanding and practical paths to healing.",
+        "q3": "Best in focused sessions given heavy subject matter. 17+ hours provides exceptional credit value. Consider 30-45 minute sessions for reflection.",
+        "q4": "Unlike pop psychology, van der Kolk presents rigorous research alongside decades of clinical experience. The book bridges neuroscience, psychology, and body-based therapies uniquely.",
+        "q5": "Yes. Start your free trial. Even the first few chapters transform your understanding of stress and your body's responses."
+      }
     },
     {
       "asin": "B01MSZS1CX",
@@ -611,7 +723,14 @@
         "top-rated"
       ],
       "description": "Viktor Frankl memoir of survival in Nazi camps and finding meaning.",
-      "releaseDate": "2006-09-25"
+      "releaseDate": "2006-09-25",
+      "questions": {
+        "q1": "Man's Search for Meaning by Viktor E. Frankl is one of the 20th century's most influential books — a profound psychological memoir of surviving Nazi camps and discovering logotherapy. Narrated by Simon Vance, this 5h 57m audiobook has a 4.7-star rating from 70,000+ listeners with 16M+ copies sold.",
+        "q2": "For anyone seeking meaning in suffering or going through difficult times. It solves the existential crisis of 'why keep going?' by showing meaning can be found in any circumstance. Essential for anyone facing major life challenges.",
+        "q3": "Powerful for quiet, reflective listening. At under 6 hours it's digestible over a weekend. Best in contemplative moods — evening walks, quiet mornings, or before bed.",
+        "q4": "Unlike abstract philosophy, Frankl's insights were forged in Auschwitz. His logotherapy emerged from the most extreme human experience. The answer to 'what is the meaning of life?' is both profoundly practical and deeply moving.",
+        "q5": "Absolutely. Start your free trial and listen to the first section about camp life. Frankl's observation about 'those who have a why to live' is immediately life-affirming."
+      }
     },
     {
       "asin": "B07QH6BJN1",
@@ -637,7 +756,14 @@
         "leadership"
       ],
       "description": "Why leaders who adopt an infinite mindset will thrive.",
-      "releaseDate": "2019-10-15"
+      "releaseDate": "2019-10-15",
+      "questions": {
+        "q1": "The Infinite Game by Simon Sinek challenges how we think about competition and success. Narrated by Sinek, this 6h 57m audiobook has a 4.6-star rating from 25,000+ listeners, introducing infinite vs finite games.",
+        "q2": "For business leaders tired of short-term thinking. It solves the 'win-at-all-costs' mindset leading to burnout. If building a company or planning your career, this shifts how you think about long-term success.",
+        "q3": "Excellent for commutes or jogs. At 7 hours it's ideal for a two-week schedule. Sinek's engaging style keeps you hooked. Great before strategic planning.",
+        "q4": "Unlike typical strategy books, Sinek's infinite mindset applies to both organizations and personal careers. Contrasts between finite-minded and infinite-minded companies provide unforgettable examples.",
+        "q5": "Yes. Start your free trial and immediately question whether you're playing finite or infinite games in your career. Apply the infinite mindset to your next team meeting."
+      }
     },
     {
       "asin": "B07BBN3V2P",
@@ -663,7 +789,14 @@
         "top-rated"
       ],
       "description": "Hans Rosling reveals the ten instincts that distort our view of the world.",
-      "releaseDate": "2018-04-03"
+      "releaseDate": "2018-04-03",
+      "questions": {
+        "q1": "Factfulness by Hans Rosling reveals how our world perceptions are systematically wrong and provides tools to correct them. Narrated by Simon Vance, this 8h 46m audiobook has a 4.7-star rating from 35,000+ listeners — Bill Gates' must-read of 2018.",
+        "q2": "For anyone overwhelmed by negative news or holding a pessimistic worldview. It shows through data that the world is improving in almost every measurable way. Perfect for better decisions based on facts rather than fear.",
+        "q3": "Perfect for commutes, lunch breaks, or weekend listening. Each 'instinct' chapter is a self-contained lesson. Powerful when listened alongside daily news.",
+        "q4": "Unlike doom-and-gloom nonfiction, Factfulness is genuinely uplifting while being data-driven. The gap instinct and negativity instinct concepts permanently change how you consume news.",
+        "q5": "Absolutely. Start your free trial and take the 13-question quiz in the first chapter — you'll be shocked at how wrong your assumptions are. You'll never read the news the same way again."
+      }
     },
     {
       "asin": "B0031TJA0S",
@@ -690,7 +823,14 @@
         "classic"
       ],
       "description": "Bill Bryson journey through the cosmos Earth history and evolution of life.",
-      "releaseDate": "2003-05-06"
+      "releaseDate": "2003-05-06",
+      "questions": {
+        "q1": "A Short History of Nearly Everything by Bill Bryson is the bestselling science journey from the Big Bang to civilization. Narrated by Richard Matthews, this 18h 32m audiobook has a 4.6-star rating from 45,000+ listeners — considered one of the best science books for general audiences.",
+        "q2": "For curious people wanting to understand the universe without a PhD. It makes science genuinely entertaining. Perfect for lifelong learners who love 'aha' moments.",
+        "q3": "Exceptional value at 18+ hours for one credit. Perfect for road trips or multi-week commutes. Each chapter covers a different topic, easy to pause and resume.",
+        "q4": "Unlike dry textbooks, Bryson's wit makes complex topics fun. He humanizes scientists by sharing their quirks and mistakes alongside discoveries. From quantum physics to paleontology, woven into one coherent narrative.",
+        "q5": "Yes. Start your free trial. The first chapter on the universe's scale will blow your mind. You'll never look at the night sky the same way."
+      }
     }
   ]
 }
